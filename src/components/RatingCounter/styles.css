@@ -1,0 +1,6 @@
+.arrow-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 10px;
+}

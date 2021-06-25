@@ -1,0 +1,19 @@
+.huge-text {
+  color: #df5d2e;
+  font-size: 3.157rem;
+  font-weight: 600;
+}
+
+.subtext {
+  font-size: 1.333rem;
+  color: #aeaeae;
+}
+
+.label {
+  font-size: 0.75rem;
+}
+
+.input {
+  border: 1px solid #dedede;
+  padding: 10px 3px;
+}

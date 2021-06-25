@@ -1,0 +1,53 @@
+.footer {
+  height: 20%;
+  background-color: #541e35;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 15vw;
+  border-bottom: 1px solid #E6E6E6;
+  background-color: white;
+}
+
+.navbar-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-user {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.left-container {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.login-wrapper {
+  height: 80%;
+  background-color: white;
+  padding: 10vh 15vw;
+}
+
+.login-area {
+  padding: 5vh 0;
+  padding-right: 10px;
+}
+
+.image-area {
+  background-color: #a4c972;
+  height: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}

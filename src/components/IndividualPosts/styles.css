@@ -1,0 +1,23 @@
+.flair {
+  padding: 20px 10%;
+  background-color: #00599A;
+}
+
+.flair span {
+  font-size: 1.563rem;
+  font-weight: 400;
+  color: white;
+}
+
+.content-wrapper {
+  width: 70%;
+  padding: 20px 0;
+  margin: auto;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 0.2fr 1.8fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". .";
+}
