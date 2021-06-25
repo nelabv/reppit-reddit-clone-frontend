@@ -1,19 +1,24 @@
+.logo {
+  max-height: 40px;
+  min-width: 20px;
+}
+
 /* BUTTONS ------------------------ */
 
 .btn {
-  background-color: #df5d2e ;
+  background-color: #FF595E ;
   color: white;
   padding: 5px 20px;
   margin-left: 20px;
   outline: 0;
-  border: 1px solid #df5d2e;
+  border: 1px solid #FF595E;
   border-radius: 3px;
 }
 
 .btn:hover {
   background-color: white;
-  border: 1px solid #df5d2e;
-  color: #df5d2e;
+  border: 1px solid #FF595E;
+  color: #FF595E;
 }
 
 .btn-2 {
@@ -32,11 +37,17 @@
   width: 50%;
 }
 
-/* USER ------------------ */
+.btn-4 {
+  background-color: #252129;
+  margin-top: 25px;
+  margin-left: 0;
+  padding: 10px 40px;
+  border-radius: 5px;
+}
 
-.user-tag {
-  font-weight: 600;
-  color: #0093ff;
-  margin: 0 5px;
+.btn-4:hover {
+  background-color: #FFCA3A;
+  color: #252129;
+  border: 1px solid #ffca3a;
 }
 

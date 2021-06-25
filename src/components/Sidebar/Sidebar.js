@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import PostServices from "../../services/posts";
 import "./styles.css";
+import "../../styling/containers.css";
 
 function Sidebar(props) {
   const [categories, setCategories] = useState([]);
@@ -19,9 +20,9 @@ function Sidebar(props) {
   }, [])
 
   return (
-    <>
+    <div className="sidebar-container">
       <Link to="/create-post" >
-        <button className="create-post-btn">CREATE POST</button>
+        <button className="create-post-btn">CREATE A NEW THREAD</button>
       </Link>
 
       <div>
@@ -39,7 +40,7 @@ function Sidebar(props) {
         </div>
         }
       </div>
-    </>
+    </div>
   )
 }
 

@@ -17,3 +17,17 @@
   border: 1px solid #dedede;
   padding: 10px 3px;
 }
+
+.clickable-text {
+  color: white;
+}
+
+.clickable-text:hover {
+  color: #FF595E;
+}
+
+.user-tag {
+  font-weight: 600;
+  color: #FF595E;
+  margin: 0 5px;
+}

@@ -46,7 +46,7 @@ function App() {
     <>
       <BrowserRouter>
         <Route path='/' render={props => <Navbar user={user} logout={userLogout}/>}/>
-        <Route exact path='/' render={props => <Home posts={posts} />}/>
+        <Route exact path='/' render={props => <Home posts={posts} user={user}/>}/>
         <Route exact path='/login' render={props => <Login userLogin={userLogin} />}/>
         <Route exact path='/signup' render={props => <Signup userLogin={userLogin}/>}/>
         <Route exact path='/create-post' render={props => <SubmitPost user={user} />}/>
