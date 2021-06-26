@@ -13,6 +13,10 @@ function Banner(props) {
       <Link to="/login" style={{textDecoration: "none"}}>
         <button className="btn btn-4">JOIN NOW</button>
       </Link>
+
+      <div className="pattern-container-1"></div>
+      <div className="pattern-container-2"></div>
+      <div className="pattern-container-3"></div>
     </section>
   )
 }
