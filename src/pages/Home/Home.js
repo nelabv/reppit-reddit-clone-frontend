@@ -6,17 +6,17 @@ import "../../styling/containers.css";
 
 function Home(props) {
   return (
-    <>
-      { props.user ? 
-        null :
-        <Banner />
-      }
-      <div className="grid-container">
-        <AllPosts posts={props.posts} />
+    <div style={{height: "100%"}}>
+        { props.user ? 
+          null :
+          <Banner />
+        }
+        <div className="grid-container">
+          <AllPosts posts={props.posts} />
 
-        <Sidebar />
-      </div>
-    </>
+          <Sidebar />
+        </div>
+    </div>
   )
 }
 

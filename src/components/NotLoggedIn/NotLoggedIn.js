@@ -2,7 +2,7 @@ import React from "react";
 
 function NotLoggedIn(props) {
   return (
-    <div>
+    <div style={{paddingTop: "500px"}}>
       Please login to continue.
     </div>
   )

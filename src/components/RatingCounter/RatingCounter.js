@@ -5,15 +5,13 @@ import { AiOutlineCaretDown } from 'react-icons/ai';
 
 function RatingCounter(props) {
 
-  const handleRating = (vote) => {
-    //console.log(vote);
-  }
+  console.log(props.count);
 
   return (
     <div className="arrow-container">
-      <AiOutlineCaretUp onClick={() => {handleRating(true)}}/>
-        <p>0</p>
-      <AiOutlineCaretDown onClick={() => {handleRating(false)}}/>
+      <AiOutlineCaretUp/>
+        <p>{props.count}</p>
+      <AiOutlineCaretDown/>
     </div>
   );
 }

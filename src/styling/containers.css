@@ -1,4 +1,8 @@
+/* -------------------------------- */
+/* -------------------------------- */
 /* NAVBAR CONTAINERS */
+/* -------------------------------- */
+/* -------------------------------- */
 
 .navbar {
   display: flex;
@@ -6,8 +10,8 @@
   align-items: center;
   padding: 20px 15vw;
   background-color: #252129;
-  position: fixed;
   width: 100vw;
+  position: fixed;
   top: 0;
   left: 0;
 }
@@ -25,7 +29,14 @@
   flex-direction: row;
 }
 
+
+
+
+/* -------------------------------- */
+/* -------------------------------- */
 /* HOMEPAGE CONTAINERS */
+/* -------------------------------- */
+/* -------------------------------- */
 
 .banner-container {
   background: rgb(255,89,94);
@@ -54,7 +65,7 @@
   grid-template-areas: 
     "posts-container sidebar-container";
   margin: 0 auto;
-  padding: 0vh 15%;
+  padding: 2vh 15%;
 }
 
 .posts-container { 
@@ -65,28 +76,59 @@
   grid-area: sidebar-container;
 }
 
-/* LOGIN SECTION CONTAINERS */
 
-.left-container {
+
+
+
+/* -------------------------------- */
+/* -------------------------------- */
+/* THREAD CONTAINERS */
+/* -------------------------------- */
+/* -------------------------------- */
+
+.individual-post-container {
   display: flex;
-  align-items: flex-start;
-  flex-direction: column;
+  border: 1px solid #ededed;
+  border-radius: 3px;
+  margin: 10px;
+  padding: 20px;
 }
 
-.login-wrapper {
-  height: 80%;
-  background-color: white;
-  padding: 10vh 15vw;
+.individual-post-container:hover{
+  border: 1px solid #D1D1D1;
 }
 
-.login-area {
-  padding: 5vh 0;
-  padding-right: 10px;
+.user-container {
+  display: flex;
+  flex-direction: row;
 }
 
-.image-area {
-  background-color: #a4c972;
+
+
+
+/* -------------------------------- */
+/* -------------------------------- */
+/* LOGIN SECTION CONTAINERS */
+/* -------------------------------- */
+/* -------------------------------- */
+
+.login-container {
+  display: grid; 
+  grid-template-columns: 0.8fr 1.2fr; 
+  grid-template-rows: 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "login-area background-wrapper"; 
   height: 100%;
+}
+
+.login-area { 
+  grid-area: login-area; 
+}
+
+.background-wrapper {
+  grid-area: background-wrapper;
+  background-color: pink;
 }
 
 .form {
@@ -95,7 +137,14 @@
 }
 
 
-/* FOOTER CONTAINER/S */
+
+
+/* -------------------------------- */
+/* -------------------------------- */
+/* FOOTER CONTAINERS */
+/* -------------------------------- */
+/* -------------------------------- */
+
 
 .footer {
   height: 20%;
@@ -103,7 +152,14 @@
   color: white;
 }
 
+
+
+
+/* -------------------------------- */
+/* -------------------------------- */
 /* PATTERNS */
+/* -------------------------------- */
+/* -------------------------------- */
 
 .pattern-container-1 {
   width: 700px;
@@ -146,4 +202,5 @@
   opacity: 0.5;
   z-index: -2;
 }
+
 

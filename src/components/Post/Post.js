@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./styles.css";
+import "../../styling/containers.css";
 import RatingCounter from "../RatingCounter/RatingCounter";
 
 function AllPosts(props) {
@@ -9,21 +9,21 @@ function AllPosts(props) {
 
     { props.posts.map((post, index) => {
       return (
-        <div key={post._id} className="container">
-          <RatingCounter id={post._id}/> 
+        <div key={post._id} className="individual-post-container">
+          <RatingCounter count={post.votes.totalVoteCount} id={post._id}/> 
 
           <div>
-            <div className="user-section">
-              <p className="flair-tag">r/{post.category}</p> 
-              <p className="author-tag">Posted by u/{post.author}</p> 
+            <div className="user-container">
+              <span className="category-tag">r/{post.category}</span> 
+              <span className="author-tag">Posted by u/{post.author}</span> 
             </div>
 
             <Link to={`/posts/${post._id}`} style={{textDecoration: "none"}}>
-              <h3 className="title">{post.title}</h3>
+              <h3 className="post-title">{post.title}</h3>
             </Link>
-            <p>{post.body}</p> 
+            <p className="body-preview">{post.body}</p> 
             
-            <p className="num-of-comments-tag">Comments: {post.comments.length}</p> 
+            <span className="num-of-comments-tag">Comments: {post.comments.length}</span> 
           </div>
         </div>
       )

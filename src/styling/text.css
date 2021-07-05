@@ -31,3 +31,32 @@
   color: #FF595E;
   margin: 0 5px;
 }
+
+.body-preview {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 30em;
+}
+
+.category-tag {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-right: 2em;
+}
+
+.author-tag {
+  font-size: 0.8rem;
+  color: #7C7C7C;
+}
+
+.post-title {
+  text-decoration: none;
+  font-size: 1.333rem;
+  color: black;
+  margin: 0.5rem 0;
+}
+
+.num-of-comments-tag {
+  font-size: 0.8rem;
+}
