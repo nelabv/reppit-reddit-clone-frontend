@@ -23,7 +23,7 @@ function App() {
   const checkForExistingData = () => {
     if (localStorage.getItem("token") !== null && localStorage.getItem("name") !== null) {
       setUser(localStorage.getItem("name"))
-    } else {}
+    }
   }
 
   const userLogin = (username) => {
@@ -36,24 +36,24 @@ function App() {
     localStorage.clear();
     window.location = "/";
   }
-
+  
   useEffect(() => {
     fetchPosts();
     checkForExistingData();
   }, []);
 
   return (
-    <>
+    <div style={{height: '100%'}}>
       <BrowserRouter>
         <Route path='/' render={props => <Navbar user={user} logout={userLogout}/>}/>
         <Route exact path='/' render={props => <Home posts={posts} user={user}/>}/>
         <Route exact path='/login' render={props => <Login userLogin={userLogin} />}/>
         <Route exact path='/signup' render={props => <Signup userLogin={userLogin}/>}/>
         <Route exact path='/create-post' render={props => <SubmitPost user={user} />}/>
-        <Route exact path='/posts/:id' render={props => <IndividualPosts />}/>
+        <Route exact path='/posts/:id' render={props => <IndividualPosts/>}/>
         <Footer/>
       </BrowserRouter>
-    </>
+    </div>
 
   );
 }

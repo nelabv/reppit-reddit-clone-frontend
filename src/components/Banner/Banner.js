@@ -4,14 +4,18 @@ import "../../styling/containers.css";
 import "../../styling/elements.css";
 
 function Banner(props) {
+  const handleClick = () => {
+    console.log("hello");
+  }
+
   return (
     <section className="left-container banner-container">
       <h1>Join a conversation today</h1>
       <span>Some cool subtext here</span>
 
 
-      <Link to="/login" style={{textDecoration: "none"}}>
-        <button className="btn btn-4">JOIN NOW</button>
+      <Link to="/signup" style={{textDecoration: "none"}}>
+        <button className="btn btn-4">Sign up</button>
       </Link>
 
       <div className="pattern-container-1"></div>
