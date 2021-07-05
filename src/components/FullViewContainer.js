@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import PostServices from "../../services/posts";
-import FullViewPost from "../FullViewPost.js";
-import Signup from "../SignUp/Signup";
-import "./styles.css";
+import PostServices from "../services/posts";
+import FullViewPost from "./FullViewPost.js";
+import Signup from "./Signup";
 
-function IndividualPosts(props) {
+function FullViewContainer(props) {
 
   const { id } = useParams();
   const [isAuthSuccessful, setIsAuthSuccessful] = useState(false);
@@ -49,4 +48,4 @@ function IndividualPosts(props) {
     </>
   );
 }
-export default IndividualPosts;
+export default FullViewContainer;

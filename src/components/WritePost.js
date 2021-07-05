@@ -1,10 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import PostServices from "../../services/posts.js";
-import Success from "../Success/Success";
-import NotLoggedIn from "../NotLoggedIn/NotLoggedIn";
+import PostServices from "../services/posts.js";
+import Success from "./Success";
+import NotLoggedIn from "./NotLoggedIn";
 
-function SubmitPost(props) {
+function WritePost(props) {
   const [status, setStatus] = useState(null);
   const [postDocument, setPostDocument] = useState({
     title: '',
@@ -77,4 +77,4 @@ function SubmitPost(props) {
 
 }
 
-export default SubmitPost;
+export default WritePost;

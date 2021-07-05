@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import UserServices from "../../services/user";
-import { login } from "../../functions/functions";
+import UserServices from "../services/user";
+import { login } from "../functions/functions";
 
 function Signup(props) {
   const [userData, setUserData] = useState({

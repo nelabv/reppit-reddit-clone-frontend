@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import UserServices from "../../services/user.js";
-import "../../styling/containers.css";
-import "../../styling/elements.css";
-import "../../styling/text.css";
+import UserServices from "../services/user.js";
+import "../styling/containers.css";
+import "../styling/elements.css";
+import "../styling/text.css";
 
-function Login(props) {
+function LoginSection(props) {
   const [user, setUser] = useState({
     username: '',
     password: ''
@@ -65,4 +65,4 @@ function Login(props) {
   )
 }
 
-export default Login;
+export default LoginSection;

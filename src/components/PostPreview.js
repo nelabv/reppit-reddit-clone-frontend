@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../../styling/containers.css";
-import RatingCounter from "../RatingCounter/RatingCounter";
+import "../styling/containers.css";
+import RatingCounter from "./RatingCounter";
 
-function AllPosts(props) {
+function PostPreview(props) {
   return (
     <>
 
@@ -33,4 +33,4 @@ function AllPosts(props) {
   );
 }
 
-export default AllPosts;
+export default PostPreview;

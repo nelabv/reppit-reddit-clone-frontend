@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import "../../styling/containers.css";
-import "../../styling/elements.css";
+import "../styling/containers.css";
+import "../styling/elements.css";
 
 function Banner(props) {
   const handleClick = () => {

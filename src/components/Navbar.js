@@ -1,7 +1,7 @@
 import { Link} from "react-router-dom";
-import "../../styling/elements.css";
-import "../../styling/containers.css";
-import logo from "../../assets/logo.png";
+import "../styling/elements.css";
+import "../styling/containers.css";
+import logo from "../assets/logo.png";
 
 function Navbar(props) {
 
