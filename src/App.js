@@ -49,7 +49,7 @@ function App() {
         <Route exact path='/' render={props => <Home posts={posts} user={user}/>}/>
         <Route exact path='/login' render={props => <LoginSection userLogin={userLogin} />}/>
         <Route exact path='/signup' render={props => <Signup userLogin={userLogin}/>}/>
-        <Route exact path='/create-post' render={props => <WritePost  user={user} />}/>
+        <Route exact path='/create-post' render={props => <WritePost />}/>
         <Route exact path='/posts/:id' render={props => <FullViewContainer/>}/>
         <Footer/>
       </BrowserRouter>

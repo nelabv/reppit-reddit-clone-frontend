@@ -1,8 +1,7 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PostServices from "../services/posts.js";
 import Success from "./Success";
-import NotLoggedIn from "./NotLoggedIn";
 
 function WritePost(props) {
   const [status, setStatus] = useState(null);
@@ -12,6 +11,17 @@ function WritePost(props) {
     flair: '',
     username: localStorage.getItem("name")
   });
+  const [isAuth, setIsAuth] = useState(false);
+
+  const checkAuth = () => {
+    const authenticated = localStorage.getItem("auth");
+
+    if (authenticated === "true") {
+      setIsAuth(true);
+    } else {
+      window.location = "/signup";
+    }
+  }
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -37,11 +47,15 @@ function WritePost(props) {
     }
   }
 
+  useEffect(() => {
+    checkAuth();
+  }, [])
+
   return (
     <>
       { status ? <Success/> : null}
 
-      { props.user ? <div>
+      { isAuth ? <div>
         <h1>Submit a post</h1>
       <form id="create-post-form" onSubmit={submitPost}>
         <label>Title</label>
@@ -68,7 +82,7 @@ function WritePost(props) {
         <button type="submit">SUBMIT</button>
       </form>
       </div>
-      : <NotLoggedIn />}
+      : null }
       
 
     </>
