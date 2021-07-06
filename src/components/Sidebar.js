@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import PostServices from "../services/posts";
 import "../styling/containers.css";
+import "../styling/elements.css";
 
 function Sidebar(props) {
   const [categories, setCategories] = useState([]);
@@ -21,24 +22,23 @@ function Sidebar(props) {
   return (
     <div className="sidebar-container">
       <Link to="/create-post" >
-        <button className="create-post-btn">CREATE A NEW THREAD</button>
+        <button className="btn btn-5">CREATE A NEW THREAD</button>
       </Link>
 
-      <div>
         
-        { catgsEmpty ? null :
+      { catgsEmpty ? null :
         <div className="catgs-bar">
-            <h4>Categories</h4>
-            { categories.map((category, index) => {
+          <h4>Categories</h4>
+          { 
+            categories.map((category, index) => {
               return (
                 <div key={index}>
                   <p>r/{category}</p>
                 </div>
-              )
-            })}
+            )})
+          }
         </div>
-        }
-      </div>
+      }
     </div>
   )
 }

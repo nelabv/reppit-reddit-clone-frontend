@@ -43,7 +43,7 @@ function App() {
   }, []);
 
   return (
-    <div style={{height: '100%'}}>
+    <div>
       <BrowserRouter>
         <Route path='/' render={props => <Navbar user={user} logout={userLogout}/>}/>
         <Route exact path='/' render={props => <Home posts={posts} user={user}/>}/>
