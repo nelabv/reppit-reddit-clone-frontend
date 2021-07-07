@@ -10,8 +10,10 @@ function Sidebar(props) {
 
   const fetchCategories = async () => {
     console.log("hello");
-    const categories = await PostServices.getCategories();
-    setCategories(categories.data);
+    const APIcall = await PostServices.getCategories();
+    const categories = APIcall.data.categories;
+
+    setCategories(categories);
     setCatgsEmpty(false);
   }
 

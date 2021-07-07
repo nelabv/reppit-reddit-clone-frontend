@@ -16,7 +16,7 @@ function App() {
 
   const fetchPosts = async () => {
     const APIrequest = await PostServices.getAllPosts();
-    const allPosts = APIrequest.data.contents.posts;
+    const allPosts = APIrequest.data.contents;
     setPosts(allPosts);
   }
 
@@ -28,6 +28,7 @@ function App() {
 
   const userLogin = (username) => {
     setUser(username);
+    localStorage.setItem("auth", true);
     window.location = "/";
   }
 

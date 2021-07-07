@@ -1,15 +1,25 @@
 import React from "react";
-/* import RatingCounter from "../RatingCounter/RatingCounter";
-import Comment from "../Comment/Comment";
-import CommentForm from "../CommentForm/CommentForm";
-import NotLoggedIn from "../NotLoggedIn/NotLoggedIn";
-import Login from "../Login/Login.js"; */
+import RatingCounter from "./RatingCounter";
 
 function FullViewPost(props) {
+
   return (
-    <> 
-    THIS IS A PROTECTED ROUTE
-    </>
+    <>
+    <div className="flair">
+    <span>r/{props.post.category}</span>
+  </div>
+
+  <div className="content-wrapper">
+    <RatingCounter total={props.post.votes.totalVoteCount} down={props.post.votes.downvotes.length} id={props.post._id}/>
+    
+    <div className="content">
+      <p>Posted by u/{props.post.author}</p>
+      <p>{props.post.datePosted}</p>
+      <h1>{props.post.title}</h1>
+      <p>{props.post.body}</p>
+    </div>
+  </div>
+  </>
   );
 }
 export default FullViewPost;
