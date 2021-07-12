@@ -10,9 +10,12 @@ import Signup from "./components/Signup";
 import FullViewContainer from "./components/FullViewContainer";
 import Footer from "./components/Footer";
 
+import UserServices from "./services/user.js";
+
 function App() {
   const [posts, setPosts] = useState([]);
   const [user, setUser] = useState();
+  const [userVotedPosts, setUserVotedPosts] = useState([]);
 
   const fetchPosts = async () => {
     const APIrequest = await PostServices.getAllPosts();
@@ -20,21 +23,25 @@ function App() {
     setPosts(allPosts);
   }
 
-  const checkForExistingData = () => {
-    if (localStorage.getItem("token") !== null && localStorage.getItem("name") !== null) {
-      setUser(localStorage.getItem("name"))
+  const checkForExistingData = async () => {
+    if (sessionStorage.getItem("token") !== null && sessionStorage.getItem("name") !== null) {
+      setUser(sessionStorage.getItem("name"));
+      
+      const userInformation = await UserServices.fetchUserInformation(sessionStorage.getItem("token"));
+      setUserVotedPosts(userInformation.data[0].votes);
     }
   }
 
-  const userLogin = (username) => {
+  const userLogin = async (username) => {
     setUser(username);
-    localStorage.setItem("auth", true);
     window.location = "/";
+
+
   }
 
   const userLogout = () => {
     setUser('');
-    localStorage.clear();
+    sessionStorage.clear();
     window.location = "/";
   }
   
@@ -47,11 +54,11 @@ function App() {
     <div>
       <BrowserRouter>
         <Route path='/' render={props => <Navbar user={user} logout={userLogout}/>}/>
-        <Route exact path='/' render={props => <Home posts={posts} user={user}/>}/>
+        <Route exact path='/' render={props => <Home posts={posts} user={user} userVotedPosts={userVotedPosts}/>}/>
         <Route exact path='/login' render={props => <LoginSection userLogin={userLogin} />}/>
         <Route exact path='/signup' render={props => <Signup userLogin={userLogin}/>}/>
         <Route exact path='/create-post' render={props => <WritePost />}/>
-        <Route exact path='/posts/:id' render={props => <FullViewContainer/>}/>
+        <Route exact path='/posts/:id' render={props => <FullViewContainer userVotedPosts={userVotedPosts}/>}/>
         <Footer/>
       </BrowserRouter>
     </div>

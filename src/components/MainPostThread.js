@@ -5,7 +5,7 @@ import "../styling/containers.css";
 function MainPostThread(props) {
   return (
     <div className="posts-container">
-      <PostPreview posts= {props.posts} />
+      <PostPreview posts= {props.posts} userVotedPosts={props.userVotedPosts}/>
     </div>
   );
 }

@@ -12,7 +12,7 @@ function Home(props) {
           <Banner />
         }
         <div className="grid-container">
-          <MainPostThread posts={props.posts} />
+          <MainPostThread posts={props.posts} userVotedPosts={props.userVotedPosts}/>
 
           <Sidebar />
         </div>

@@ -8,6 +8,10 @@ class UserServices {
   register(newUser) {
     return http.post("/register", newUser)
   }
+
+  fetchUserInformation(token) {
+    return http.get("/get-user", { headers: {"Authorization" : `Bearer ${token}`} })
+  } 
 };
 
 export default new UserServices();
