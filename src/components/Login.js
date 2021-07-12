@@ -5,6 +5,7 @@ import "../styling/elements.css";
 import "../styling/text.css";
 
 function LoginSection(props) {
+
   const [user, setUser] = useState({
     username: '',
     password: ''
@@ -26,19 +27,25 @@ function LoginSection(props) {
       password: user.password
     }
 
-    UserServices.login(loginDoc)
+    await UserServices.login(loginDoc)
       .then((response) => {
+        
+        sessionStorage.setItem("token", response.data.token);
+        sessionStorage.setItem("name", loginDoc.username);
+        sessionStorage.setItem("auth", true);
+        
         props.userLogin(loginDoc.username);
-
-        localStorage.setItem("token", response.data.token);
-        localStorage.setItem("name", loginDoc.username);
-        localStorage.setItem("auth", true);
       })
       .catch(function (error) {
         if (error.response) {
           console.log(error.response);
         }
     });
+
+/*     UserServices.fetchUserInformation(sessionStorage.getItem("token"))
+      .then((response) => {
+        console.log(response);
+      }) */
   }
 
   return(

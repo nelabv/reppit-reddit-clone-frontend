@@ -4,14 +4,17 @@ import "../styling/containers.css";
 import RatingCounter from "./RatingCounter";
 
 function PostPreview(props) {
-  console.log(props);
-
   return (
     <>
     { props.posts.map((post, index) => {
       return (
         <div key={post._id} className="individual-post-container">
-          <RatingCounter total={post.votes.totalVoteCount} down={post.votes.downvotes.length} id={post._id}/> 
+          <RatingCounter 
+              total={post.votes.totalVoteCount}
+              down={post.votes.downvotes.length} 
+              id={post._id}
+              userVotedPosts={props.userVotedPosts}
+          /> 
 
           <div>
             <div className="user-container">

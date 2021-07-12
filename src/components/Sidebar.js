@@ -9,7 +9,6 @@ function Sidebar(props) {
   const [catgsEmpty, setCatgsEmpty] = useState(true); 
 
   const fetchCategories = async () => {
-    console.log("hello");
     const APIcall = await PostServices.getCategories();
     const categories = APIcall.data.categories;
 

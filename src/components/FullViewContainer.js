@@ -9,14 +9,14 @@ function FullViewContainer(props) {
   const { id } = useParams();
   const [isAuthSuccessful, setIsAuthSuccessful] = useState(false);
   const [post, setPost] = useState([]);
-  const authenticated = localStorage.getItem("auth");
+  const authenticated = sessionStorage.getItem("auth");
 
   const fetchData = async () => {
     if (authenticated !== "true") {
       window.location = "/signup";
     } else {
       try {
-        const APIcall = await PostServices.getPostByID(id, localStorage.getItem("token"))
+        const APIcall = await PostServices.getPostByID(id, sessionStorage.getItem("token"))
           .catch(function (error) {
             console.log("An error occured: ", error.response);
           })
@@ -42,7 +42,9 @@ function FullViewContainer(props) {
   return (
     <>
       { isAuthSuccessful ? 
-        <FullViewPost post={post}/> : 
+        <FullViewPost 
+            post={post}
+            userVotedPosts={props.userVotedPosts}/> : 
         <Signup />
       }
     </>

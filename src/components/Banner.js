@@ -4,10 +4,6 @@ import "../styling/containers.css";
 import "../styling/elements.css";
 
 function Banner(props) {
-  const handleClick = () => {
-    console.log("hello");
-  }
-
   return (
     <section className="left-container banner-container">
       <h1>Join a conversation today</h1>
