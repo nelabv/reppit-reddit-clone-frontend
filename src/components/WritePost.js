@@ -9,14 +9,14 @@ function WritePost(props) {
     title: '',
     body: '',
     flair: '',
-    username: localStorage.getItem("name")
+    username: sessionStorage.getItem("name")
   });
   const [isAuth, setIsAuth] = useState(false);
 
   const checkAuth = () => {
-    const authenticated = localStorage.getItem("auth");
+    const authenticated = sessionStorage.getItem("auth");
 
-    if (authenticated === "true") {
+    if (authenticated) {
       setIsAuth(true);
     } else {
       window.location = "/signup";
@@ -33,7 +33,7 @@ function WritePost(props) {
 
   const submitPost = async (e) => {
     e.preventDefault();
-    const APIrequest = await PostServices.submitPost(postDocument, localStorage.getItem("token"));
+    const APIrequest = await PostServices.submitPost(postDocument, sessionStorage.getItem("token"));
 
     if (APIrequest.request.status === 200) {
       setStatus(true);

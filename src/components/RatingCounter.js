@@ -10,17 +10,15 @@ function RatingCounter(props) {
 
   const upvotePost = async () => {
     if (sessionStorage.getItem("token")) {
+      setFalseActive(false);
+      setTrueActive(!trueActive);
+
       let vote = {
         id: props.id,
         vote: true
       }
-      const castVote = await PostServices.castVote(vote, sessionStorage.getItem("token"));
-      let voteStatus = castVote.data.status;
-      console.log(voteStatus);
-
-      setFalseActive(false);
-      setTrueActive(!trueActive);
-      console.log(trueActive);
+      
+      await PostServices.castVote(vote, sessionStorage.getItem("token"));
     } else {
       console.log("Not logged in");
     }
@@ -28,17 +26,14 @@ function RatingCounter(props) {
 
   const downvotePost = async () => {
     if (sessionStorage.getItem("token")) {
+      setTrueActive(false);
+      setFalseActive(!falseActive);
+
       let vote = {
         id: props.id,
         vote: false
       }
-      const castVote = await PostServices.castVote(vote, sessionStorage.getItem("token"));
-      let voteStatus = castVote.data.status;
-      console.log(voteStatus);
-
-      setTrueActive(false);
-      setFalseActive(!falseActive);
-      console.log(falseActive);
+      await PostServices.castVote(vote, sessionStorage.getItem("token"));
     } else {
       console.log("Not logged in");
     }
@@ -65,7 +60,7 @@ function RatingCounter(props) {
           setTrueActive(true);
         }
       } else if (checkIfPostHasVote.length === 0) {
-        console.log("No voted posts found");
+        console.log("No posts found");
       }
     } else {
       return
@@ -76,13 +71,13 @@ function RatingCounter(props) {
     <div className="arrow-container">
       <AiOutlineCaretUp 
           size={20} 
-          className={trueActive ? "upvoted" : "default-arrow"}
+          className={`default-arrow ${trueActive ? "upvoted" : null}`}
           onClick={upvotePost}
       />
           <p>{voteCount}</p>
       <AiOutlineCaretDown 
           size={20} 
-          className={falseActive ? "downvoted" : "default-arrow"}
+          className={`default-arrow ${falseActive ? "downvoted" : null}`}
           onClick={downvotePost}
       />
            

@@ -32,11 +32,21 @@ function App() {
     }
   }
 
-  const userLogin = async (username) => {
-    setUser(username);
+  const userLogin = async (userDocument) => {
+    const APIcall = await UserServices.login(userDocument)
+      .then((response) => {
+        
+        sessionStorage.setItem("token", response.data.token);
+        sessionStorage.setItem("name", userDocument.username);
+        sessionStorage.setItem("auth", true);
+      })
+      .catch(function (error) {
+        if (error.response) {
+          console.log(error.response);
+        }
+    });
+    setUser(userDocument.username);
     window.location = "/";
-
-
   }
 
   const userLogout = () => {
@@ -58,7 +68,7 @@ function App() {
         <Route exact path='/login' render={props => <LoginSection userLogin={userLogin} />}/>
         <Route exact path='/signup' render={props => <Signup userLogin={userLogin}/>}/>
         <Route exact path='/create-post' render={props => <WritePost />}/>
-        <Route exact path='/posts/:id' render={props => <FullViewContainer userVotedPosts={userVotedPosts}/>}/>
+        <Route exact path='/posts/:id' render={props => <FullViewContainer userVotedPosts={userVotedPosts} />}/>
         <Footer/>
       </BrowserRouter>
     </div>

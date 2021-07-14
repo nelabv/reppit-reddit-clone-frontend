@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import UserServices from "../services/user.js";
 import "../styling/containers.css";
 import "../styling/elements.css";
 import "../styling/text.css";
@@ -22,30 +21,12 @@ function LoginSection(props) {
   const setUserData = async (e) => {
     e.preventDefault();
     
-    const loginDoc = {
+    const userDocument = {
       username: user.username,
       password: user.password
     }
 
-    await UserServices.login(loginDoc)
-      .then((response) => {
-        
-        sessionStorage.setItem("token", response.data.token);
-        sessionStorage.setItem("name", loginDoc.username);
-        sessionStorage.setItem("auth", true);
-        
-        props.userLogin(loginDoc.username);
-      })
-      .catch(function (error) {
-        if (error.response) {
-          console.log(error.response);
-        }
-    });
-
-/*     UserServices.fetchUserInformation(sessionStorage.getItem("token"))
-      .then((response) => {
-        console.log(response);
-      }) */
+    props.userLogin(userDocument);
   }
 
   return(

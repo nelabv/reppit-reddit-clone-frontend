@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import UserServices from "../services/user";
-import { login } from "../functions/functions";
 
 function Signup(props) {
   const [userData, setUserData] = useState({
     username: '',
     password: ''
   });
-  const [requestStatus, setRequestStatus] = useState('');
+  const [requestStatus, setRequestStatus] = useState("");
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -21,15 +20,14 @@ function Signup(props) {
   const register = (e) => {
     e.preventDefault();
 
-    const user = {
+    const userDocument = {
       username: userData.username,
       password: userData.password
     }
 
-    UserServices.register(user)
+    UserServices.register(userDocument)
       .then((response) => {
-        setRequestStatus(response.data.status);
-        login(user, props.userLogin)
+          props.userLogin(userDocument);
       })
       .catch((error) => {
         if (error.response) {

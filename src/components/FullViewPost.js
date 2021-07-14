@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "../styling/containers.css";
 import "../styling/elements.css";
 import RatingCounter from "./RatingCounter";

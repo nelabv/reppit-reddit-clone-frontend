@@ -73,11 +73,11 @@
 
 .upvoted {
   transition-duration: 0s;
-  background-color: green;
+  color: #63E821;
 }
 
 .downvoted {
   transition-duration: 0s;
-  background-color: red;
+  color: #C2595C;
 }
 
