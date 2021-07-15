@@ -26,7 +26,7 @@ function Signup(props) {
     }
 
     UserServices.register(userDocument)
-      .then((response) => {
+      .then(() => {
           props.userLogin(userDocument);
       })
       .catch((error) => {
