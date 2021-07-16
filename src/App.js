@@ -9,6 +9,7 @@ import WritePost from "./components/WritePost";
 import Signup from "./components/Signup";
 import FullViewContainer from "./components/FullViewContainer";
 import Footer from "./components/Footer";
+import SortedThread from "./components/SortedThread";
 
 import UserServices from "./services/user.js";
 
@@ -69,6 +70,7 @@ function App() {
         <Route exact path='/signup' render={props => <Signup userLogin={userLogin}/>}/>
         <Route exact path='/create-post' render={props => <WritePost />}/>
         <Route exact path='/posts/:id' render={props => <FullViewContainer userVotedPosts={userVotedPosts} />}/>
+        <Route exact path='/categories/:category' render={props => <SortedThread />}/>
         <Footer/>
       </BrowserRouter>
     </div>

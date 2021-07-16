@@ -6,7 +6,7 @@ import RatingCounter from "./RatingCounter";
 function PostPreview(props) {
   return (
     <>
-    { props.posts.map((post, index) => {
+    { props.posts.map((post) => {
       return (
         <div key={post._id} className="individual-post-container">
           <RatingCounter 

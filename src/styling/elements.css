@@ -81,3 +81,19 @@
   color: #C2595C;
 }
 
+/* -------------------------------- */
+/* -------------------------------- */
+/* CATEGORIES */
+/* -------------------------------- */
+/* -------------------------------- */
+
+.categories-tag {
+  font-weight: 600;
+}
+
+.category-row {
+  cursor: pointer;
+  padding: 0.5rem 0;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #d9d9d9;
+}

@@ -5,6 +5,10 @@ class PostServices {
     return http.get("/");
   }
 
+  getPostsByCategory(category) {
+    return http.get("/posts-category", category);
+  }
+
   getCategories() {
     return http.get("/categories");
   }

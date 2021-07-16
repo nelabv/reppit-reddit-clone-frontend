@@ -85,10 +85,26 @@
   grid-area: posts-container; 
 }
 
+
+/* -------------------------------- */
+/* -------------------------------- */
+/* SIDEBAR CONTAINERS */
+/* -------------------------------- */
+/* -------------------------------- */
+
+
 .sidebar-container {
   grid-area: sidebar-container;
   padding-top: 10px;
 }
+
+.categories {
+  margin-top: 1em;
+  padding: 1em;
+  border-radius: 3px;
+  border: 1px solid #d9d9d9;
+}
+
 
 
 

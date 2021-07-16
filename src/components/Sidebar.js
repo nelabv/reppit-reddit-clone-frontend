@@ -11,7 +11,7 @@ function Sidebar(props) {
   const fetchCategories = async () => {
     const APIcall = await PostServices.getCategories();
     const categories = APIcall.data.categories;
-
+    console.log(categories);
     setCategories(categories);
     setCatgsEmpty(false);
   }
@@ -28,14 +28,16 @@ function Sidebar(props) {
 
         
       { catgsEmpty ? null :
-        <div className="catgs-bar">
-          <h4>Categories</h4>
+        <div className="categories">
+          <span className="categories-tag">Categories</span>
           { 
             categories.map((category, index) => {
               return (
-                <div key={index}>
-                  <p>r/{category}</p>
-                </div>
+                <Link key={index} to={`/categories/${category}`} style={{textDecoration: "none"}}>
+                  <div className="category-row">
+                    <span>r/{category}</span>
+                  </div>
+                </Link>
             )})
           }
         </div>
