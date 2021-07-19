@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import PostServices from "../services/posts";
-import FullViewPost from "./FullViewPost.js";
-import Signup from "./Signup";
+import FullViewPost from "../components/FullViewPost.js";
+import Register from "../components/Register";
 
-function FullViewContainer(props) {
-
-  const { id } = useParams();
+function PostFullView(props) {
   const [isAuthSuccessful, setIsAuthSuccessful] = useState(false);
   const [post, setPost] = useState([]);
-  const authenticated = sessionStorage.getItem("auth");
 
-  const fetchData = async () => {
+  const { id } = useParams();
+
+  const fetchData = useCallback(async () => {
+    const authenticated = sessionStorage.getItem("auth");
+
     if (authenticated !== "true") {
       window.location = "/signup";
     } else {
@@ -29,7 +30,7 @@ function FullViewContainer(props) {
         console.log("ERROR: ", error);
       }
     }
-  }
+  }, [id])
 
   useEffect(() => {
     fetchData();
@@ -37,7 +38,7 @@ function FullViewContainer(props) {
     return () => {
       setPost({}); 
     };
-  }, [])
+  }, [fetchData])
 
   return (
     <>
@@ -45,9 +46,9 @@ function FullViewContainer(props) {
         <FullViewPost 
             post={post}
             userVotedPosts={props.userVotedPosts}/> : 
-        <Signup />
+        <Register />
       }
     </>
   );
 }
-export default FullViewContainer;
+export default PostFullView;

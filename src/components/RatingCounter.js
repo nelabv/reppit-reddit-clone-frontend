@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import PostServices from "../services/posts";
 import { AiOutlineCaretUp } from 'react-icons/ai';
 import { AiOutlineCaretDown } from 'react-icons/ai';
+import PostServices from "../services/posts";
 
 function RatingCounter(props) {
   let [voteCount, setVoteCount] = useState(props.count);

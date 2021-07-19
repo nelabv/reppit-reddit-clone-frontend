@@ -3,7 +3,7 @@ import "../styling/containers.css";
 import "../styling/elements.css";
 import "../styling/text.css";
 
-function LoginSection(props) {
+function Login(props) {
 
   const [user, setUser] = useState({
     username: '',
@@ -53,4 +53,4 @@ function LoginSection(props) {
   )
 }
 
-export default LoginSection;
+export default Login;

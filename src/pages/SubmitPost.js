@@ -1,9 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import PostServices from "../services/posts.js";
-import Success from "./Success";
+import Success from "../components/Success";
 
-function WritePost(props) {
+function SubmitPost(props) {
   const [status, setStatus] = useState(null);
   const [postDocument, setPostDocument] = useState({
     title: '',
@@ -91,4 +91,4 @@ function WritePost(props) {
 
 }
 
-export default WritePost;
+export default SubmitPost;

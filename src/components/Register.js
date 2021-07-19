@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import UserServices from "../services/user";
 
-function Signup(props) {
+function Register(props) {
   const [userData, setUserData] = useState({
     username: '',
     password: ''
@@ -53,4 +53,4 @@ function Signup(props) {
   )
 }
 
-export default Signup;
+export default Register;

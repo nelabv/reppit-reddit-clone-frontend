@@ -1,16 +1,16 @@
-import PostServices from "./services/posts";
 import { useState, useEffect } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 
-import Home from "./pages/Home/Home";
 import Navbar from "./components/Navbar";
-import LoginSection from "./components/Login";
-import WritePost from "./components/WritePost";
-import Signup from "./components/Signup";
-import FullViewContainer from "./components/FullViewContainer";
+import Login from "./pages/Login";
+import Register from "./components/Register";
 import Footer from "./components/Footer";
-import SortedThread from "./components/SortedThread";
+import PostFullView from "./pages/PostFullView";
+import Home from "./pages/Home";
+import SortedThread from "./pages/SortedThread";
+import SubmitPost from "./pages/SubmitPost";
 
+import PostServices from "./services/posts";
 import UserServices from "./services/user.js";
 
 function App() {
@@ -34,7 +34,7 @@ function App() {
   }
 
   const userLogin = async (userDocument) => {
-    const APIcall = await UserServices.login(userDocument)
+    await UserServices.login(userDocument)
       .then((response) => {
         
         sessionStorage.setItem("token", response.data.token);
@@ -64,13 +64,28 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <Route path='/' render={props => <Navbar user={user} logout={userLogout}/>}/>
-        <Route exact path='/' render={props => <Home posts={posts} user={user} userVotedPosts={userVotedPosts}/>}/>
-        <Route exact path='/login' render={props => <LoginSection userLogin={userLogin} />}/>
-        <Route exact path='/signup' render={props => <Signup userLogin={userLogin}/>}/>
-        <Route exact path='/create-post' render={props => <WritePost />}/>
-        <Route exact path='/posts/:id' render={props => <FullViewContainer userVotedPosts={userVotedPosts} />}/>
-        <Route exact path='/categories/:category' render={props => <SortedThread userVotedPosts={userVotedPosts}/>}/>
+        <Route 
+            path='/' 
+            render={ props => <Navbar user={user} logout={userLogout}/>} />
+        <Route 
+            exact path='/' 
+            render={props => <Home posts={posts} user={user} userVotedPosts={userVotedPosts}/>}/>
+        <Route 
+            exact path='/login' 
+            render={props => <Login userLogin={userLogin} />}/>
+        <Route 
+            exact path='/signup' 
+            render={props => <Register userLogin={userLogin}/>}/>
+        <Route 
+            exact path='/create-post' 
+            render={props => <SubmitPost />}/>
+        <Route 
+            exact path='/posts/:id' 
+            render={props => <PostFullView userVotedPosts={userVotedPosts} />}/>
+        <Route 
+            exact path='/categories/:category' 
+            render={props => <SortedThread userVotedPosts={userVotedPosts}/>}/>
+            
         <Footer/>
       </BrowserRouter>
     </div>
