@@ -7,11 +7,13 @@ import "../styling/containers.css";
 // <PostPreview posts= {props.posts} userVotedPosts={props.userVotedPosts}/>
 
 function SortedThread(props) {
-  const query = useParams();
+  const id = useParams();
+  const [filteredPosts, setFilteredPosts] = useState([]);
 
   const fetchPosts = async () => {
     if (sessionStorage.getItem("token")) {
-      console.log("Fetch API here");
+      const result = await PostServices.getPostsByCategory(id.category);
+      setFilteredPosts(result.data.contents);
     } else {
       window.location = "/signup";
     }
@@ -20,10 +22,19 @@ function SortedThread(props) {
   useEffect(() => {
     fetchPosts();
   })
+
   return (
-    <div className="posts-container">
-      HELLO
-    </div>
+    <>
+      <div>
+        <h2>{id.category}</h2>
+      </div>
+      
+      <div className="posts-container">
+        <PostPreview 
+              posts= {filteredPosts} 
+              userVotedPosts={props.userVotedPosts}/>
+      </div>
+    </>
   );
 }
 

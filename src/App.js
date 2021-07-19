@@ -70,7 +70,7 @@ function App() {
         <Route exact path='/signup' render={props => <Signup userLogin={userLogin}/>}/>
         <Route exact path='/create-post' render={props => <WritePost />}/>
         <Route exact path='/posts/:id' render={props => <FullViewContainer userVotedPosts={userVotedPosts} />}/>
-        <Route exact path='/categories/:category' render={props => <SortedThread />}/>
+        <Route exact path='/categories/:category' render={props => <SortedThread userVotedPosts={userVotedPosts}/>}/>
         <Footer/>
       </BrowserRouter>
     </div>

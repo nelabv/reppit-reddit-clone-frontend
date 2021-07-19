@@ -1,12 +1,17 @@
 import http from "../http";
 
 class PostServices {
-  getAllPosts() {
-    return http.get("/");
+  getAllPosts(filters) {
+    return http.get("/", filters);
   }
 
   getPostsByCategory(category) {
-    return http.get("/posts-category", category);
+    return http.get(
+      "/", 
+      { params: {
+        category: `${category}`
+      }}
+    );
   }
 
   getCategories() {
