@@ -1,11 +1,23 @@
 import React from 'react';
+
+import { AiFillGithub } from "react-icons/ai"
+
 import "../styling/containers.css";
 
-function Footer(props) {
+function Footer() {
 
   return(
     <div className="footer">
-      HELLO NBV 2021
+      <div className="github">
+        <AiFillGithub 
+          size={'1.5em'}
+          style={{
+            color: "white",
+          }}/>
+        <a href="https://www.github.com/nelabv" target="_blank" rel="noreferrer">nelabv</a>
+      </div>
+
+      <span>2021</span>
     </div>
   )
 }

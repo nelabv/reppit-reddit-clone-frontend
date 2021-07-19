@@ -8,7 +8,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 15vw;
+  padding: 1em 15vw;
   background-color: #252129;
   width: 100vw;
   position: fixed;
@@ -183,12 +183,27 @@
 
 
 .footer {
-  height: 20%;
-  background-color: #541e35;
-  color: white;
-  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 15vw;
+  background-color: #252129;
 }
 
+.footer span {
+  color: white;
+}
+
+.github {
+  display: flex;
+  align-items: center;
+}
+
+.github a {
+  text-decoration: none;
+  color: white;
+  margin-left: 0.5em;
+}
 
 
 
