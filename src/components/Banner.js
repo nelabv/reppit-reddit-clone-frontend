@@ -5,7 +5,7 @@ import "../styling/elements.css";
 
 function Banner(props) {
   return (
-    <section className="left-container banner-container">
+    <section className="banner-container">
       <h1>Join a conversation today</h1>
       <span>Some cool subtext here</span>
 

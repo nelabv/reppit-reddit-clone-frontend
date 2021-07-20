@@ -15,7 +15,13 @@
 
 .input {
   border: 1px solid #dedede;
+  border-radius: 3px;
   padding: 10px 3px;
+}
+
+.input:focus {
+  border: 1px solid #df5d2e;
+  outline: none;
 }
 
 .clickable-text {

@@ -29,26 +29,24 @@ function Login(props) {
     props.userLogin(userDocument);
   }
 
-  return(
-    <div className="login-container">
-      <div className="login-area">
-        <p className="huge-text">Welcome back!</p>
-          <p className="subtext">Join the conversation today.</p>
+  return (
+    <div className="form-container">
+      <div className="center-align content-wrapper">
+        <span className="huge-text">Welcome back!</span>
+        <span className="subtext">Join the conversation today.</span>
         
-          <form className="form">
-            <label className="label" htmlFor="username">Username</label>
-            <input size="40" className="input" type="text" name="username" onChange={handleChange} value={user.username} ></input>
+        <form className="form">
+          <label className="label" htmlFor="username">Username</label>
+          <input size="40" className="input" type="text" name="username" onChange={handleChange} value={user.username} ></input>
 
-            <label className="label" htmlFor="password">Password</label>
-            <input type="text" name="password" onChange={handleChange} value={user.password}></input>
+          <label className="label" htmlFor="password">Password</label>
+          <input type="password" className="input" name="password" onChange={handleChange} value={user.password}></input>
 
-            <button className="btn btn-3" onClick={setUserData}>
-              Login
-            </button>
-          </form>
+          <button className="btn btn-3" onClick={setUserData}>
+            Login
+          </button>
+        </form>
       </div>
-    
-      <div className="background-wrapper"></div>
     </div>
   )
 }

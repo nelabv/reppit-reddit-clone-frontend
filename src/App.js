@@ -62,7 +62,7 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div >
       <BrowserRouter>
         <Route 
             path='/' 
@@ -86,7 +86,9 @@ function App() {
             exact path='/categories/:category' 
             render={props => <SortedThread userVotedPosts={userVotedPosts}/>}/>
             
-        <Footer/>
+        <Route 
+            exact path='/' 
+            component= {Footer}/>
       </BrowserRouter>
     </div>
 
