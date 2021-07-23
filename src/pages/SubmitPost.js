@@ -2,13 +2,15 @@ import React from "react";
 import { useState, useEffect } from "react";
 import PostServices from "../services/posts.js";
 import Success from "../components/Success";
+import "../styling/containers.css";
+import "../styling/elements.css";
 
 function SubmitPost(props) {
   const [status, setStatus] = useState(null);
   const [postDocument, setPostDocument] = useState({
     title: '',
     body: '',
-    flair: '',
+    flair: 'random',
     username: sessionStorage.getItem("name")
   });
   const [isAuth, setIsAuth] = useState(false);
@@ -55,33 +57,38 @@ function SubmitPost(props) {
     <>
       { status ? <Success/> : null}
 
-      { isAuth ? <div>
-        <h1>Submit a post</h1>
-      <form id="create-post-form" onSubmit={submitPost}>
-        <label>Title</label>
-        <input 
-          type="text" 
-          name="title"
-          onChange={handleChange}
-          value={postDocument.title} />
+      { isAuth ? 
+        <div className="form-container">
+          <div className="content-wrapper right-align ">
+            <h1>Submit a post</h1>
+            <form className="form" id="create-post-form" onSubmit={submitPost}>
+                <select value={postDocument.flair} name="flair" id="flair" className="dropdown" onChange={handleChange}>
+                  <option value="random">random</option>
+                  <option value="nice">nice</option>
+                  <option value="programming">programming</option>
+                </select>
 
-        <label>Body</label>
-        <input 
-          type="text" 
-          name="body" 
-          onChange={handleChange}
-          value={postDocument.body} />
+              <input 
+                type="text" 
+                name="title"
+                placeholder="Title"
+                className="input"
+                onChange={handleChange}
+                value={postDocument.title} />
 
-        <label>Flair</label>
-        <input 
-          type="text" 
-          name="flair"
-          onChange={handleChange}
-          value={postDocument.flair}/>
+              <label>Body</label>
+              <textarea 
+                type="text" 
+                name="body" 
+                className="input"
+                onChange={handleChange}
+                value={postDocument.body} />
 
-        <button type="submit">SUBMIT</button>
-      </form>
-      </div>
+              <button className="btn btn-3" type="submit">SUBMIT</button>
+            </form>
+
+          </div>
+        </div>
       : null }
       
 
