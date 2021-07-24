@@ -68,7 +68,7 @@ function RatingCounter(props) {
   }, [props.total, props.down, props.userVotedPosts, props.id])
   
   return (
-    <div className="arrow-container">
+    <div className="column arrow-container">
       <AiOutlineCaretUp 
           size={20} 
           className={`default-arrow ${trueActive ? "upvoted" : null}`}

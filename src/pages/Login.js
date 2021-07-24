@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import "../styling/containers.css";
-import "../styling/elements.css";
-import "../styling/text.css";
 
 function Login(props) {
 
@@ -32,17 +29,17 @@ function Login(props) {
   return (
     <div className="form-container">
       <div className="center-align content-wrapper">
-        <span className="huge-text">Welcome back!</span>
+        <span className="header-text">Welcome back!</span>
         <span className="subtext">Join the conversation today.</span>
         
         <form className="form">
-          <label className="label" htmlFor="username">Username</label>
-          <input size="40" className="input" type="text" name="username" onChange={handleChange} value={user.username} ></input>
+          <label htmlFor="username">Username</label>
+          <input size="40" type="text" name="username" onChange={handleChange} value={user.username} ></input>
 
-          <label className="label" htmlFor="password">Password</label>
-          <input type="password" className="input" name="password" onChange={handleChange} value={user.password}></input>
+          <label htmlFor="password">Password</label>
+          <input type="password" name="password" onChange={handleChange} value={user.password}></input>
 
-          <button className="btn btn-3" onClick={setUserData}>
+          <button className="btn login-register-btn" onClick={setUserData}>
             Login
           </button>
         </form>

@@ -4,8 +4,6 @@ import Banner from "../components/Banner";
 import Sidebar from "../components/Sidebar";
 import PostPreview from '../components/PostPreview';
 
-import "../styling/containers.css";
-
 function Home(props) {
   return (
     <div style={{height: "100%"}}>

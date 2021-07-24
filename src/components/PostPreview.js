@@ -2,14 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import RatingCounter from "./RatingCounter";
-import "../styling/containers.css";
 
 function PostPreview(props) {
   return (
     <div className="posts-container">
       { props.posts.map((post) => {
         return (
-          <div key={post._id} className="individual-post-container">
+          <div key={post._id} className="bordered-container">
             <RatingCounter 
                 total={post.votes.totalVoteCount}
                 down={post.votes.downvotes.length} 

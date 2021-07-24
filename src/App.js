@@ -13,6 +13,8 @@ import SubmitPost from "./pages/SubmitPost";
 import PostServices from "./services/posts";
 import UserServices from "./services/user.js";
 
+import "./styling/styles.css";
+
 function App() {
   const [posts, setPosts] = useState([]);
   const [user, setUser] = useState();

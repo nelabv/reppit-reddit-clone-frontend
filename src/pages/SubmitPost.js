@@ -2,8 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import PostServices from "../services/posts.js";
 import Success from "../components/Success";
-import "../styling/containers.css";
-import "../styling/elements.css";
 
 function SubmitPost(props) {
   const [status, setStatus] = useState(null);
@@ -60,7 +58,7 @@ function SubmitPost(props) {
       { isAuth ? 
         <div className="form-container">
           <div className="content-wrapper right-align ">
-            <h1>Submit a post</h1>
+            <span className="header-text">Submit a post</span>
             <form className="form" id="create-post-form" onSubmit={submitPost}>
                 <select value={postDocument.flair} name="flair" id="flair" className="dropdown" onChange={handleChange}>
                   <option value="random">random</option>
@@ -72,7 +70,6 @@ function SubmitPost(props) {
                 type="text" 
                 name="title"
                 placeholder="Title"
-                className="input"
                 onChange={handleChange}
                 value={postDocument.title} />
 
@@ -80,7 +77,6 @@ function SubmitPost(props) {
               <textarea 
                 type="text" 
                 name="body" 
-                className="input"
                 onChange={handleChange}
                 value={postDocument.body} />
 

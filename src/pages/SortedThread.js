@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import PostServices from "../services/posts";
 import PostPreview from "../components/PostPreview";
-import "../styling/containers.css";
 
 function SortedThread(props) {
 	const id = useParams();

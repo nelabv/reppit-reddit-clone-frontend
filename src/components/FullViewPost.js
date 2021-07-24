@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "../styling/containers.css";
-import "../styling/elements.css";
 import RatingCounter from "./RatingCounter";
 import CommentForm from "./CommentForm";
 

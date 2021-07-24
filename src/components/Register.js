@@ -39,16 +39,16 @@ function Register(props) {
   return(
     <div className="form-container">
       <div className="center-align content-wrapper">
-        <span className="huge-text">Sign up for free</span>
+        <span className="header-text">Sign up for free</span>
 
         <form className="form">
           <label className="label" >Username</label>
-          <input className="input" type="text" name="username" onChange={handleChange} value={userData.username}></input>
+          <input type="text" name="username" onChange={handleChange} value={userData.username}></input>
 
           <label className="label" >Password</label>
-          <input className="input" type="password" name="password" onChange={handleChange} value={userData.password}></input>
+          <input type="password" name="password" onChange={handleChange} value={userData.password}></input>
 
-          <button className="btn btn-3" onClick={register}>Register</button>
+          <button className="btn login-register-btn" onClick={register}>Register</button>
         </form>
         <span>{requestStatus}</span>
       </div>
