@@ -60,6 +60,7 @@ function SubmitPost(props) {
           <div className="content-wrapper right-align ">
             <span className="header-text">Submit a post</span>
             <form className="form" id="create-post-form" onSubmit={submitPost}>
+            <label>Choose a category:</label>
                 <select value={postDocument.flair} name="flair" id="flair" className="dropdown" onChange={handleChange}>
                   <option value="random">random</option>
                   <option value="nice">nice</option>
@@ -77,6 +78,8 @@ function SubmitPost(props) {
               <textarea 
                 type="text" 
                 name="body" 
+                className="input textarea"
+                placeholder="Text (optional)"
                 onChange={handleChange}
                 value={postDocument.body} />
 

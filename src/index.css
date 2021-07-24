@@ -76,6 +76,17 @@ h1 {
   outline: none;
 }
 
+.form select {
+  width: 150px;
+  border: 1px solid #dedede;
+  border-radius: 3px;
+  margin-bottom: 1em;
+}
+
+.form select:focus {
+  border: 1px solid #df5d2e;
+}
+
 .bold-text {
   font-weight: 600;
   font-size: 0.75em;

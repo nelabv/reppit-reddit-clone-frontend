@@ -233,6 +233,22 @@
   width: 70%;
 }
 
+.textarea {
+  resize: none;
+  height: 20vh;
+  width: 100%;  
+  box-sizing: border-box;  
+  border: 1px solid #dedede;
+  border-radius: 3px;
+  padding: 10px 3px;
+  margin-bottom: 2em;
+}
+
+.textarea:focus {
+  border: 1px solid #df5d2e;
+  outline: none;
+}
+
 /* VIII. Footer */
 
 .footer {
