@@ -41,14 +41,17 @@ function PostFullView(props) {
   }, [fetchData])
 
   return (
-    <>
-      { isAuthSuccessful ? 
-        <FullViewPost 
-            post={post}
-            userVotedPosts={props.userVotedPosts}/> : 
-        <Register />
-      }
-    </>
+    <div style={{backgroundColor: '#f9f9f9'}}>
+
+      <div className="default-width">
+        { isAuthSuccessful ? 
+          <FullViewPost 
+              post={post}
+              userVotedPosts={props.userVotedPosts}/> : 
+          <Register />
+        }
+      </div>
+    </div>
   );
 }
 export default PostFullView;

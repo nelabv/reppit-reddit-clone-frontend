@@ -21,17 +21,19 @@ function SortedThread(props) {
 	})
 
 	return (
-		<div>
-			<div>
-				<h2>{id.category}</h2>
-			</div>
+    <>
+      <div className="banner-container category-banner">
+        <h2 className="thread-tag">r/{id.category}</h2>
+      </div>
 
-			<div className="posts-container">
-				<PostPreview 
-							posts= {filteredPosts} 
-							userVotedPosts={props.userVotedPosts}/>
-			</div>
-		</div>
+      <div className="default-width ">
+        <div className="posts-container">
+          <PostPreview 
+                posts= {filteredPosts} 
+                userVotedPosts={props.userVotedPosts}/>
+        </div>
+      </div>
+    </>
 	);
 }
 

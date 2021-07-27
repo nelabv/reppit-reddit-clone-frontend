@@ -30,16 +30,22 @@ function CommentForm(props) {
   }
 
   return(
-    <div>
-      <form>
-        <label>Comment as 
-            <span> {sessionStorage.getItem("name")}</span>
-        </label>
+    <div style={{borderTop: "1px solid #d9d9d9", marginTop: "1em"}}>
+    
+        <form className="form">
+          <label className="bold-text">
+            Comment as: <span className="user-tag">{sessionStorage.getItem("name")}</span>
+          </label>
 
-        <textarea type="text" name="comment" value={commentBody} onChange={handleChange}></textarea>
+          <textarea 
+              type="text" 
+              name="comment" 
+              value={commentBody} 
+              onChange={handleChange}
+              className="input textarea comment-form"/>
 
-        <input type="submit" value="Submit" onClick={submitComment} />
-      </form>
+          <button className="btn login-register-btn" onClick={submitComment} >Submit</button>
+        </form>
     </div>
   )
 }

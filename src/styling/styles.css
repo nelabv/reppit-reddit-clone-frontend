@@ -7,7 +7,9 @@
 /*    VI.   Login and Signup  */
 /*    VII.  Post Submission */
 /*    VIII. Footer */
-/*    IX.   Homepage Patters */
+/*    IX.   Homepage Patterns */
+/*    X.    Sorted Threads */
+/*    XI.    Full View of Posts */
 
 /*    --- Notes: Standard designs are located in -preset.css files */
 
@@ -320,4 +322,40 @@
   z-index: -2;
 }
 
+/*    X.    Sorted Threads */
 
+.default-width {
+  padding: 3em 15%;
+}
+
+.category-banner {
+  padding: 10vh 15% 5vh 15%;
+}
+
+.thread-tag {
+  font-size: 1.777rem;
+  color: white;
+  margin: 0.75em 0;
+  font-weight: 600;
+}
+
+
+/*    XI.    Full View of Posts */
+
+.full-view-container {
+  margin-right: 0;
+  margin-top: 1em;
+}
+
+/*    XII.    Comment form, and section */
+
+.comment-form {
+  height: 50%;
+  margin-bottom: 0.5em;
+}
+
+.comment-by-user {
+  display: flex;
+  margin-right: 0;
+  flex-direction: column;
+}

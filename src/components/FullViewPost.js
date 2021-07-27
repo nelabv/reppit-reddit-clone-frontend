@@ -10,8 +10,8 @@ function FullViewPost(props) {
       <>
         {props.post.comments.map((post, index) => {
           return (
-            <div key={index}>
-              <span>{post.user}</span>
+            <div className="bordered-container comment-by-user" key={index}>
+              <span className="bold-text">u/{post.user}</span>
               <p>{post.body}</p>
             </div>
           )
@@ -30,8 +30,8 @@ function FullViewPost(props) {
   })
 
   return (
-    <div className="fullview-post">
-      <div className="individual-post-container">
+    <>
+      <div className="bordered-container full-view-container">
           <RatingCounter 
               total={props.post.votes.totalVoteCount} 
               down={props.post.votes.downvotes.length} 
@@ -47,20 +47,24 @@ function FullViewPost(props) {
               <h3 className="post-title">{props.post.title}</h3>
             <p>{props.post.body}</p> 
             
-            <span className="num-of-comments-tag">Comments: {props.post.comments.length}</span> 
+            <span className="num-of-comments-tag">Comments: {props.post.comments.length}</span>
+            
+             
+            <CommentForm
+                username={props.post.author}
+                postID={props.post._id} />
+
+                {
+                  isCommentEmpty
+                  ? fetchComments()
+                  : null
+                }
           </div>
+
+          
       </div>
     
-      <CommentForm
-          username={props.post.author}
-          postID={props.post._id} />
-
-          {
-            isCommentEmpty
-            ? fetchComments()
-            : null
-          }
-    </div>
+          </>
   );
 }
 export default FullViewPost;

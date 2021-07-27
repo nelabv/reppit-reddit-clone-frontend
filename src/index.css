@@ -104,9 +104,9 @@ h1 {
 }
 
 .btn:hover {
-  background-color: white;
-  border: 1px solid #FF595E;
-  color: #FF595E;
+  background-color: #FF7B7F;
+  border: 1px solid #FF7B7F;
+  color: white;
 }
 
 #root {

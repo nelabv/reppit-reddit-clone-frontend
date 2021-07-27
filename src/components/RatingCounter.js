@@ -4,6 +4,7 @@ import { AiOutlineCaretDown } from 'react-icons/ai';
 import PostServices from "../services/posts";
 
 function RatingCounter(props) {
+  console.log(props);
   let [voteCount, setVoteCount] = useState(props.count);
   const [trueActive, setTrueActive] = useState(false);
   const [falseActive, setFalseActive] = useState(false);
@@ -47,24 +48,28 @@ function RatingCounter(props) {
   useEffect(() => {
     calculateUpvotes(props.total, props.down);
     
-    if (sessionStorage.getItem("token")) {
-      let voteArray = props.userVotedPosts;
-      const checkIfPostHasVote = voteArray.filter(object => object.post === props.id);
-
-      if (checkIfPostHasVote.length > 0) {
-        let post = checkIfPostHasVote[0];
-
-        if (post.vote === false) {
-          setFalseActive(true)
-        } else if (post.vote === true) {
-          setTrueActive(true);
+    async function initializeData() {
+      if (sessionStorage.getItem("token")) {
+        let voteArray = props.userVotedPosts;
+        const checkIfPostHasVote = voteArray.filter(object => object.post === props.id);
+  
+        if (checkIfPostHasVote.length > 0) {
+          let post = checkIfPostHasVote[0];
+  
+          if (post.vote === false) {
+            setFalseActive(true)
+          } else if (post.vote === true) {
+            setTrueActive(true);
+          }
+        } else if (checkIfPostHasVote.length === 0) {
+          console.log("No posts found");
         }
-      } else if (checkIfPostHasVote.length === 0) {
-        console.log("No posts found");
+      } else {
+        return
       }
-    } else {
-      return
     }
+
+    initializeData();
   }, [props.total, props.down, props.userVotedPosts, props.id])
   
   return (
