@@ -6,7 +6,7 @@ import PostPreview from '../components/PostPreview';
 
 function Home(props) {
   return (
-    <div style={{height: "100%"}}>
+    <div className= "content-container">
         { props.user 
           ? null 
           : <Banner />

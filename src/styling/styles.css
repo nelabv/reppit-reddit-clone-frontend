@@ -29,6 +29,7 @@
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1;
 }
 
 .navbar-actions {
@@ -47,13 +48,17 @@
 
 /* II. Homepage */
 
+.content-container {
+  height: 100%;
+  width: 100vw;
+}
+
 .banner-container {
   background: rgb(255,89,94);
   background: linear-gradient(90deg, rgba(255,89,94,1) 0%, rgba(255,202,58,1) 100%);
   padding: 25vh 15vw 5vh 15vw;
   position: relative;
   overflow: hidden;
-  z-index: -1;
   max-height: 1000px;
 }
 
@@ -74,11 +79,12 @@
   grid-template-areas: 
     "posts-container sidebar-container";
   margin: 1em auto;
-  padding: 3em 15%;
+  padding: 3em 15vw;
 }
 
 .posts-container { 
   grid-area: posts-container; 
+  width: 100%;
 }
 
 /* III. Sidebar */

@@ -1,16 +1,10 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 
 function Banner(props) {
   return (
     <section className="banner-container">
       <h1>Join a conversation today</h1>
       <span>Some cool subtext here</span>
-
-
-      <Link to="/signup" style={{textDecoration: "none"}}>
-        <button className="btn btn-4">Sign up</button>
-      </Link>
 
       <div className="pattern-container-1"></div>
       <div className="pattern-container-2"></div>
