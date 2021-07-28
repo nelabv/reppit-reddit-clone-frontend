@@ -1,13 +1,13 @@
 import React from 'react';
+import { FooterContainer } from './styles';
 
 import { AiFillGithub } from "react-icons/ai"
 
 
 function Footer() {
-
   return(
-    <div className="footer">
-      <div className="github">
+    <FooterContainer>
+      <div>
         <AiFillGithub 
           size={'1.5em'}
           style={{
@@ -17,7 +17,7 @@ function Footer() {
       </div>
 
       <span>2021</span>
-    </div>
+    </FooterContainer>
   )
 }
 

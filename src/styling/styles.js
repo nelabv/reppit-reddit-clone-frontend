@@ -5,7 +5,8 @@ export const COLORS = {
   yellow: "#FFCA3A",
   borderGray: "#EDEDED",
   lightGray: "#FFF3F4",
-  black : "#252129"
+  black : "#252129",
+  gray: "#9B9B9B"
 }
 
 export const BREAKPOINTS = {
@@ -14,7 +15,7 @@ export const BREAKPOINTS = {
   tablets1 : "min-width: 600px",      /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
   tablets2 : "min-width: 801px",      /* tablet, landscape iPad, lo-res laptops ands desktops */
   desktops : "min-width: 1025px",     /* big landscape tablets, laptops, and desktops */
-  hi_res : "min-width:1281px"          /* hi-res laptops and desktops */ 
+  hi_res : "min-width:1281px"         /* hi-res laptops and desktops */ 
 }
 
 export const BorderedContainer = styled.div`
@@ -30,25 +31,46 @@ export const BorderedContainer = styled.div`
   }
 `;
 
+export const FormContainer = styled.div`
+  background-color: #f3f3f3;
+  position: absolute;
+  top: 3em;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
+
+export const CenterAlign = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  width: 50%;
+  border-radius: 3px;
+  border: 1px solid #d9d9d9;
+  margin-top: 2em;
+  padding: 3em;
+
+  .header-text {
+    color: #df5d2e;
+    font-size: 3.157rem;
+    font-weight: 600;
+  }
+`;
+
 export const Form = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-top: 2em;
+  margin: 2em 0;
 
   label {
-    font-size: 0.75rem;
-  }
-
-  input {
-    border: 1px solid #dedede;
-    border-radius: 3px;
-    padding: 10px 3px;
-  }
-
-  input:focus {
-    border: 1px solid #df5d2e;
-    outline: none;
+    font-weight: 600;
+    font-size: 0.8em;
+    margin-bottom: 0.5em;
   }
 
   select {
@@ -60,6 +82,33 @@ export const Form = styled.form`
 
   select:focus {
     border: 1px solid #df5d2e;
+  }
+
+  button {
+    background-color: #FF595E;
+    color: white;
+    padding: 0.25em 1.5em;
+    outline: 0;
+    border: 1px solid #FF595E;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 10%;
+  
+    &:hover {
+      background-color: #FF7B7F;
+      border: 1px solid #FF7B7F;
+      color: white;
+    }
+  }
+
+  span {
+    color: ${COLORS.redOrange};
+  }
+
+  input {
+    border: 1px solid #dedede;
+    border-radius: 3px;
+    padding: 10px 3px;
   }
 `;
 
@@ -76,5 +125,69 @@ export const Button = styled.button`
     background-color: #FF7B7F;
     border: 1px solid #FF7B7F;
     color: white;
+  }
+`;
+
+export const Input = styled.input`
+  border: 1px solid #dedede;
+  border-radius: 3px;
+  padding: 10px 3px;
+
+  &:focus {
+    border: 1px solid #df5d2e;
+    outline: none;
+  }
+`;
+
+export const Textarea = styled(Input)`
+  resize: none;
+  height: 20vh;
+  width: 100%;  
+  box-sizing: border-box;  
+  border: 1px solid #dedede;
+  border-radius: 3px;
+  padding: 10px 3px;
+  margin-bottom: 2em;
+
+  &:focus {
+    border: 1px solid #df5d2e;
+    outline: none;
+  }
+`;
+
+export const Post = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  .author-category {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .category {
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0;
+      margin: 0;
+      margin-right: 2em;
+      border-bottom: 0;
+    }
+
+    .author {
+      font-size: 0.8rem;
+      color: #7C7C7C;
+    }
+  }
+
+  h3 {
+    text-decoration: none;
+    font-size: 1.333rem;
+    color: black;
+    margin: 0.5rem 0;
+  }
+
+  .comments-length {
+    font-size: 0.8rem;
+    margin: 0.5em 0;
   }
 `;

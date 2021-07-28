@@ -1,36 +1,41 @@
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { 
+  Header,
+  Button } from "./styles";
 import logo from "../../assets/logo.png";
 
 function Navbar(props) {
 
   return (
-    <header className="space-between navbar">
+    <Header>
         <a href="/">
-          <img src={logo} alt="Tok logo 2021" className="logo"></img>
+          <img src={logo} alt="Tok logo 2021"></img>
         </a>
 
-        { props.user ? 
-        <div className="space-between navbar-actions">
-          <div className="navbar-user">
-            <span style={{color: "white"}}>Hello, </span><span className="user-tag">{props.user}</span>
-          </div>
-          <button className="btn nav-btn" onClick={props.logout}>Log out</button> 
-        </div> :
+        { props.user 
+          ?   <div className="actions-signed-in">
+                <div className="user-greet">
+                  <span style={{color: "white"}}>Hello, </span><span className="user-tag">{props.user}</span>
+                </div>
 
-        <nav>
-          <ul className="space-between navbar-actions">
-            <Link to="/login" style={{textDecoration: "none"}}>
-              <li className="clickable-text">Login</li>
-            </Link>
-            <Link to="/signup" style={{textDecoration: "none"}}>
-              <li>
-                <button className="btn nav-btn">Sign up</button>
-              </li>
-            </Link>
-          </ul>
-        </nav>
+                <Button onClick={props.logout}>Log out</Button> 
+              </div>
+
+
+          :   <nav className="actions-no-user">
+                <ul>
+                  <Link to="/login" style={{textDecoration: "none"}}>
+                    <li className="clickable-text">Login</li>
+                  </Link>
+                  <Link to="/signup" style={{textDecoration: "none"}}>
+                    <li>
+                      <Button className="btn nav-btn">Sign up</Button>
+                    </li>
+                  </Link>
+                </ul>
+              </nav>
         }
-    </header>
+    </Header>
   );
 }
 

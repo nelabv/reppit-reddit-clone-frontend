@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import {
+  FormContainer,
+  CenterAlign,
+  Form
+} from "./styles";
 
 function Login(props) {
-
   const [user, setUser] = useState({
     username: '',
     password: ''
@@ -27,24 +31,33 @@ function Login(props) {
   }
 
   return (
-    <div className="form-container">
-      <div className="center-align content-wrapper">
+    <FormContainer>
+      <CenterAlign>
         <span className="header-text">Welcome back!</span>
         <span className="subtext">Join the conversation today.</span>
         
-        <form className="form">
+        <Form>
           <label htmlFor="username">Username</label>
-          <input size="40" type="text" name="username" onChange={handleChange} value={user.username} ></input>
+          <input 
+            size="40" 
+            type="text" 
+            name="username" 
+            onChange={handleChange} 
+            value={user.username} ></input>
 
           <label htmlFor="password">Password</label>
-          <input type="password" name="password" onChange={handleChange} value={user.password}></input>
+          <input 
+            type="password" 
+            name="password"
+            onChange={handleChange} 
+            value={user.password}></input>
 
-          <button className="btn login-register-btn" onClick={setUserData}>
+          <button onClick={setUserData}>
             Login
           </button>
-        </form>
-      </div>
-    </div>
+        </Form>
+      </CenterAlign>
+    </FormContainer>
   )
 }
 

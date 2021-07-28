@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import PostServices from "../../services/posts";
+import { Form } from "../../styling/";
+import { Textarea } from "./styles";
 
 function CommentForm(props) {
   const [commentBody, setCommentBody] = useState('');
@@ -32,20 +34,18 @@ function CommentForm(props) {
   return(
     <div style={{borderTop: "1px solid #d9d9d9", marginTop: "1em"}}>
     
-        <form className="form">
-          <label className="bold-text">
-            Comment as: <span className="user-tag">{sessionStorage.getItem("name")}</span>
-          </label>
+        <Form>
+          <label>Comment as: <span>{sessionStorage.getItem("name")}</span></label>
 
-          <textarea 
+          <Textarea 
               type="text" 
               name="comment" 
               value={commentBody} 
               onChange={handleChange}
-              className="input textarea comment-form"/>
+              placeholder="Text"/>
 
-          <button className="btn login-register-btn" onClick={submitComment} >Submit</button>
-        </form>
+          <button onClick={submitComment} >Submit</button>
+        </Form>
     </div>
   )
 }

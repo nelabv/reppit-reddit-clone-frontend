@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { AiOutlineCaretUp } from 'react-icons/ai';
-import { AiOutlineCaretDown } from 'react-icons/ai';
 import PostServices from "../../services/posts";
+import {
+  Container,
+  UpArrow,
+  DownArrow
+} from "./styles"
 
 function RatingCounter(props) {
   console.log(props);
@@ -73,20 +76,20 @@ function RatingCounter(props) {
   }, [props.total, props.down, props.userVotedPosts, props.id])
   
   return (
-    <div className="column arrow-container">
-      <AiOutlineCaretUp 
+    <Container>
+      <UpArrow 
           size={20} 
-          className={`default-arrow ${trueActive ? "upvoted" : null}`}
+          trueActive={trueActive}
           onClick={upvotePost}
       />
           <p>{voteCount}</p>
-      <AiOutlineCaretDown 
+      <DownArrow 
           size={20} 
-          className={`default-arrow ${falseActive ? "downvoted" : null}`}
+          falseActive={falseActive}
           onClick={downvotePost}
       />
            
-    </div>
+    </Container>
   );
 }
 

@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import PostServices from "../../services/posts";
+import {
+  SidebarContainer,
+  Button,
+  CategoriesBar,
+  Category,
+  CategoryLastRow
+} from "./styles";
 
 function Sidebar(props) {
   const [categories, setCategories] = useState([]);
@@ -25,40 +32,39 @@ function Sidebar(props) {
   }, [])
 
   return (
-    <div className="sidebar-container">
-      { isLoggedIn
-          ? <Link to="/create-post" >
-              <button className="btn sidebar-btn">CREATE A NEW THREAD</button>
-            </Link>
-          : null }
+    <SidebarContainer>
+      <Link to="/create-post" >
+          <Button isLoggedIn={isLoggedIn}>CREATE A NEW THREAD</Button>
+      </Link>
         
       { catgsEmpty ? null :
-        <div className="bordered-container categories">
+        <CategoriesBar>
           <span className="bold-text">CATEGORIES</span>
+
           { 
             categories.map((category, index) => {
               if (index === categories.length - 1) {
                 return (
                   <Link key={index} to={`/categories/${category}`} style={{textDecoration: "none"}}>
-                    <div className="category last-row">
+                    <CategoryLastRow>
                       <span>r/{category}</span>
-                    </div>
+                    </CategoryLastRow>
                   </Link>
                 )
               } else {
                 return (
                   <Link key={index} to={`/categories/${category}`} style={{textDecoration: "none"}}>
-                    <div className="category">
+                    <Category>
                       <span>r/{category}</span>
-                    </div>
+                    </Category>
                   </Link>
               )
               }
           })
           }
-        </div>
+        </CategoriesBar>
       }
-    </div>
+    </SidebarContainer>
   )
 }
 

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar/";
-import Login from "./pages/Login";
+import Login from "./pages/Login/";
 import Register from "./components/Register";
 import Footer from "./components/Footer/";
 import PostFullView from "./pages/PostFullView";

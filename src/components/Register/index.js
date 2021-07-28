@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import UserServices from "../../services/user";
+import {
+  FormContainer,
+  CenterAlign,
+  Form
+} from "./styles";
 
 function Register(props) {
   const [userData, setUserData] = useState({
@@ -37,11 +42,11 @@ function Register(props) {
   }
 
   return(
-    <div className="form-container">
-      <div className="center-align content-wrapper">
+    <FormContainer>
+      <CenterAlign>
         <span className="header-text">Sign up for free</span>
 
-        <form className="form">
+        <Form className="form">
           <label className="label" >Username</label>
           <input type="text" name="username" onChange={handleChange} value={userData.username}></input>
 
@@ -49,10 +54,11 @@ function Register(props) {
           <input type="password" name="password" onChange={handleChange} value={userData.password}></input>
 
           <button className="btn login-register-btn" onClick={register}>Register</button>
-        </form>
+        </Form>
+        
         <span>{requestStatus}</span>
-      </div>
-    </div>
+      </CenterAlign>
+    </FormContainer>
   )
 }
 

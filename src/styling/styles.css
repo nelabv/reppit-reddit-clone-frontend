@@ -21,31 +21,6 @@
   max-height: 30px;
 }
 
-.navbar {
-  height: 3em;
-  padding: 1em 15vw;
-  background-color: #252129;
-  width: 100vw;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
-.navbar-actions {
-  list-style-type: none;
-}
-
-.navbar-user {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-}
-
-.nav-btn {
-  margin-left: 1em;
-}
-
 /* II. Homepage */
 
 .content-container {
@@ -68,23 +43,6 @@
   display: flex;
   flex-direction: column;
   margin-right: 0;
-}
-
-.category {
-  cursor: pointer;
-  padding: 0.5rem 0;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #d9d9d9;
-}
-
-.last-row {
-  border-bottom:none;
-  padding-bottom: 0;
-}
-
-.sidebar-btn {
-  width: 100%;
-  margin-bottom: 1em;
 }
 
 /* IV. Thread */
@@ -113,95 +71,10 @@
   margin: 0 5px;
 }
 
-.body-preview {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 30em;
-}
-
-.category-tag {
-  font-size: 0.8rem;
-  font-weight: 600;
-  margin-right: 2em;
-}
-
-.author-tag {
-  font-size: 0.8rem;
-  color: #7C7C7C;
-}
-
-.post-title {
-  text-decoration: none;
-  font-size: 1.333rem;
-  color: black;
-  margin: 0.5rem 0;
-}
-
-.num-of-comments-tag {
-  font-size: 0.8rem;
-}
 
 /* V. Rating Counter */
 
-.arrow-container {
-  margin-right: 1.5em;
-}
-
-.default-arrow {
-  transition-duration: 0s;
-  cursor: pointer;
-}
-
-
-.upvoted {
-  transition-duration: 0s;
-  color: #63E821;
-}
-
-.downvoted {
-  transition-duration: 0s;
-  color: #C2595C;
-}
-
 /* VI. Login and Signup  */
-
-.form-container { 
-  background-color: #f3f3f3;
-  position: absolute;
-  top: 3em;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.content-wrapper {
-  background-color: white;
-  width: 50%;
-  border-radius: 3px;
-  border: 1px solid #d9d9d9;
-  margin-top: 2em;
-  padding: 3em;
-}
-
-.login-register-btn {
-  margin: 10px 0;
-  width: 20%;
-}
-
-.header-text {
-  color: #df5d2e;
-  font-size: 3.157rem;
-  font-weight: 600;
-}
-
-.subtext {
-  font-size: 1.333rem;
-  color: #aeaeae;
-}
 
 /* VII. Post Submission */
 
@@ -212,47 +85,7 @@
   width: 70%;
 }
 
-.textarea {
-  resize: none;
-  height: 20vh;
-  width: 100%;  
-  box-sizing: border-box;  
-  border: 1px solid #dedede;
-  border-radius: 3px;
-  padding: 10px 3px;
-  margin-bottom: 2em;
-}
-
-.textarea:focus {
-  border: 1px solid #df5d2e;
-  outline: none;
-}
-
 /* VIII. Footer */
-
-.footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1em 15vw;
-  height: 3em;
-  background-color: #252129;
-}
-
-.footer span {
-  color: white;
-}
-
-.github {
-  display: flex;
-  align-items: center;
-}
-
-.github a {
-  text-decoration: none;
-  color: white;
-  margin-left: 0.5em;
-}
 
 /*    X.    Sorted Threads */
 
