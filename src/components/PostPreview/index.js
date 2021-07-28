@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import RatingCounter from "./RatingCounter";
+import RatingCounter from "../RatingCounter/";
 
-function PostPreview(props) {
+export default function PostPreview(props) {
   return (
     <div className="posts-container">
       { props.posts.map((post) => {
@@ -36,5 +36,3 @@ function PostPreview(props) {
     </div>
   );
 }
-
-export default PostPreview;

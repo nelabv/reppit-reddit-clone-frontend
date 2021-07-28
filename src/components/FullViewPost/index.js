@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import RatingCounter from "./RatingCounter";
-import CommentForm from "./CommentForm";
+import RatingCounter from "../RatingCounter/";
+import CommentForm from "../CommentForm/";
 
 function FullViewPost(props) {
   const [isCommentEmpty, setIsCommentEmpty] = useState(false);

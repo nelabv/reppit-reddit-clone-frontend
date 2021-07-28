@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import UserServices from "../services/user";
+import UserServices from "../../services/user";
 
 function Register(props) {
   const [userData, setUserData] = useState({

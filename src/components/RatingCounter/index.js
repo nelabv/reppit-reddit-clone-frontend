@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { AiOutlineCaretUp } from 'react-icons/ai';
 import { AiOutlineCaretDown } from 'react-icons/ai';
-import PostServices from "../services/posts";
+import PostServices from "../../services/posts";
 
 function RatingCounter(props) {
   console.log(props);

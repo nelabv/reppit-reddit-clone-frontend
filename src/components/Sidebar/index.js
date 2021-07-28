@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import PostServices from "../services/posts";
+import PostServices from "../../services/posts";
 
 function Sidebar(props) {
   const [categories, setCategories] = useState([]);

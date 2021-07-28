@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import PostServices from "../services/posts";
-import FullViewPost from "../components/FullViewPost.js";
+import FullViewPost from "../components/FullViewPost";
 import Register from "../components/Register";
 
 function PostFullView(props) {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import PostServices from "../services/posts";
+import PostServices from "../../services/posts";
 
 function CommentForm(props) {
   const [commentBody, setCommentBody] = useState('');
