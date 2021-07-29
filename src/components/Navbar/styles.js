@@ -1,6 +1,27 @@
 import styled from "styled-components";
 import { AiOutlineMenu } from "react-icons/ai";
 import { Button as _Button, COLORS, BREAKPOINTS } from "../../styling/";
+import { AiOutlineCloseCircle } from "react-icons/ai";
+
+export const PopupMenu = styled.div`
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20%;
+  right: 0;
+  height: 100%;
+  background-color: #f9f9f9;
+`;
+
+export const BackgroundPopup = styled(PopupMenu)`
+  left: 0;
+  background-color: rgba(137, 137, 137, 0.2);
+`;
+
+export const CloseMenu = styled(AiOutlineCloseCircle)`
+  color: ${COLORS.redOrange};
+`;
 
 export const Menu = styled(AiOutlineMenu)`
   color: white;
@@ -9,10 +30,9 @@ export const Menu = styled(AiOutlineMenu)`
 
 export const Header = styled.header`
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  height: 3em;
-  padding: 1em 15vw;
+  justify-content: space-between;
+  padding: 0 15%;
   background-color: ${COLORS.black};
   width: 100%;
   position: fixed;
@@ -80,6 +100,25 @@ export const Header = styled.header`
       display: flex;
       align-items: center;
     }
+  }
+
+
+
+  .logo-svg {
+    margin: 0;
+    padding: 0;
+    max-width: 70%;
+    height: auto;
+  }
+
+  a {
+    order: 1;
+    padding: 1em 0 0.5em 0;
+    margin: 0;
+  }
+
+  .actions-container {
+    order: 2;
   }
 `;
 

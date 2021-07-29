@@ -2,7 +2,8 @@ import {
   Form as _Form,
   FormContainer as _Container,
   CenterAlign as _CenterAlign,
-  Textarea as _Textarea
+  Textarea as _Textarea,
+  BREAKPOINTS
 } from "../../styling/";
 import styled from "styled-components";
 
@@ -10,6 +11,7 @@ export const Form = styled(_Form)`
 `;
 
 export const FormContainer = styled(_Container)`
+  
 `;
 
 export const Textarea = styled(_Textarea)`
@@ -22,5 +24,9 @@ export const CenterAlign = styled(_CenterAlign)`
 
   .header-text {
     font-size: 2.333em;
+  }
+
+  @media (${BREAKPOINTS.smartphones2}) {
+    width: 100%;
   }
 `;

@@ -44,7 +44,6 @@ function PostFullView(props) {
   }, [fetchData])
 
   return (
-    <div style={{backgroundColor: '#f9f9f9'}}>
 
       <Container>
         { isAuthSuccessful ? 
@@ -54,7 +53,6 @@ function PostFullView(props) {
           <Register />
         }
       </Container>
-    </div>
   );
 }
 export default PostFullView;
