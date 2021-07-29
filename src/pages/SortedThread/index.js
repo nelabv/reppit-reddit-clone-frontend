@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import PostServices from "../services/posts";
-import PostPreview from "../components/PostPreview";
+import PostServices from "../../services/posts";
+import PostPreview from "../../components/PostPreview";
+import {
+  Banner
+} from "./styles";
 
 function SortedThread(props) {
 	const id = useParams();
@@ -22,12 +25,12 @@ function SortedThread(props) {
 
 	return (
     <>
-      <div className="banner-container category-banner">
+      <Banner>
         <h2 className="thread-tag">r/{id.category}</h2>
-      </div>
+      </Banner>
 
-      <div className="default-width ">
-        <div className="posts-container">
+      <div style={{ padding: "3em 15%", backgroundColor: "white"}}>
+        <div>
           <PostPreview 
                 posts= {filteredPosts} 
                 userVotedPosts={props.userVotedPosts}/>

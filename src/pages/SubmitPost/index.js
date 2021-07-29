@@ -1,10 +1,14 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import PostServices from "../services/posts.js";
-import Success from "../components/Success";
+import PostServices from "../../services/posts";
+import {
+  Form,
+  FormContainer,
+  CenterAlign,
+  Textarea
+} from "./styles";
 
-function SubmitPost(props) {
-  const [status, setStatus] = useState(null);
+function SubmitPost() {
   const [postDocument, setPostDocument] = useState({
     title: '',
     body: '',
@@ -36,7 +40,6 @@ function SubmitPost(props) {
     const APIrequest = await PostServices.submitPost(postDocument, sessionStorage.getItem("token"));
 
     if (APIrequest.request.status === 200) {
-      setStatus(true);
       setPostDocument({
         title: '',
         body: '',
@@ -53,15 +56,13 @@ function SubmitPost(props) {
 
   return (
     <>
-      { status ? <Success/> : null}
-
       { isAuth ? 
-        <div className="form-container">
-          <div className="content-wrapper right-align ">
+          <FormContainer>
+            <CenterAlign>
             <span className="header-text">Submit a post</span>
-            <form className="form" id="create-post-form" onSubmit={submitPost}>
-            <label>Choose a category:</label>
-                <select value={postDocument.flair} name="flair" id="flair" className="dropdown" onChange={handleChange}>
+            <Form onSubmit={submitPost}>
+              <label>Choose a category:</label>
+                <select value={postDocument.flair} name="flair" id="flair" onChange={handleChange}>
                   <option value="random">random</option>
                   <option value="nice">nice</option>
                   <option value="programming">programming</option>
@@ -74,20 +75,17 @@ function SubmitPost(props) {
                 onChange={handleChange}
                 value={postDocument.title} />
 
-              <label>Body</label>
-              <textarea 
+              <Textarea 
                 type="text" 
                 name="body" 
-                className="input textarea"
                 placeholder="Text (optional)"
                 onChange={handleChange}
                 value={postDocument.body} />
 
-              <button className="btn btn-3" type="submit">SUBMIT</button>
-            </form>
-
-          </div>
-        </div>
+              <button type="submit">SUBMIT</button>
+            </Form>
+            </CenterAlign>
+          </FormContainer>
       : null }
       
 

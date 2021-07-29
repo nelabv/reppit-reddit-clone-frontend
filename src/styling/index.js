@@ -8,5 +8,6 @@ export {
   Textarea,
   Post,
   FormContainer,
-  CenterAlign
+  CenterAlign,
+  BannerContainer
 } from "./styles.js";

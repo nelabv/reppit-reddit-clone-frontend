@@ -5,15 +5,13 @@ import Navbar from "./components/Navbar/";
 import Login from "./pages/Login/";
 import Register from "./components/Register";
 import Footer from "./components/Footer/";
-import PostFullView from "./pages/PostFullView";
-import Home from "./pages/Home";
-import SortedThread from "./pages/SortedThread";
-import SubmitPost from "./pages/SubmitPost";
+import PostFullView from "./pages/PostFullView/";
+import Home from "./pages/Home/";
+import SortedThread from "./pages/SortedThread/";
+import SubmitPost from "./pages/SubmitPost/";
 
 import PostServices from "./services/posts";
 import UserServices from "./services/user";
-
-import "./styling/styles.css";
 
 function App() {
   const [posts, setPosts] = useState([]);

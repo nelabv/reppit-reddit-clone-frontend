@@ -25,7 +25,7 @@ function Navbar(props) {
           :   <nav className="actions-no-user">
                 <ul>
                   <Link to="/login" style={{textDecoration: "none"}}>
-                    <li className="clickable-text">Login</li>
+                    <li style={{color: "white"}}>Login</li>
                   </Link>
                   <Link to="/signup" style={{textDecoration: "none"}}>
                     <li>

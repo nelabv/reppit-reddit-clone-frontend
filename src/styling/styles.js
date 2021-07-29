@@ -110,6 +110,11 @@ export const Form = styled.form`
     border-radius: 3px;
     padding: 10px 3px;
   }
+
+  input:focus {
+    border: 1px solid #df5d2e;
+    outline: none;
+  }
 `;
 
 export const Button = styled.button`
@@ -189,5 +194,24 @@ export const Post = styled.div`
   .comments-length {
     font-size: 0.8rem;
     margin: 0.5em 0;
+  }
+`;
+
+export const BannerContainer = styled.div`
+  display: ${props => props.user ? "none" : null};
+  background: rgb(255,89,94);
+  background: linear-gradient(90deg, rgba(255,89,94,1) 0%, rgba(255,202,58,1) 100%);
+  padding: 25vh 15vw 5vh 15vw;
+  position: relative;
+  overflow: hidden;
+  max-height: 1000px;
+
+  h1 {
+    color: white;
+  }
+
+  span {
+    color: white;
+    font-size: 1.333rem;
   }
 `;

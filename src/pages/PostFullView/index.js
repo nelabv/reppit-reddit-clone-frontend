@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
-import PostServices from "../services/posts";
-import FullViewPost from "../components/FullViewPost";
-import Register from "../components/Register";
+import PostServices from "../../services/posts";
+import FullViewPost from "../../components/FullViewPost";
+import Register from "../../components/Register";
+import {
+  Container
+} from "./styles";
 
 function PostFullView(props) {
   const [isAuthSuccessful, setIsAuthSuccessful] = useState(false);
@@ -43,14 +46,14 @@ function PostFullView(props) {
   return (
     <div style={{backgroundColor: '#f9f9f9'}}>
 
-      <div className="default-width">
+      <Container>
         { isAuthSuccessful ? 
           <FullViewPost 
               post={post}
               userVotedPosts={props.userVotedPosts}/> : 
           <Register />
         }
-      </div>
+      </Container>
     </div>
   );
 }

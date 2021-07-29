@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from "styled-components";
 
-import Banner from "../components/Banner/";
-import PostPreview from '../components/PostPreview/';
-import Sidebar from "../components/Sidebar/";
+import Banner from "../../components/Banner";
+import PostPreview from '../../components/PostPreview';
+import Sidebar from "../../components/Sidebar";
 
 const GridContainer = styled.div`
   display: grid; 
