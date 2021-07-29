@@ -12,11 +12,11 @@ export const Container = styled.div`
 export const UpArrow = styled(AiOutlineCaretUp)`
   transition-duration: 0s;
   cursor: pointer;
-  color: ${props => props.trueActive ? "#63E821" : "black" };
+  color: ${props => props.trueactive === "true" ? "#63E821" : "black" };
 `;
 
 export const DownArrow = styled(AiOutlineCaretDown)`
   transition-duration: 0s;
   cursor: pointer;
-  color: ${props => props.falseActive ? "#C2595C" : "black" };
+  color: ${props => props.falseactive === "true" ? "#C2595C" : "black" };
 `;

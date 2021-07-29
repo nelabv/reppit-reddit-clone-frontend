@@ -10,12 +10,12 @@ export const COLORS = {
 }
 
 export const BREAKPOINTS = {
-  smartphones1 : "min-width: 320px",  /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-  smartphones2 : "min-width: 480px",  /* smartphones, Android phones, landscape iPhone */
-  tablets1 : "min-width: 600px",      /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-  tablets2 : "min-width: 801px",      /* tablet, landscape iPad, lo-res laptops ands desktops */
-  desktops : "min-width: 1025px",     /* big landscape tablets, laptops, and desktops */
-  hi_res : "min-width:1281px"         /* hi-res laptops and desktops */ 
+  smartphones1 : "max-width: 320px",  /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+  smartphones2 : "max-width: 480px",  /* smartphones, Android phones, landscape iPhone */
+  tablets1 : "max-width: 600px",      /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+  tablets2 : "max-width: 801px",      /* tablet, landscape iPad, lo-res laptops ands desktops */
+  desktops : "max-width: 1025px",     /* big landscape tablets, laptops, and desktops */
+  hi_res : "max-width:1281px"         /* hi-res laptops and desktops */ 
 }
 
 export const BorderedContainer = styled.div`
@@ -23,7 +23,7 @@ export const BorderedContainer = styled.div`
   border: 1px solid #ededed;
   border-radius: 3px;
   margin-bottom: 1em;
-  padding: 20px;
+  padding: 1.25em;
   background-color: white;
 
  &:hover {
@@ -41,6 +41,11 @@ export const FormContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  height: 100%;
+
+  @media (max-width: 800px) {
+    background-color: white;
+  }
 `;
 
 export const CenterAlign = styled.div`
@@ -54,10 +59,20 @@ export const CenterAlign = styled.div`
   margin-top: 2em;
   padding: 3em;
 
+  @media (max-width: 800px) {
+    margin: 1em 0;
+    padding: 1em;
+    border: none;
+  }
+
   .header-text {
     color: #df5d2e;
     font-size: 3.157rem;
     font-weight: 600;
+  }
+
+  @media (${BREAKPOINTS.tablets2}) {
+    width: 90%;
   }
 `;
 
@@ -92,12 +107,16 @@ export const Form = styled.form`
     border: 1px solid #FF595E;
     border-radius: 3px;
     cursor: pointer;
-    width: 10%;
+    width: 25%;
   
     &:hover {
       background-color: #FF7B7F;
       border: 1px solid #FF7B7F;
       color: white;
+    }
+
+    @media (max-width: 800px) {
+      width: 100%;
     }
   }
 
@@ -168,6 +187,11 @@ export const Post = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
+    
+    @media (${BREAKPOINTS.tablets2}) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
 
     .category {
       font-size: 0.8rem;

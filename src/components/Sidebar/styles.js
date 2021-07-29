@@ -2,16 +2,26 @@ import styled from "styled-components";
 import { 
   Button as _Button,
   BorderedContainer as _BorderedContainer,
+  BREAKPOINTS
 } from "../../styling/";
 
 export const SidebarContainer = styled.div`
+order: 1;
   grid-area: sidebar-container;
+
+  @media (${BREAKPOINTS.smartphones2}) {
+    order: 1;
+  }
 `;
 
 export const Button = styled(_Button)`
   display: ${props => props.isLoggedIn ? null : "none"};
   width: 100%;
   margin-bottom: 1em;
+
+  @media (max-width: 1024px) {
+    margin-top: 1em;
+  }
 `;
 
 export const CategoriesBar = styled(_BorderedContainer)`

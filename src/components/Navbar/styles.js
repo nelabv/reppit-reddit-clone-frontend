@@ -1,5 +1,11 @@
 import styled from "styled-components";
-import { Button as _Button, COLORS } from "../../styling/";
+import { AiOutlineMenu } from "react-icons/ai";
+import { Button as _Button, COLORS, BREAKPOINTS } from "../../styling/";
+
+export const Menu = styled(AiOutlineMenu)`
+  color: white;
+  margin-left: 1em;
+`;
 
 export const Header = styled.header`
   display: flex;
@@ -8,7 +14,7 @@ export const Header = styled.header`
   height: 3em;
   padding: 1em 15vw;
   background-color: ${COLORS.black};
-  width: 100vw;
+  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
@@ -35,6 +41,10 @@ export const Header = styled.header`
         margin: 0 5px;
       }
     }
+
+    @media (${BREAKPOINTS.tablets2}) {
+      display:none
+    }
   }
 
   .actions-no-user {
@@ -48,6 +58,27 @@ export const Header = styled.header`
       flex-direction: row;
       align-items: center;
       list-style-type: none;
+    }
+
+    @media (${BREAKPOINTS.tablets2}) {
+      display:none
+    }
+  }
+
+  .mobile-nav-logged-in {
+    display: none;
+
+    span {
+      margin-right: 0.5em;
+    }
+    .user-tag {
+      color: ${COLORS.redOrange};
+      font-weight: 600;
+    }
+
+    @media (max-width: 800px) {
+      display: flex;
+      align-items: center;
     }
   }
 `;

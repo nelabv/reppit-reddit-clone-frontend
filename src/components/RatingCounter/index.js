@@ -7,7 +7,6 @@ import {
 } from "./styles"
 
 function RatingCounter(props) {
-  console.log(props);
   let [voteCount, setVoteCount] = useState(props.count);
   const [trueActive, setTrueActive] = useState(false);
   const [falseActive, setFalseActive] = useState(false);
@@ -79,14 +78,14 @@ function RatingCounter(props) {
     <Container>
       <UpArrow 
           size={20} 
-          trueActive={trueActive}
           onClick={upvotePost}
+          trueactive={trueActive.toString()}
       />
           <p>{voteCount}</p>
       <DownArrow 
           size={20} 
-          falseActive={falseActive}
           onClick={downvotePost}
+          falseactive={falseActive.toString()}
       />
            
     </Container>

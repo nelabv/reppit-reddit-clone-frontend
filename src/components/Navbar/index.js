@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { 
   Header,
-  Button } from "./styles";
+  Button,
+  Menu
+} from "./styles";
 import logo from "../../assets/logo.png";
 
 function Navbar(props) {
@@ -13,7 +15,9 @@ function Navbar(props) {
         </a>
 
         { props.user 
-          ?   <div className="actions-signed-in">
+          ?   
+            <>
+              <div className="actions-signed-in">
                 <div className="user-greet">
                   <span style={{color: "white"}}>Hello, </span><span className="user-tag">{props.user}</span>
                 </div>
@@ -21,6 +25,12 @@ function Navbar(props) {
                 <Button onClick={props.logout}>Log out</Button> 
               </div>
 
+              <div className="mobile-nav-logged-in">
+                <span className="user-tag">{props.user}</span>
+                <Menu size={25} />
+              </div>
+
+            </>
 
           :   <nav className="actions-no-user">
                 <ul>

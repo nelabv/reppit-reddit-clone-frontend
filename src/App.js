@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Navbar from "./components/Navbar/";
 import Login from "./pages/Login/";
@@ -62,11 +62,12 @@ function App() {
   }, []);
 
   return (
-    <div >
-      <BrowserRouter>
-        <Route 
-            path='/' 
-            render={ props => <Navbar user={user} logout={userLogout}/>} />
+    <BrowserRouter>
+      <Route 
+          path='/' 
+          render={ props => <Navbar user={user} logout={userLogout}/>} />
+          
+      <Switch >
         <Route 
             exact path='/' 
             render={props => <Home posts={posts} user={user} userVotedPosts={userVotedPosts}/>}/>
@@ -89,8 +90,8 @@ function App() {
         <Route 
             exact path='/' 
             component= {Footer}/>
-      </BrowserRouter>
-    </div>
+      </Switch>
+    </BrowserRouter>
 
   );
 }

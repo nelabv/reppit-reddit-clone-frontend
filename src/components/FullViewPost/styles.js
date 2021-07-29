@@ -1,5 +1,9 @@
 import styled from "styled-components";
-import { BorderedContainer, Post as _Post } from "../../styling/";
+import { 
+  BorderedContainer, 
+  Post as _Post,
+  BREAKPOINTS
+} from "../../styling/";
 
 export const PostContainer = styled(BorderedContainer)`
   display: flex;
@@ -23,6 +27,10 @@ export const CommentContainer = styled(BorderedContainer)`
 
   p {
     word-wrap: break-word;
+  }
+
+  @media (${BREAKPOINTS.tablets2}) {
+    width: 100%;
   }
 `;
 

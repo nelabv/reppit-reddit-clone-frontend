@@ -29,7 +29,7 @@ export default function PostPreview(props) {
               <Link to={`/posts/${post._id}`} style={{textDecoration: "none"}}>
                 <h3>{post.title}</h3>
               </Link>
-              <p className="body-preview">{post.body}</p> 
+              <p>{post.body}</p> 
               
               <span className="comments-length">Comments: {post.comments.length}</span> 
             </Post>
