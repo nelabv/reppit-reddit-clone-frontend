@@ -69,7 +69,7 @@ function Navbar(props) {
                 </PopupMenu>
             </BackgroundPopup>
               : null
-          }
+      }
     </>
   );
 }

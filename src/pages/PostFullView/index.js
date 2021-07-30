@@ -44,12 +44,11 @@ function PostFullView(props) {
   }, [fetchData])
 
   return (
-
       <Container>
         { isAuthSuccessful ? 
           <FullViewPost 
               post={post}
-              userVotedPosts={props.userVotedPosts}/> : 
+              userVotedPosts={props?.userVotedPosts}/> : 
           <Register />
         }
       </Container>
