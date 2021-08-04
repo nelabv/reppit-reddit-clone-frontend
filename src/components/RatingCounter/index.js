@@ -81,7 +81,7 @@ function RatingCounter(props) {
           onClick={upvotePost}
           trueactive={trueActive.toString()}
       />
-          <p>{voteCount}</p>
+          <p id="total-score">{voteCount}</p>
       <DownArrow 
           size={20} 
           onClick={downvotePost}

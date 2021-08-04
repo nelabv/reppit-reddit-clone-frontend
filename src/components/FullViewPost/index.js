@@ -38,10 +38,10 @@ function FullViewPost(props) {
     <PostContainer>
       <InformationHolder>
         <RatingCounter 
-            total={props.post.votes.totalVoteCount} 
-            down={props.post.votes.downvotes.length} 
-            id={props.post._id}
-            userVotedPosts={props.userVotedPosts}/> 
+            total={props?.post?.votes?.totalVoteCount} 
+            down={props?.post?.votes?.downvotes?.length} 
+            id={props?.post?._id}
+            userVotedPosts={props?.userVotedPosts}/> 
 
         <Post>
             <div className="author-category">

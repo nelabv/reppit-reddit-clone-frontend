@@ -7,7 +7,7 @@ import {
 } from "./styles";
 
 function SortedThread(props) {
-	const id = useParams();
+  const id = useParams();
 	const [filteredPosts, setFilteredPosts] = useState([]);
 
 	useEffect(() => {
