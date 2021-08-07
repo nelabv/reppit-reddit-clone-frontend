@@ -1,14 +1,12 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             import { useState } from "react";
 import { Link } from "react-router-dom";
 import { 
-  Header,
+  Button,
+  Menu,
+  Container
 } from "./styles";
-import PopupMenuMobile from "../PopupMenuMobile";
-import ActionsSignedIn from "../ActionsSignedIn";
-import ActionsNotSignedIn from "../ActionsNotSignedIn";
-import logo from "../../assets/tidbit.png";
 
-function Navbar(props) {
+function ActionsSignedIn(props) {
   const [isOpen, setIsOpen] = useState(false);
 
   const openMenu = () => {
@@ -16,32 +14,16 @@ function Navbar(props) {
   }
 
   return (
-    <>
-    
-      { isOpen ?
-            <PopupMenuMobile openMenu={openMenu}/>
-              : null
-      }
+    <Container>  
+      <div className="actions">
+        <span style={{color: "white"}}>Hello, </span>
+        <span className="user-welcome">{props.user}</span>
+        <Button onClick={props.logout}>Log out</Button> 
+      </div>
 
-      <Header>
-          <Link to="/">
-            <img src={logo} alt="Tidbit 2021" className="logo-svg"></img>
-          </Link>
-
-
-          <div className="actions-container">
-            { props.user 
-              ? <ActionsSignedIn 
-                  logout={props.logout}
-                  user={props.user}
-                  openMenu={openMenu}/>
-
-              : <ActionsNotSignedIn 
-                  openMenu={openMenu}/> }
-          </div>
-      </Header>
-    </>
+      <Menu size={25} onClick={props.openMenu}/>
+    </Container>
   );
 }
 
-export default Navbar;
+export default ActionsSignedIn;

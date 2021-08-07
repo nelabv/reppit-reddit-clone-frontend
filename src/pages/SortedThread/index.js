@@ -3,7 +3,8 @@ import { useParams } from "react-router-dom";
 import PostServices from "../../services/posts";
 import PostPreview from "../../components/PostPreview";
 import {
-  Banner
+  Banner,
+  Container
 } from "./styles";
 
 function SortedThread(props) {
@@ -29,13 +30,11 @@ function SortedThread(props) {
         <h2 className="thread-tag">r/{id.category}</h2>
       </Banner>
 
-      <div style={{ padding: "3em 15%", backgroundColor: "white"}}>
-        <div>
+      <Container>
           <PostPreview 
                 posts= {filteredPosts} 
                 userVotedPosts={props.userVotedPosts}/>
-        </div>
-      </div>
+      </Container>
     </>
 	);
 }

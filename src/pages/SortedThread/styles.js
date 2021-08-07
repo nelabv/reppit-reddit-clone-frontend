@@ -11,3 +11,13 @@ export const Banner = styled(BannerContainer)`
     font-weight: 600;
   }
 `;
+
+export const Container = styled.div`
+  padding: 3em 15%;
+  background-color: white;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    padding: 3em 5%;
+  }
+`;
