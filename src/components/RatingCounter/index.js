@@ -64,7 +64,7 @@ function RatingCounter(props) {
             setTrueActive(true);
           }
         } else if (checkIfPostHasVote.length === 0) {
-          console.log("No posts found");
+          
         }
       } else {
         return

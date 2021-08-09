@@ -17,13 +17,12 @@ function Sidebar(props) {
   const fetchCategories = async () => {
     const APIcall = await PostServices.getCategories();
     const categories = APIcall.data.categories;
-    console.log(categories);
     setCategories(categories);
     setCatgsEmpty(false);
 
     if (sessionStorage.getItem("token")) {
       setIsLoggedIn(true);
-      console.log("logged in");
+
     }
   }
 

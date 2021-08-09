@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BannerContainer } from "../../styling";
+import { BannerContainer, BREAKPOINTS } from "../../styling";
 
 export const Banner = styled(BannerContainer)`
   padding: 10vh 15% 5vh 15%;
@@ -9,6 +9,11 @@ export const Banner = styled(BannerContainer)`
     color: white;
     margin: 0.75em 0;
     font-weight: 600;
+  }
+
+  @media (${BREAKPOINTS.tablets2}) {
+    padding-left: 5%;
+    padding-right: 5%;
   }
 `;
 

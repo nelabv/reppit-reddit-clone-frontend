@@ -26,7 +26,6 @@ function CommentForm(props) {
 
     PostServices.submitComment(commentDoc, sessionStorage.getItem("token"))
       .then((response) => {
-        console.log(response);
         history.go(0)
       })
   }
