@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PostServices from "../../services/posts";
+import Utilities from "../../services/utils";
 import {
   Container,
   UpArrow,
@@ -21,7 +22,15 @@ function RatingCounter(props) {
         vote: true
       }
       
-      await PostServices.castVote(vote, sessionStorage.getItem("token"));
+      const castVote = await PostServices.castVote(vote, sessionStorage.getItem("token"));
+      let status = await castVote.data.status;
+      console.log(status);
+
+      if (status === "added record" || "change vote") {
+        setVoteCount(prevState => prevState + 1)
+      } if (status === "unvote") {
+        setVoteCount(prevState => prevState - 1)
+      }
     } else {
       console.log("Not logged in");
     }
@@ -36,7 +45,16 @@ function RatingCounter(props) {
         id: props.id,
         vote: false
       }
-      await PostServices.castVote(vote, sessionStorage.getItem("token"));
+
+      const castVote = await PostServices.castVote(vote, sessionStorage.getItem("token"));
+      let status = await castVote.data.status;
+      console.log(status);
+
+      if (status === "added record" || "change vote") {
+        setVoteCount(prevState => prevState - 1)
+      } if (status === "unvote") {
+        setVoteCount(prevState => prevState + 1)
+      }
     } else {
       console.log("Not logged in");
     }
@@ -52,27 +70,22 @@ function RatingCounter(props) {
     
     async function initializeData() {
       if (sessionStorage.getItem("token")) {
-        let voteArray = props.userVotedPosts;
-        const checkIfPostHasVote = voteArray.filter(object => object.post === props.id);
-  
-        if (checkIfPostHasVote.length > 0) {
-          let post = checkIfPostHasVote[0];
-  
-          if (post.vote === false) {
-            setFalseActive(true)
-          } else if (post.vote === true) {
-            setTrueActive(true);
-          }
-        } else if (checkIfPostHasVote.length === 0) {
-          
-        }
+        const vote = await Utilities.initArrowColor(props.id, sessionStorage.getItem("token"));
+
+        if (vote === true) {
+          setTrueActive(true);
+        } else if (vote === false) {
+          setFalseActive(true);
+        } else if (vote === null) {
+          return
+        } 
       } else {
         return
       }
     }
 
     initializeData();
-  }, [props.total, props.down, props.userVotedPosts, props.id])
+  }, [])
   
   return (
     <Container>

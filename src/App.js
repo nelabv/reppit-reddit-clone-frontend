@@ -70,7 +70,7 @@ function App() {
       <Switch >
         <Route 
             exact path='/' 
-            render={props => <Home posts={posts} user={user} userVotedPosts={userVotedPosts}/>}/>
+            render={props => <Home posts={posts} user={user}/>}/>
         <Route 
             exact path='/login' 
             render={props => <Login userLogin={userLogin} />}/>
@@ -82,10 +82,10 @@ function App() {
             render={props => <SubmitPost />}/>
         <Route 
             exact path='/posts/:id' 
-            render={props => <PostFullView userVotedPosts={userVotedPosts} />}/>
+            render={props => <PostFullView/>}/>
         <Route 
             exact path='/categories/:category' 
-            render={props => <SortedThread userVotedPosts={userVotedPosts}/>}/>
+            render={props => <SortedThread/>}/>
             
         <Route 
             exact path='/' 

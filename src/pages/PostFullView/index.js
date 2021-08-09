@@ -47,8 +47,7 @@ function PostFullView(props) {
       <Container>
         { isAuthSuccessful ? 
           <FullViewPost 
-              post={post}
-              userVotedPosts={props?.userVotedPosts}/> : 
+              post={post}/> : 
           <Register />
         }
       </Container>
