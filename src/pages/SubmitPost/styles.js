@@ -26,7 +26,7 @@ export const CenterAlign = styled(_CenterAlign)`
     font-size: 2.333em;
   }
 
-  @media (${BREAKPOINTS.smartphones2}) {
-    width: 100%;
+  @media (${BREAKPOINTS.tablets2}) {
+    width: 90%;
   }
 `;

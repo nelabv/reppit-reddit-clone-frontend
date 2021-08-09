@@ -2,32 +2,33 @@ import styled from 'styled-components';
 import { 
   BannerContainer as _Container,
   Button as _Button,
-  COLORS
+  COLORS,
+  BREAKPOINTS
 } from "../../styling/";
 
 export const BannerContainer = styled(_Container)`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
   .header-text {
-    @media (max-width: 800px) {
+    @media (${BREAKPOINTS.tablets2}) {
       margin-bottom: 1em;
     }
   }
 
-  .button-container {
-    display: none;
-
-    @media (max-width: 800px) {
-      display: flex;
-      align-items: center;
-    }
+  @media (${BREAKPOINTS.tablets2}) {
+    padding: 10em 5% 2em 5%;
   }
 `;
 
 export const SigninBtn = styled(_Button)`
-`;
+  background-color: ${COLORS.black};
+  border: 1px solid ${COLORS.black};
+  padding: 1em 3em;
 
-export const LoginBtn = styled(_Button)`
-  background-color: white;
-  color: ${COLORS.redOrange};
-  border: 1px solid ${COLORS.redOrange};
-  margin-right: 1em;
+  &:hover {
+    background-color: ${COLORS.muteBlack};
+    border: 1px solid ${COLORS.muteBlack};
+  }
 `;

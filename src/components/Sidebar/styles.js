@@ -19,8 +19,13 @@ export const Button = styled(_Button)`
   width: 100%;
   margin-bottom: 1em;
 
-  @media (max-width: 1024px) {
+  @media (${BREAKPOINTS.desktops}) {
     margin-top: 1em;
+  }
+
+  @media (${BREAKPOINTS.tablets2}) {
+    margin-top: 0;
+    padding: 1em 0;
   }
 `;
 

@@ -19,8 +19,8 @@ export const GridContainer = styled.div`
     margin: 0;
   }
 
-  @media (${BREAKPOINTS.smartphones2}) {
-    padding: 4em 1em 0 1em;
+  @media (${BREAKPOINTS.tablets2}) {
+    padding: 3em 5%;
   }
 `;
 
@@ -32,9 +32,5 @@ export const HomeContainer = styled.div`
   @media (${BREAKPOINTS.tablets2}) {
     flex-direction: column;
     padding-top: 3em;
-  }
-
-  @media (${BREAKPOINTS.smartphones2}) {
-    padding: 0;
   }
 `;

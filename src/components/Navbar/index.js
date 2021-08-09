@@ -17,11 +17,11 @@ function Navbar(props) {
 
   return (
     <>
-    
-      { isOpen ?
-            <PopupMenuMobile openMenu={openMenu}/>
-              : null
-      }
+      { isOpen 
+          ? <PopupMenuMobile 
+              openMenu={openMenu} 
+              logout={props.logout}/> 
+          : null }
 
       <Header>
           <Link to="/">

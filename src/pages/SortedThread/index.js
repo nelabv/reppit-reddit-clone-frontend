@@ -10,19 +10,18 @@ import {
 function SortedThread(props) {
   const id = useParams();
 	const [filteredPosts, setFilteredPosts] = useState([]);
+  const retrieveData = async () => {
+    if (sessionStorage.getItem("token")) {
+      const result = await PostServices.getPostsByCategory(id.category);
+      setFilteredPosts(result.data.contents);
+    } else {
+      window.location = "/signup";
+    }
+  }
 
 	useEffect(() => {
-    async function retrieveData() {
-      if (sessionStorage.getItem("token")) {
-        const result = await PostServices.getPostsByCategory(id.category);
-        setFilteredPosts(result.data.contents);
-      } else {
-        window.location = "/signup";
-      }
-    }
-
     retrieveData();
-	});
+	}, []);
 
 	return (
     <>

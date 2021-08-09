@@ -6,7 +6,8 @@ export const COLORS = {
   borderGray: "#EDEDED",
   lightGray: "#FFF3F4",
   black : "#252129",
-  gray: "#9B9B9B"
+  gray: "#9B9B9B",
+  muteBlack: "#505050"
 }
 
 export const BREAKPOINTS = {
@@ -43,7 +44,7 @@ export const FormContainer = styled.div`
   flex-direction: column;
   height: 100%;
 
-  @media (max-width: 800px) {
+  @media (${BREAKPOINTS.tablets2}) {
     background-color: white;
   }
 `;
@@ -51,7 +52,7 @@ export const FormContainer = styled.div`
 export const CenterAlign = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   background-color: white;
   width: 50%;
   border-radius: 3px;
@@ -59,9 +60,9 @@ export const CenterAlign = styled.div`
   margin-top: 2em;
   padding: 3em;
 
-  @media (max-width: 800px) {
+  @media (${BREAKPOINTS.tablets2}) {
     margin: 1em 0;
-    padding: 1em;
+    padding: 0;
     border: none;
   }
 
