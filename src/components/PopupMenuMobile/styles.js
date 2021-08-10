@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { COLORS, BREAKPOINTS, Button as _Button } from "../../styling/";
-import { AiOutlineCloseCircle, AiOutlineUser } from "react-icons/ai";
+import { COLORS, Button as _Button } from "../../styling/";
+import { AiOutlineUser } from "react-icons/ai";
 
 export const PopupMenu = styled.div`
   z-index: 2;
@@ -51,10 +51,6 @@ export const Background = styled.div`
   left: 0;
   right: 0;
   z-index: 2;
-`;
-
-export const CloseMenu = styled(AiOutlineCloseCircle)`
-  color: ${COLORS.redOrange};
 `;
 
 export const User = styled(AiOutlineUser)`

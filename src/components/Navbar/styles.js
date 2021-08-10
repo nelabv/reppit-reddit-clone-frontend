@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Button as _Button, COLORS, BREAKPOINTS } from "../../styling/";
-import { AiOutlineCloseCircle } from "react-icons/ai";
 
 export const PopupMenu = styled.div`
   z-index: 2;
@@ -55,3 +54,5 @@ export const Header = styled.header`
     padding: 0 5%;
   }
 `;
+
+export const Button = styled(_Button)``;

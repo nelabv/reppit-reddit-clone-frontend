@@ -16,7 +16,6 @@ import UserServices from "./services/user";
 function App() {
   const [posts, setPosts] = useState([]);
   const [user, setUser] = useState();
-  const [userVotedPosts, setUserVotedPosts] = useState([]);
 
   const fetchPosts = async () => {
     const APIrequest = await PostServices.getAllPosts();
@@ -27,9 +26,6 @@ function App() {
   const checkForExistingData = async () => {
     if (sessionStorage.getItem("token") !== null && sessionStorage.getItem("name") !== null) {
       setUser(sessionStorage.getItem("name"));
-      
-      const userInformation = await UserServices.fetchUserInformation(sessionStorage.getItem("token"));
-      setUserVotedPosts(userInformation.data[0].votes);
     }
   }
 

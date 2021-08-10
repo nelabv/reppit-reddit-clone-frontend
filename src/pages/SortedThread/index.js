@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import PostServices from "../../services/posts";
 import Utilities from "../../services/utils";
@@ -13,7 +13,7 @@ function SortedThread(props) {
 	const [filteredPosts, setFilteredPosts] = useState([]);
   const [voteArray, setVoteArray] = useState([]);
 
-  const retrieveData = async () => {
+  const retrieveData = useCallback(async () => {
     if (sessionStorage.getItem("token")) {
       const result = await PostServices.getPostsByCategory(id.category);
       setFilteredPosts(result.data.contents);
@@ -23,11 +23,11 @@ function SortedThread(props) {
     } else {
       window.location = "/signup";
     }
-  }
+  }, [id.category])
 
 	useEffect(() => {
     retrieveData();
-	}, []);
+	});
 
 	return (
     <>

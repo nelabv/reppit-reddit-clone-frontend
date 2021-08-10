@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {
   Nav,
-  Menu
+  Menu,
+  Button
 } from "./styles"
 
 export default function ActionsNotSignedIn(props) {
@@ -21,7 +22,7 @@ export default function ActionsNotSignedIn(props) {
           return (
             <Link to={action.link} style={{textDecoration: "none"}} key={index}>
               <li>
-                <button>{action.name}</button>
+                <Button>{action.name}</Button>
               </li>
             </Link>
           )

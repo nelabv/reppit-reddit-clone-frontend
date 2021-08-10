@@ -85,7 +85,7 @@ function RatingCounter(props) {
     }
 
     initializeData();
-  }, [])
+  }, [props.down, props.id, props.total])
   
   return (
     <Container>
