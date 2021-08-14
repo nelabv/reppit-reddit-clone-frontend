@@ -16,11 +16,14 @@ import UserServices from "./services/user";
 function App() {
   const [posts, setPosts] = useState([]);
   const [user, setUser] = useState();
+  const [loading, setLoading] = useState(false);
 
   const fetchPosts = async () => {
+    setLoading(true);
     const APIrequest = await PostServices.getAllPosts();
     const allPosts = APIrequest.data.contents;
     setPosts(allPosts);
+    setLoading(false);
   }
 
   const checkForExistingData = async () => {
@@ -66,7 +69,7 @@ function App() {
       <Switch >
         <Route 
             exact path='/' 
-            render={props => <Home posts={posts} user={user}/>}/>
+            render={props => <Home posts={posts} user={user} loading={loading}/>}/>
         <Route 
             exact path='/login' 
             render={props => <Login userLogin={userLogin} />}/>
@@ -78,7 +81,7 @@ function App() {
             render={props => <SubmitPost />}/>
         <Route 
             exact path='/posts/:id' 
-            render={props => <PostFullView/>}/>
+            render={props => <PostFullView loading={loading} setLoading={setLoading}/>}/>
         <Route 
             exact path='/categories/:category' 
             render={props => <SortedThread/>}/>

@@ -8,12 +8,21 @@ import {
   Post } from "./styles";
 
 function FullViewPost(props) {
-  const [isCommentEmpty, setIsCommentEmpty] = useState(false);
+  const [isCommentEmpty, setIsCommentEmpty] = useState(true);
+  const { _id, 
+    author, 
+    body, 
+    category, 
+    comments, 
+    // datePosted, 
+    title,
+    votes } = props.post;
+
 
   const fetchComments = () => {
     return (
       <>
-        {props.post.comments.map((post, index) => {
+        { comments.map((post, index) => {
           return (
             <CommentContainer key={index}>
               <span className="bold-text">u/{post.user}</span>
@@ -25,48 +34,43 @@ function FullViewPost(props) {
     );
   }
 
-  const mapComments = () => {
-    if (props.post.comments.length > 0) {
+  useEffect(() => {
+    if (comments.length > 0) {
+      setIsCommentEmpty(false);
+    } else if (comments.length === 0) {
       setIsCommentEmpty(true);
     }
-  }
-  useEffect(() => {
-    mapComments();
-  })
+  }, [comments.length]);
 
   return (
     <PostContainer>
       <InformationHolder>
         <RatingCounter 
-            total={props?.post?.votes?.totalVoteCount} 
-            down={props?.post?.votes?.downvotes?.length} 
-            id={props?.post?._id}/> 
+            total={votes?.totalVoteCount} 
+            down={votes?.downvotes?.length} 
+            id={_id}/> 
 
         <Post>
             <div className="author-category">
-              <span className="category">r/{props.post.category}</span> 
-              <span className="author">Posted by u/{props.post.author}</span> 
+              <span className="category">r/{category}</span> 
+              <span className="author">Posted by u/{author}</span> 
             </div>
 
-            <h3>{props.post.title}</h3>
-            <p>{props.post.body}</p> 
+            <h3>{title}</h3>
+            <p>{body}</p> 
             
-            <span className="comments-length">Comments: {props.post.comments.length}</span>
+            <span className="comments-length">Comments: {comments.length}</span>
         </Post>
       </InformationHolder>
 
         <div>
           <CommentForm
-              username={props.post.author}
-              postID={props.post._id} />
+              username={author}
+              postID={_id} />
 
-              {
-                isCommentEmpty
-                ? fetchComments()
-                : null
-              }
+          { isCommentEmpty ? null : fetchComments() }
         </div>
-    </PostContainer>
+    </PostContainer> 
   );
 }
 export default FullViewPost;
