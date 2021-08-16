@@ -15,7 +15,7 @@ order: 1;
 `;
 
 export const Button = styled(_Button)`
-  display: ${props => props.isLoggedIn ? null : "none"};
+  display: ${props => props.auth ? null : "none"};
   width: 100%;
   margin-bottom: 1em;
 
