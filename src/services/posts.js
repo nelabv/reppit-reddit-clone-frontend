@@ -18,8 +18,8 @@ class PostServices {
     return http.get("/categories");
   }
 
-  getPostByID(id, token) {
-    return http.get(`/${id}`, { headers: {"Authorization" : `Bearer ${token}`} })
+  getPostByID(id) {
+    return http.get(`/${id}`)
   }
   
   submitPost(post, token) {
