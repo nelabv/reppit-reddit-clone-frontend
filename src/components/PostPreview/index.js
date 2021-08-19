@@ -10,15 +10,13 @@ import {
 export default function PostPreview(props) {
   return (
     <div className="posts-container">
-      { props.posts.map((post) => {
-
+      { props?.posts?.map((post) => {
         return (
           <BorderedContainer key={post._id}>
             <RatingCounter 
                 total={post.votes.totalVoteCount}
                 down={post.votes.downvotes.length} 
-                id={post._id}
-            /> 
+                id={post._id} /> 
 
             <Post>
               <div className="author-category">
@@ -36,7 +34,6 @@ export default function PostPreview(props) {
           </BorderedContainer>
         )
       })}
-
     </div>
   );
 }

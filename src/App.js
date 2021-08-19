@@ -84,7 +84,7 @@ function App() {
             render={props => <PostFullView loading={loading} setLoading={setLoading}/>}/>
         <Route 
             exact path='/categories/:category' 
-            render={props => <SortedThread/>}/>
+            render={props => <SortedThread loading={loading} setLoading={setLoading} />}/>
             
         <Route 
             exact path='/' 

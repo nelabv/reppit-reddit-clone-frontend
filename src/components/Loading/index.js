@@ -5,11 +5,13 @@ import {
 } from "./styles";
 
 export default function Loading(props) {
+  const {loadingMessage} = props;
+  
   return (
     <LoadingContainer>
       <div className="content-wrapper">
         <HourglassIcon size={50} />
-        <span>{props.loadingMessage}</span>
+        <span>{loadingMessage}</span>
       </div>
     </LoadingContainer>
   )

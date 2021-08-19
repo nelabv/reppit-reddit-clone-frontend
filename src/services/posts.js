@@ -1,6 +1,10 @@
 import http from "../http";
 
 class PostServices {
+  getPostByID(id, token) {
+    return http.get(`/${id}`, { headers: {"Authorization" : `Bearer ${token}`} })
+  }
+  
   getAllPosts(filters) {
     return http.get("/", filters);
   }
@@ -16,10 +20,6 @@ class PostServices {
 
   getCategories() {
     return http.get("/categories");
-  }
-
-  getPostByID(id) {
-    return http.get(`/${id}`)
   }
   
   submitPost(post, token) {

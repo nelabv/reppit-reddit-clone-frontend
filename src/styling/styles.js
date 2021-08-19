@@ -4,7 +4,7 @@ export const COLORS = {
   redOrange: "#FF595E",
   yellow: "#FFCA3A",
   borderGray: "#EDEDED",
-  lightGray: "#FFF3F4",
+  lightGray: "#F5F5F5",
   black : "#252129",
   gray: "#9B9B9B",
   muteBlack: "#505050"

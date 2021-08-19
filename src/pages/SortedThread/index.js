@@ -1,8 +1,9 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import PostServices from "../../services/posts";
 import Utilities from "../../services/utils";
 import PostPreview from "../../components/PostPreview";
+import Loading from "../../components/Loading";
 import {
   Banner,
   Container
@@ -10,36 +11,42 @@ import {
 
 function SortedThread(props) {
   const id = useParams();
+  const { loading, setLoading } = props;
 	const [filteredPosts, setFilteredPosts] = useState([]);
   const [voteArray, setVoteArray] = useState([]);
 
-  const retrieveData = useCallback(async () => {
-    if (sessionStorage.getItem("token")) {
-      const result = await PostServices.getPostsByCategory(id.category);
-      setFilteredPosts(result.data.contents);
-
-      const data = await Utilities.fetchVoteArray(sessionStorage.getItem("token"));
-      setVoteArray(data.data[0].votes);
-    } else {
-      window.location = "/signup";
-    }
-  }, [id.category])
-
 	useEffect(() => {
-    retrieveData();
-	});
+    setLoading(true);
+      if (sessionStorage.getItem("token")) {
+        PostServices.getPostsByCategory(id.category)
+          .then((res) => {
+            setFilteredPosts(res.data.contents);
+          })
+
+        Utilities.fetchVoteArray(sessionStorage.getItem("token"))
+          .then((res) => {
+            setVoteArray(res.data[0].votes);
+          })
+      } else {
+        window.location = "/signup";
+      }
+    setLoading(false);
+	}, [id.category, setLoading]);
 
 	return (
     <>
-      <Banner>
-        <h2 className="thread-tag">r/{id.category}</h2>
-      </Banner>
+      { loading 
+          ? <Loading /> 
+          : <>
+            <Banner>
+              <h2 className="thread-tag">r/{id.category}</h2>
+            </Banner>
 
-      <Container>
-          <PostPreview 
-                posts={filteredPosts} 
-                voteArray={voteArray}/>
-      </Container>
+            <Container>
+              <PostPreview 
+                    posts={filteredPosts} 
+                    voteArray={voteArray}/>
+            </Container> </> }
     </>
 	);
 }
