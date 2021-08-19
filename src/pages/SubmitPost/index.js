@@ -17,16 +17,6 @@ function SubmitPost() {
   });
   const [isAuth, setIsAuth] = useState(false);
 
-  const checkAuth = () => {
-    const authenticated = sessionStorage.getItem("auth");
-
-    if (authenticated) {
-      setIsAuth(true);
-    } else {
-      window.location = "/signup";
-    }
-  }
-
   const handleChange = (e) => {
     e.preventDefault();
     const newObject = { ...postDocument,
@@ -51,7 +41,11 @@ function SubmitPost() {
   }
 
   useEffect(() => {
-    checkAuth();
+    if (sessionStorage.getItem("token")) {
+      setIsAuth(true);
+    } else {
+      window.location = "/signup";
+    }
   }, [])
 
   return (
@@ -75,12 +69,7 @@ function SubmitPost() {
                 onChange={handleChange}
                 value={postDocument.title} />
 
-              <Textarea 
-                type="text" 
-                name="body" 
-                placeholder="Text (optional)"
-                onChange={handleChange}
-                value={postDocument.body} />
+              <Textarea type="text" name="body" placeholder="Text (optional)" onChange={handleChange} value={postDocument.body}></Textarea>
 
               <button type="submit">SUBMIT</button>
             </Form>

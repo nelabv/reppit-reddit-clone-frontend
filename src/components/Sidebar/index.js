@@ -38,7 +38,10 @@ function Sidebar(props) {
 
   return (
     <SidebarContainer>
+      <Link to="/create-post">
         <Button auth={auth}>CREATE A NEW THREAD</Button>
+      </Link>
+      
       <CategoriesBar>
         
         <span className="bold-text">CATEGORIES</span>

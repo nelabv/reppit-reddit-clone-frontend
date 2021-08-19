@@ -17,18 +17,18 @@ function SortedThread(props) {
 
 	useEffect(() => {
     setLoading(true);
-      if (sessionStorage.getItem("token")) {
+      if (!sessionStorage.getItem("token")) {
+        window.location = "/signup";
+      } else {
         PostServices.getPostsByCategory(id.category)
-          .then((res) => {
-            setFilteredPosts(res.data.contents);
-          })
+        .then((res) => {
+          setFilteredPosts(res.data.contents);
+        })
 
         Utilities.fetchVoteArray(sessionStorage.getItem("token"))
           .then((res) => {
             setVoteArray(res.data[0].votes);
           })
-      } else {
-        window.location = "/signup";
       }
     setLoading(false);
 	}, [id.category, setLoading]);
@@ -36,7 +36,7 @@ function SortedThread(props) {
 	return (
     <>
       { loading 
-          ? <Loading /> 
+          ? <Loading loadingMessage="Loading" /> 
           : <>
             <Banner>
               <h2 className="thread-tag">r/{id.category}</h2>

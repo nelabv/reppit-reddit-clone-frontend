@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   FormContainer,
   CenterAlign,
@@ -29,6 +29,12 @@ function Login(props) {
 
     props.userLogin(userDocument);
   }
+
+  useEffect(() => {
+    if (sessionStorage.getItem("token")) {
+      window.location = "/";
+    }
+  }, [])
 
   return (
     <FormContainer>

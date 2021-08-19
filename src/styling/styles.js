@@ -151,6 +151,15 @@ export const Button = styled.button`
     border: 1px solid #FF7B7F;
     color: white;
   }
+
+  @media (${BREAKPOINTS.desktops}) {
+    margin-top: 1em;
+  }
+
+  @media (${BREAKPOINTS.tablets2}) {
+    margin-top: 0;
+    padding: 1em 0;
+  }
 `;
 
 export const Input = styled.input`
@@ -164,11 +173,9 @@ export const Input = styled.input`
   }
 `;
 
-export const Textarea = styled(Input)`
+export const Textarea = styled.textarea`
+  height: 20em;
   resize: none;
-  height: 20vh;
-  width: 100%;  
-  box-sizing: border-box;  
   border: 1px solid #dedede;
   border-radius: 3px;
   padding: 10px 3px;

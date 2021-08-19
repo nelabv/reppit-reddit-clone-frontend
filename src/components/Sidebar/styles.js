@@ -18,15 +18,6 @@ export const Button = styled(_Button)`
   display: ${props => props.auth ? null : "none"};
   width: 100%;
   margin-bottom: 1em;
-
-  @media (${BREAKPOINTS.desktops}) {
-    margin-top: 1em;
-  }
-
-  @media (${BREAKPOINTS.tablets2}) {
-    margin-top: 0;
-    padding: 1em 0;
-  }
 `;
 
 export const CategoriesBar = styled(_BorderedContainer)`
