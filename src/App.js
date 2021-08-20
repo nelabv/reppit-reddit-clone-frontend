@@ -9,6 +9,7 @@ import PostFullView from "./pages/PostFullView/";
 import Home from "./pages/Home/";
 import SortedThread from "./pages/SortedThread/";
 import SubmitPost from "./pages/SubmitPost/";
+import About from "./pages/About/";
 
 import PostServices from "./services/posts";
 import UserServices from "./services/user";
@@ -89,6 +90,10 @@ function App() {
         <Route 
             exact path='/' 
             component= {Footer}/>
+
+        <Route 
+            exact path='/about' 
+            component= {About}/>
       </Switch>
     </BrowserRouter>
 
