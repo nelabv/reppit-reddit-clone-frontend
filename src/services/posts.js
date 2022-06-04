@@ -1,37 +1,44 @@
 import http from "../http";
 
 class PostServices {
-  getPostByID(id, token) {
-    return http.get(`/${id}`, { headers: {"Authorization" : `Bearer ${token}`} })
-  }
-  
-  getAllPosts(filters) {
-    return http.get("/", filters);
-  }
-
-  getPostsByCategory(category) {
-    return http.get(
-      "/", 
-      { params: {
-        category: `${category}`
-      }}
-    );
+  getPosts(filter) {
+    if (filter) {
+      return http.get(`/posts?category=${filter}`);
+    } else if (!filter) {
+      return http.get("/posts");
+    }
   }
 
-  getCategories() {
-    return http.get("/categories");
-  }
-  
-  submitPost(post, token) {
-    return http.post("/posts", post, { headers: {"Authorization" : `Bearer ${token}`} });
+  createPost(post, token) {
+    return http.post("/posts", post, {
+       headers: {"Authorization" : `Bearer ${token}`}
+    });
   }
 
-  castVote(voteDocument, token) {
-    return http.put("/posts", voteDocument, { headers: {"Authorization" : `Bearer ${token}`} })
+  castVote(vote, token) {
+    return http.put("/posts", vote, { 
+      headers: {"Authorization" : `Bearer ${token}`}
+    })
   }
 
-  submitComment(commentDocument, token) {
-    return http.put(`/comment/${commentDocument.postID}`, commentDocument, { headers: {"Authorization" : `Bearer ${token}`}})
+  getPostById(id, token) {
+    return http.get(`/posts/${id}`, { headers: {"Authorization" : `Bearer ${token}`} })
+  }
+
+  deletePost(id, token) {
+    return http.delete(`/posts/${id}`, { 
+      headers: { "Authorization" : `Bearer ${token}`}
+    })
+  }
+
+  addComment(commentBody, token) {
+    return http.put(`/posts/comment/${commentBody.id}`, { 
+      headers: { "Authorization" : `Bearer ${token}`}
+    })
+  }
+
+  fetchAllPostCategories() {
+    return http.get("/posts/categories")
   }
 };
 
