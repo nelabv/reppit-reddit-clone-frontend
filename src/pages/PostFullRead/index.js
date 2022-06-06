@@ -13,20 +13,15 @@ export default function PostFullRead(props) {
   let history = useHistory();
 
   useEffect(() => {
-/*     if (!sessionStorage.getItem("token")) {
+    if (!sessionStorage.getItem("token")) {
         history.push("/login")
     } else {
-        PostServices.getPostById(id, sessionStorage.getItem("token"))
-            .then(response => {
-              console.log(response)
-            })
-    } */
-    PostServices.getPostById(id, sessionStorage.getItem("token"))
-        .then(response => {
-          setPost(response.data.retrievedPost[0]);
-          setIsLoading(false)
-        })
-  }, [id]);
+      PostServices.getPostById(id, sessionStorage.getItem("token"))
+      .then(response => {
+        setPost(response.data.retrievedPost[0]);
+        setIsLoading(false)
+      }) 
+    }}, [id, history]);
 
   return ( 
     <> 
