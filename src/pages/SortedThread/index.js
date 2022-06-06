@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import PostServices from "../../services/posts";
 import Utilities from "../../services/utils";
-import PostPreview from "../../components/PostPreview";
+import PostPreview from "../../components/AllPosts";
 import Loading from "../../components/Loading";
 import {
   Banner,

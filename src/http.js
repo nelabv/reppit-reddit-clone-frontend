@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "https://tidbit-beta.herokuapp.com/api/v1/redditclone",
+  baseURL: "http://localhost:8080/api",
   headers: {
     "Content-type": "application/json"
   }

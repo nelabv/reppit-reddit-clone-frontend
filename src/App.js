@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import Navbar from "./components/Navbar/";
+import LandingPage from "./pages/LandingPage";
+import PostFullRead from "./pages/PostFullRead";
 import Login from "./pages/Login/";
+
+import Navbar from "./components/Navbar/";
 import Register from "./components/Register";
 import Footer from "./components/Footer/";
-import PostFullView from "./pages/PostFullView/";
-import Home from "./pages/Home/";
 import SortedThread from "./pages/SortedThread/";
 import SubmitPost from "./pages/SubmitPost/";
 import About from "./pages/About/";
@@ -15,7 +16,7 @@ import PostServices from "./services/posts";
 import UserServices from "./services/user";
 
 function App() {
-  const [posts, setPosts] = useState([]);
+/*   const [posts, setPosts] = useState([]);
   const [user, setUser] = useState();
   const [loading, setLoading] = useState(false);
 
@@ -59,10 +60,17 @@ function App() {
   useEffect(() => {
     fetchPosts();
     checkForExistingData();
-  }, []);
+  }, []); */
 
   return (
     <BrowserRouter>
+      <Switch>
+          <Route exact path="/" component={LandingPage}/>
+          <Route path="/posts/:id" component={PostFullRead} />
+          <Route path='/login' component={Login}/>
+      </Switch>
+    </BrowserRouter>
+/*     <BrowserRouter>
       <Route 
           path='/' 
           render={ props => <Navbar user={user} logout={userLogout}/>} />
@@ -95,8 +103,7 @@ function App() {
             exact path='/about' 
             component= {About}/>
       </Switch>
-    </BrowserRouter>
-
+    </BrowserRouter> */
   );
 }
 

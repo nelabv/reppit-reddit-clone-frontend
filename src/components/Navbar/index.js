@@ -9,6 +9,8 @@ import ActionsNotSignedIn from "../ActionsNotSignedIn";
 import logo from "../../assets/tidbit.png";
 
 function Navbar(props) {
+  const { isNavTransparent } = props;
+  
   const [isOpen, setIsOpen] = useState(false);
 
   const openMenu = () => {

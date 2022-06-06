@@ -1,7 +1,8 @@
 import React from 'react';
+import Navbar from '../../components/Navbar';
 
 import Banner from "../../components/Banner";
-import PostPreview from '../../components/PostPreview';
+import AllPosts from '../../components/AllPosts';
 import Sidebar from "../../components/Sidebar";
 import Loading from "../../components/Loading";
 import { 
@@ -9,10 +10,17 @@ import {
   HomeContainer
 } from './styles';
 
-export default function Home(props) {
+export default function LandingPage(props) {
   return (
     <>
-    { props.loading 
+          <Navbar isNavTransparent={true} />
+
+          <Banner />
+
+          <AllPosts />
+
+          
+{/*     { props.loading 
       ? <Loading loadingMessage="Fetching data" /> 
       
       :
@@ -28,7 +36,7 @@ export default function Home(props) {
                   userVotedPosts={props.userVotedPosts}/>
           </GridContainer>
       </HomeContainer>
-    }
+    } */}
   </>
   )
 }

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {
   BREAKPOINTS
-} from "../../styling/";
+} from "../../styling";
 
 export const GridContainer = styled.div`
   display: grid; 

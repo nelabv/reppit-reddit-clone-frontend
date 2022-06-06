@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from "react-router-dom";
+import LoginForm from '../../components/LoginForm';
+import Navbar from '../../components/Navbar';
 import {
   FormContainer,
-  CenterAlign,
-  Form
+  CenterAlign
 } from "./styles";
 
 function Login(props) {
@@ -10,6 +12,8 @@ function Login(props) {
     username: '',
     password: ''
   })
+
+  let history = useHistory();
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -32,38 +36,23 @@ function Login(props) {
 
   useEffect(() => {
     if (sessionStorage.getItem("token")) {
-      window.location = "/";
+      history.push("/")
     }
-  }, [])
+  }, [history])
 
   return (
-    <FormContainer>
-      <CenterAlign>
-        <span className="header-text">Welcome back!</span>
-        <span className="subtext">Join the conversation today.</span>
+    <>
+        <Navbar />
         
-        <Form>
-          <label htmlFor="username">Username</label>
-          <input 
-            size="40" 
-            type="text" 
-            name="username" 
-            onChange={handleChange} 
-            value={user.username} ></input>
-
-          <label htmlFor="password">Password</label>
-          <input 
-            type="password" 
-            name="password"
-            onChange={handleChange} 
-            value={user.password}></input>
-
-          <button onClick={setUserData}>
-            Login
-          </button>
-        </Form>
-      </CenterAlign>
-    </FormContainer>
+        <FormContainer>
+          <CenterAlign>
+            <span className="header-text">Welcome back!</span>
+            <span className="subtext">Join the conversation today.</span>
+            
+            <LoginForm />
+          </CenterAlign>
+        </FormContainer>
+    </>
   )
 }
 
