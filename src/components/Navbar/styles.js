@@ -17,10 +17,6 @@ export const NavBg = styled.div`
 `;
 
 export const Nav = styled(_Nav)`
-    img {
-      max-height: 30px;
-    }
-
     a {
       order: 1;
       
@@ -29,9 +25,10 @@ export const Nav = styled(_Nav)`
       }
     }
 
-    div {
+    span {
       order: 2;
       color: white;
+      cursor: pointer;
     }
 `;
 
