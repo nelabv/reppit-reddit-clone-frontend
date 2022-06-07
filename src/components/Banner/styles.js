@@ -1,34 +1,43 @@
 import styled from 'styled-components';
-import { 
-  BannerContainer as _Container,
-  Button as _Button,
-  COLORS,
-  BREAKPOINTS
-} from "../../styling/";
+import { PrimaryButton as _Primary, SecondaryButton as _Secondary } from "../../styling/buttons";
+import { MaxWidth, GradientBackground as _Gradient } from '../../styling/containers';
 
-export const BannerContainer = styled(_Container)`
+export const GradientBackground = styled(_Gradient)``;
+
+export const BannerContainer = styled(MaxWidth)`
   display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
   flex-direction: column;
-  justify-content: flex-start;
+  padding: 0 1em 6em 1em;
+  height: 100vh;
 
-  .header-text {
-    @media (${BREAKPOINTS.tablets2}) {
+  h1 {
+    color: white;
+    margin-bottom: 0.5em;
+    font-family: 'Play', sans-serif;
+  }
+
+  span {
+    color: white;
+    margin-bottom: 1em;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    button {
       margin-bottom: 1em;
     }
   }
-
-  @media (${BREAKPOINTS.tablets2}) {
-    padding: 10em 5% 2em 5%;
-  }
 `;
 
-export const SigninBtn = styled(_Button)`
-  background-color: ${COLORS.black};
-  border: 1px solid ${COLORS.black};
-  padding: 1em 3em;
+export const PrimaryButton = styled(_Primary)`
+    padding: 1em;
+`;
 
-  &:hover {
-    background-color: ${COLORS.muteBlack};
-    border: 1px solid ${COLORS.muteBlack};
-  }
+export const SecondaryButton = styled(_Secondary)`
+    padding: 1em;
 `;

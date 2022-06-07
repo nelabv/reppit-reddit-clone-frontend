@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { AiOutlineMenu } from "react-icons/ai";
-import { COLORS, BREAKPOINTS, Button as _Button } from "../../styling/";
+import { COLORS, BREAKPOINTS, PrimaryButton as _PrimaryButton } from "../../styling/";
 
 export const Menu = styled(AiOutlineMenu)`
   color: white;
@@ -44,6 +44,6 @@ export const Nav = styled.nav`
   }
 `;
 
-export const Button = styled(_Button)`
+export const Button = styled(_PrimaryButton)`
   margin-left: 1em;
 `;

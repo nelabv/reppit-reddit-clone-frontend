@@ -8,7 +8,7 @@ import {
 } from "./styles"
 
 function RatingCounter(props) {
-  const { total, down, id } = props;
+ /*  const { total, down, id } = props;
 
   let [voteCount, setVoteCount] = useState();
   const [upvotecolor, setUpvoteColor] = useState(false);
@@ -78,11 +78,12 @@ function RatingCounter(props) {
     } else {
       console.log("Not logged in");
     }
-  }
+  } */
   
   return (
     <Container>
-      <UpArrow 
+      UP DOWN
+{/*       <UpArrow 
           size={20} 
           onClick={upvotePost}
           upvotecolor={upvotecolor.toString()} />
@@ -90,7 +91,7 @@ function RatingCounter(props) {
       <DownArrow 
           size={20} 
           onClick={downvotePost}
-          downvotecolor={downvotecolor.toString()} />
+          downvotecolor={downvotecolor.toString()} /> */}
            
     </Container>
   );

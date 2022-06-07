@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { 
-  Button as _Button,
+  PrimaryButton,
   BorderedContainer as _BorderedContainer,
   BREAKPOINTS
 } from "../../styling/";
@@ -14,7 +14,7 @@ order: 1;
   }
 `;
 
-export const Button = styled(_Button)`
+export const Button = styled(PrimaryButton)`
   display: ${props => props.auth ? null : "none"};
   width: 100%;
   margin-bottom: 1em;

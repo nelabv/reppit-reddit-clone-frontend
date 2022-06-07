@@ -24,7 +24,7 @@ export default function AllPosts(props) {
   return (
     <div className="posts-container">
           { posts.map((post) => {
-            return <PostPreview post={post} />
+            return <PostPreview post={post} key={post._id}/>
           })}
     </div>
   );

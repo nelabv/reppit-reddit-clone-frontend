@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { useHistory } from "react-router-dom";
+import { UserContext } from "../../context";
 import UserServices from "../../services/user";
 import {
-  FormContainer,
-  CenterAlign,
+  FormLabel,
+  FormInput,
+  FormButton,
   Form
 } from "./styles";
 
-export default function LoginForm(props) {
+export default function LoginForm() {
+  const [userProfile, setUserProfile] = useContext(UserContext);
+
   let history = useHistory();
 
   const [user, setUser] = useState({
@@ -33,10 +37,12 @@ export default function LoginForm(props) {
 
     UserServices.login(userDocument)
         .then(response => {
-            sessionStorage.setItem("token", response.data.token)
+            sessionStorage.setItem("token", response.data.token);
 
+            sessionStorage.setItem("username", response.data.username);
 
-            // redirections here
+            setUserProfile(userDocument.username);
+            history.push("/")
         })
 
         .catch(error => console.log(error));
@@ -44,24 +50,24 @@ export default function LoginForm(props) {
 
   return (
     <Form onSubmit={handleSubmit}>
-          <label htmlFor="username">Username</label>
-          <input 
+          <FormLabel htmlFor="username">Username</FormLabel>
+          <FormInput 
             size="40" 
             type="text" 
             name="username" 
             onChange={handleChange} 
-            value={user.username} ></input>
+            value={user.username} ></FormInput>
 
-          <label htmlFor="password">Password</label>
-          <input 
+          <FormLabel htmlFor="password">Password</FormLabel>
+          <FormInput 
             type="password" 
             name="password"
             onChange={handleChange} 
-            value={user.password}></input>
+            value={user.password}></FormInput>
 
-          <button>
+          <FormButton>
             Login
-          </button>
+          </FormButton>
   </Form>
   )
 }

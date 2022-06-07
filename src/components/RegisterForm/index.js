@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import UserServices from "../../services/user";
 import {
-  FormContainer,
-  CenterAlign,
+  FormLabel,
+  FormInput,
+  FormButton,
   Form
 } from "./styles";
 
-function Register(props) {
+function RegisterForm(props) {
   const [userData, setUserData] = useState({
     username: '',
     password: ''
@@ -48,24 +49,17 @@ function Register(props) {
   }, [])
 
   return(
-    <FormContainer>
-      <CenterAlign>
-        <span className="header-text">Sign up for free</span>
 
-        <Form className="form">
-          <label className="label" >Username</label>
-          <input type="text" name="username" onChange={handleChange} value={userData.username}></input>
+      <Form className="form">
+        <FormLabel className="label" >Username</FormLabel>
+        <FormInput type="text" name="username" onChange={handleChange} value={userData.username}></FormInput>
 
-          <label className="label" >Password</label>
-          <input type="password" name="password" onChange={handleChange} value={userData.password}></input>
+        <FormLabel className="label" >Password</FormLabel>
+        <FormInput type="password" name="password" onChange={handleChange} value={userData.password}></FormInput>
 
-          <button className="btn login-register-btn" onClick={register}>Register</button>
-        </Form>
-        
-        <span>{requestStatus}</span>
-      </CenterAlign>
-    </FormContainer>
+        <FormButton className="btn login-register-btn" onClick={register}>Register</FormButton>
+      </Form>
   )
 }
 
-export default Register;
+export default RegisterForm;

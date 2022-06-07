@@ -2,12 +2,19 @@ import styled from "styled-components";
 
 export const COLORS = {
   redOrange: "#FF595E",
-  yellow: "#FFCA3A",
   borderGray: "#EDEDED",
   lightGray: "#F5F5F5",
   black : "#252129",
   gray: "#9B9B9B",
-  muteBlack: "#505050"
+  muteBlack: "#505050",
+
+
+  violet: "#5f236b",
+  red: "#be375f",
+  orange: "#ed8554",
+  yellow: "#FFCA3A",
+
+  lightOrange: "#FF9F72"
 }
 
 export const BREAKPOINTS = {
@@ -78,48 +85,6 @@ export const CenterAlign = styled.div`
 `;
 
 export const Form = styled.form`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  margin: 2em 0;
-
-  label {
-    font-weight: 600;
-    font-size: 0.8em;
-    margin-bottom: 0.5em;
-  }
-
-  select {
-    width: 150px;
-    border: 1px solid #dedede;
-    border-radius: 3px;
-    margin-bottom: 1em;
-  }
-
-  select:focus {
-    border: 1px solid #df5d2e;
-  }
-
-  button {
-    background-color: #FF595E;
-    color: white;
-    padding: 0.25em 1.5em;
-    outline: 0;
-    border: 1px solid #FF595E;
-    border-radius: 3px;
-    cursor: pointer;
-    width: 25%;
-  
-    &:hover {
-      background-color: #FF7B7F;
-      border: 1px solid #FF7B7F;
-      color: white;
-    }
-
-    @media (max-width: 800px) {
-      width: 100%;
-    }
-  }
 
   span {
     color: ${COLORS.redOrange};
@@ -137,8 +102,7 @@ export const Form = styled.form`
   }
 `;
 
-export const Button = styled.button`
-  background-color: #FF595E ;
+export const PrimaryButton = styled.button`
   color: white;
   padding: 0.25em 1.5em;
   outline: 0;
@@ -150,15 +114,6 @@ export const Button = styled.button`
     background-color: #FF7B7F;
     border: 1px solid #FF7B7F;
     color: white;
-  }
-
-  @media (${BREAKPOINTS.desktops}) {
-    margin-top: 1em;
-  }
-
-  @media (${BREAKPOINTS.tablets2}) {
-    margin-top: 0;
-    padding: 1em 0;
   }
 `;
 
@@ -229,21 +184,7 @@ export const Post = styled.div`
   }
 `;
 
-export const BannerContainer = styled.div`
-  display: ${props => props.user ? "none" : null};
-  background: rgb(255,89,94);
-  background: linear-gradient(90deg, rgba(255,89,94,1) 0%, rgba(255,202,58,1) 100%);
-  padding: 25vh 15vw 5vh 15vw;
-  position: relative;
-  overflow: hidden;
-  max-height: 1000px;
 
-  h1 {
-    color: white;
-  }
-
-  span {
-    color: white;
-    font-size: 1.333rem;
-  }
+export const GradientBackground = styled.div`
+    background: linear-gradient(90deg, rgba(255,89,94,1) 0%, rgba(255,202,58,1) 100%);
 `;

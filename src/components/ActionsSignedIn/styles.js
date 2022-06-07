@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { AiOutlineMenu } from "react-icons/ai";
-import { Button as _Button, COLORS, BREAKPOINTS } from "../../styling/";
+import { PrimaryButton, COLORS, BREAKPOINTS } from "../../styling/";
 
 export const Container = styled.div`
   display: flex;
@@ -23,7 +23,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Button = styled(_Button)`
+export const Button = styled(PrimaryButton)`
   margin-left: 1em;
   font-size: 0.8em;
 `;

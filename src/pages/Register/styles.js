@@ -26,3 +26,19 @@ export const MaxWidth = styled(Max)`
       margin-bottom: 0.5em;
     }
 `;
+
+/* export const FormContainer = styled(Container)`
+`; */
+
+/* export const CenterAlign = styled(_CenterAlign)``;
+
+export const Form = styled(_Form)`
+  label {
+    font-weight: 400;
+    margin: 0;
+  }
+
+  input {
+    margin-bottom: 1em;
+  }
+`; */

@@ -1,42 +1,26 @@
-import React from 'react';
-import Navbar from '../../components/Navbar';
+import React, { useContext } from 'react';
+import { UserContext } from '../../context';
+import UserDashboard from '../UserDashboard';
 
+import Navbar from '../../components/Navbar';
 import Banner from "../../components/Banner";
-import AllPosts from '../../components/AllPosts';
-import Sidebar from "../../components/Sidebar";
-import Loading from "../../components/Loading";
-import { 
-  GridContainer,
-  HomeContainer
-} from './styles';
+import Footer from "../../components/Footer"
 
 export default function LandingPage(props) {
+  const [ userProfile ] = useContext(UserContext);
+
   return (
     <>
-          <Navbar isNavTransparent={true} />
+          { userProfile ? <UserDashboard /> :
 
-          <Banner />
+                    <>
+                        <Navbar isNavTransparent={true} />
 
-          <AllPosts />
+                        <Banner />
 
-          
-{/*     { props.loading 
-      ? <Loading loadingMessage="Fetching data" /> 
-      
-      :
-      <HomeContainer>
-          <Banner
-            user={props.user} />
-  
-          <GridContainer>
-              <Sidebar />
-              
-              <PostPreview 
-                  posts={props.posts} 
-                  userVotedPosts={props.userVotedPosts}/>
-          </GridContainer>
-      </HomeContainer>
-    } */}
-  </>
+                        <Footer />
+                    </>
+          }
+    </>
   )
 }

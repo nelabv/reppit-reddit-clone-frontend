@@ -3,11 +3,10 @@ export {
   BREAKPOINTS,
   BorderedContainer,
   Form,
-  Button,
+  PrimaryButton,
   Input,
   Textarea,
   Post,
   FormContainer,
-  CenterAlign,
-  BannerContainer
+  CenterAlign
 } from "./styles.js";

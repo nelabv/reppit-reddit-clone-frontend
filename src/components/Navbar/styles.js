@@ -1,5 +1,39 @@
 import styled from "styled-components";
-import { Button as _Button, COLORS, BREAKPOINTS } from "../../styling/";
+import { Navbar as _Nav } from "../../styling/nav";
+import { MaxWidth } from "../../styling/containers";
+import { PrimaryButton as _PrimaryButton, COLORS, BREAKPOINTS } from "../../styling/";
+
+export const NavBg = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 7em;
+    width: 100%;
+    background-color: ${props => props.isNavTransparent ? "transparent" : COLORS.black };
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+`;
+
+export const Nav = styled(_Nav)`
+    img {
+      max-height: 30px;
+    }
+
+    a {
+      order: 1;
+      
+      span {
+        color: ${props => props.isNavTransparent ? "white" : COLORS.black };
+      }
+    }
+
+    div {
+      order: 2;
+      color: white;
+    }
+`;
 
 export const PopupMenu = styled.div`
   z-index: 2;
@@ -17,42 +51,5 @@ export const BackgroundPopup = styled(PopupMenu)`
   background-color: rgba(137, 137, 137, 0.2);
 `;
 
-export const Header = styled.header`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 15%;
-  background-color: ${COLORS.black};
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
 
-  img {
-    max-height: 30px;
-  }
-
-  .logo-svg {
-    margin: 0;
-    padding: 0;
-    max-width: 70%;
-    height: auto;
-  }
-
-  a {
-    order: 1;
-    padding: 1em 0 0.5em 0;
-    margin: 0;
-  }
-
-  .actions-container {
-    order: 2;
-  }
-
-  @media (${BREAKPOINTS.tablets2}) {
-    padding: 0 5%;
-  }
-`;
-
-export const Button = styled(_Button)``;
+export const PrimaryButton = styled(_PrimaryButton)``;

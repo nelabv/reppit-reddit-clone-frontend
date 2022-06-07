@@ -1,75 +1,39 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { UserContext } from "./context";
 
 import LandingPage from "./pages/LandingPage";
 import PostFullRead from "./pages/PostFullRead";
 import Login from "./pages/Login/";
+import Register from "./pages/Register";
 
-import Navbar from "./components/Navbar/";
-import Register from "./components/Register";
-import Footer from "./components/Footer/";
-import SortedThread from "./pages/SortedThread/";
-import SubmitPost from "./pages/SubmitPost/";
-import About from "./pages/About/";
 
-import PostServices from "./services/posts";
 import UserServices from "./services/user";
 
 function App() {
-/*   const [posts, setPosts] = useState([]);
-  const [user, setUser] = useState();
-  const [loading, setLoading] = useState(false);
+  const [userProfile, setUserProfile] = useState(null);
 
-  const fetchPosts = async () => {
-    setLoading(true);
-    const APIrequest = await PostServices.getAllPosts();
-    const allPosts = APIrequest.data.contents;
-    setPosts(allPosts);
-    setLoading(false);
-  }
-
-  const checkForExistingData = async () => {
-    if (sessionStorage.getItem("token") !== null && sessionStorage.getItem("name") !== null) {
-      setUser(sessionStorage.getItem("name"));
-    }
-  }
-
-  const userLogin = async (userDocument) => {
-    await UserServices.login(userDocument)
-      .then((response) => {
-        
-        sessionStorage.setItem("token", response.data.token);
-        sessionStorage.setItem("name", userDocument.username);
-        sessionStorage.setItem("auth", true);
-      })
-      .catch(function (error) {
-        if (error.response) {
-          console.log(error.response);
-        }
-    });
-    setUser(userDocument.username);
-    window.location = "/";
-  }
-
-  const userLogout = () => {
-    setUser('');
-    sessionStorage.clear();
-    window.location = "/";
-  }
-  
   useEffect(() => {
-    fetchPosts();
-    checkForExistingData();
-  }, []); */
+    if (sessionStorage.getItem("username")) {
+      UserServices.fetchUserInformation(sessionStorage.getItem("username"), sessionStorage.getItem("token"))
+          .then(response => {
+            const username = response.data[0].username;
 
+            setUserProfile(username);
+          })
+    }
+  }, [userProfile])
   return (
-    <BrowserRouter>
-      <Switch>
-          <Route exact path="/" component={LandingPage}/>
-          <Route path="/posts/:id" component={PostFullRead} />
-          <Route path='/login' component={Login}/>
-      </Switch>
-    </BrowserRouter>
+    <UserContext.Provider value={[userProfile, setUserProfile]}>
+      <BrowserRouter>
+            <Switch>
+                <Route exact path="/" component={LandingPage}/>
+                <Route path="/posts/:id" component={PostFullRead} />
+                <Route path='/login' component={Login}/>
+                <Route path="/register" component={Register} />
+            </Switch>
+      </BrowserRouter>
+    </UserContext.Provider>
 /*     <BrowserRouter>
       <Route 
           path='/' 

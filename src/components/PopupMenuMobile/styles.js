@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { COLORS, Button as _Button } from "../../styling/";
+import { COLORS, PrimaryButton } from "../../styling/";
 import { AiOutlineUser } from "react-icons/ai";
 
 export const PopupMenu = styled.div`
@@ -68,7 +68,7 @@ export const Action = styled.button`
   color: white;
 `;
 
-export const Button = styled(_Button)`
+export const Button = styled(PrimaryButton)`
   margin-bottom: 2em;
   width: 15em;
 `;

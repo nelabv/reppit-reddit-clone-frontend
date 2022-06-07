@@ -1,21 +1,29 @@
 import React from 'react';
 import { 
   BannerContainer,
-  SigninBtn
+  PrimaryButton,
+  SecondaryButton,
+  GradientBackground
 } from './styles';
 import { Link } from "react-router-dom";
 
-export default function Banner(props) {
+export default function Banner() {
   return (
-    <BannerContainer 
-      user={props.user} >
-        <h1 className="header-text">Join a conversation today</h1>
+    <GradientBackground>
+        <BannerContainer>
+              <h1>Join a conversation today</h1>
+              <span>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias exceptur</span>
+              
+              <div>
+                    <Link to="/register">
+                          <SecondaryButton>Register</SecondaryButton>
+                    </Link>
 
-
-    { sessionStorage.getItem("token") ? null :
-      <Link to="/signup">
-        <SigninBtn>SIGN UP</SigninBtn>
-      </Link> }
-    </BannerContainer>
+                    <Link to="/login">
+                          <PrimaryButton>Login</PrimaryButton>
+                    </Link>
+              </div>
+        </BannerContainer>
+    </GradientBackground>
   )
 }
