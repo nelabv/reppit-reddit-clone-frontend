@@ -1,20 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
 import Navbar from '../../components/Navbar';
 import AllPosts from '../../components/AllPosts';
 import Footer from '../../components/Footer';
+import { GrayBackground, MaxWidth, WritePostBtn } from './styles';
+import { UserContext } from '../../context';
 
 export default function UserDashboard(props) {
+  const [userProfile] = useContext(UserContext);
+
   return (
     <>
-          <Navbar isNavTransparent={true} />
+          <Navbar isNavTransparent={false} />
 
-          
-          <Link to="/posts/create">
-            Write Post
-          </Link>
+          <GrayBackground>
+            <MaxWidth>
+                <h3>Hello, <span>{userProfile}</span>!</h3>
 
-          <AllPosts />
+
+                <WritePostBtn>
+                      <Link to="/posts/create">
+                        Write Post
+                      </Link>
+                </WritePostBtn>
+
+                <AllPosts />
+
+            </MaxWidth>
+          </GrayBackground>
 
           <Footer />
   </>

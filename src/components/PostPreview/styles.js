@@ -1,9 +1,12 @@
 import styled from "styled-components";
 import { 
   Post as _Post,
-  BorderedContainer as _BorderedContainer,
   BREAKPOINTS
 } from "../../styling";
+import { BorderedContainer } from "../../styling/containers";
+
+export const PostPreviewContainer = styled(BorderedContainer)`
+`;
 
 export const Post = styled(_Post)`
   .body-preview {
@@ -19,15 +22,6 @@ export const Post = styled(_Post)`
     @media (${BREAKPOINTS.smartphones2}) {
       max-width: 10em;
     }
-  }
-`;
-
-export const BorderedContainer = styled(_BorderedContainer)`
-  margin-right: 2em;
-
-  @media (${BREAKPOINTS.tablets2}) {
-    margin-right: 0;
-    order: 2;
   }
 `;
 
