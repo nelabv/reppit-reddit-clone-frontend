@@ -1,10 +1,7 @@
 import styled from "styled-components";
 import { 
-  FormContainer as Container, 
-  CenterAlign as _CenterAlign ,
-  Form as _Form,
   COLORS
-} from "../../styling/";
+} from "../../styling/utility";
 import { GradientBackground as Gradient, MaxWidth as Max } from "../../styling/containers";
 
 export const GradientBackground = styled(Gradient)`

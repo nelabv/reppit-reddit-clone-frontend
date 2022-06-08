@@ -19,7 +19,7 @@ export default function UserDashboard(props) {
 
 
                 <WritePostBtn>
-                      <Link to="/posts/create">
+                      <Link to="/write">
                         Write Post
                       </Link>
                 </WritePostBtn>

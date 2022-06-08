@@ -1,83 +1,39 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import PostServices from "../../services/posts";
+import { useHistory } from "react-router-dom";
+import { useEffect } from "react";
 import {
-  Form,
-  FormContainer,
-  CenterAlign,
-  Textarea
+  GradientBackground,
+  MaxWidth
 } from "./styles";
+import WritePostForm from "../../components/WritePostForm";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 
 function SubmitPost() {
-  const [postDocument, setPostDocument] = useState({
-    title: '',
-    body: '',
-    flair: 'random',
-    username: sessionStorage.getItem("name")
-  });
-  const [isAuth, setIsAuth] = useState(false);
+  let history = useHistory();
 
-  const handleChange = (e) => {
-    e.preventDefault();
-    const newObject = { ...postDocument,
-      [e.target.name] : e.target.value
-    }
-    setPostDocument(newObject);
-  }; 
-
-  const submitPost = async (e) => {
-    e.preventDefault();
-    const APIrequest = await PostServices.submitPost(postDocument, sessionStorage.getItem("token"));
-
-    if (APIrequest.request.status === 200) {
-      setPostDocument({
-        title: '',
-        body: '',
-        flair: '',
-        username: ''
-      });
-      window.location = "/posts/" + APIrequest.data.id;
-    }
-  }
+  const token = sessionStorage.getItem("token");
 
   useEffect(() => {
-    if (sessionStorage.getItem("token")) {
-      setIsAuth(true);
-    } else {
-      window.location = "/signup";
-    }
-  }, [])
+    if (!token) {
+      history.push("/login")
+    } 
+  }, [history, token])
 
   return (
     <>
-      { isAuth ? 
-          <FormContainer>
-            <CenterAlign>
-            <span className="header-text">Submit a post</span>
-            <Form onSubmit={submitPost}>
-              <label>Choose a category:</label>
-                <select value={postDocument.flair} name="flair" id="flair" onChange={handleChange}>
-                  <option value="random">random</option>
-                  <option value="nice">nice</option>
-                  <option value="programming">programming</option>
-                </select>
+          <Navbar isNavTransparent={false} />
 
-              <input 
-                type="text" 
-                name="title"
-                placeholder="Title"
-                onChange={handleChange}
-                value={postDocument.title} />
+          <GradientBackground>
+            <MaxWidth>
 
-              <Textarea type="text" name="body" placeholder="Text (optional)" onChange={handleChange} value={postDocument.body}></Textarea>
+                <h2 className="header-text">Submit a post</h2>
 
-              <button type="submit">SUBMIT</button>
-            </Form>
-            </CenterAlign>
-          </FormContainer>
-      : null }
-      
+                <WritePostForm />
+            </MaxWidth>
+          </GradientBackground>
 
+          <Footer />
     </>
 
   );

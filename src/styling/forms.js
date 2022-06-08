@@ -45,17 +45,17 @@ export const FormInput = styled.input`
 export const FormButton = styled(PrimaryButton)`
     max-width: 5em;
 `;
-/*     background-color: #FF595E;
-    color: white;
-    padding: 0.25em 1.5em;
-    outline: 0;
-    border: 1px solid #FF595E;
-    border-radius: 3px;
-    cursor: pointer;
-    width: 25%;
 
-    &:hover {
-      background-color: #FF7B7F;
-      border: 1px solid #FF7B7F;
-      color: white;
-    } */
+export const FormTextarea = styled.textarea`
+  height: 20em;
+  resize: none;
+  border: 1px solid #dedede;
+  border-radius: 3px;
+  padding: 0.5em;
+  margin-bottom: 1em;
+
+  &:focus {
+    border: 1px solid #df5d2e;
+    outline: none;
+  }
+`;

@@ -1,32 +1,25 @@
-import {
-  Form as _Form,
-  FormContainer as _Container,
-  CenterAlign as _CenterAlign,
-  Textarea as _Textarea,
-  BREAKPOINTS
-} from "../../styling/";
 import styled from "styled-components";
+import { 
+  COLORS
+} from "../../styling/utility";
+import { GradientBackground as Gradient, MaxWidth as Max } from "../../styling/containers";
 
-export const Form = styled(_Form)`
+export const GradientBackground = styled(Gradient)`
+    padding: 5em 1em 1em 1em;
 `;
 
-export const FormContainer = styled(_Container)`
-  
-`;
+export const MaxWidth = styled(Max)`
+    background-color: white;
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 3em 1em;
 
-export const Textarea = styled(_Textarea)`
-  margin-top: 2em;
-`;
-
-export const CenterAlign = styled(_CenterAlign)`
-  align-items: flex-start;
-  width: 70%;
-
-  .header-text {
-    font-size: 2.333em;
-  }
-
-  @media (${BREAKPOINTS.tablets2}) {
-    width: 90%;
-  }
+    h2 {
+      color: ${COLORS.orange};
+      margin-bottom: 0.5em;
+    }
 `;

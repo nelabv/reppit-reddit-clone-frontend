@@ -6,6 +6,7 @@ import LandingPage from "./pages/LandingPage";
 import PostFullRead from "./pages/PostFullRead";
 import Login from "./pages/Login/";
 import Register from "./pages/Register";
+import SubmitPost from "./pages/SubmitPost";
 
 
 import UserServices from "./services/user";
@@ -28,7 +29,8 @@ function App() {
       <BrowserRouter>
             <Switch>
                 <Route exact path="/" component={LandingPage}/>
-                <Route path="/posts/:id" component={PostFullRead} />
+                <Route exact path="/posts/:id" component={PostFullRead} />
+                <Route exact path="/write" component={SubmitPost}/>
                 <Route path='/login' component={Login}/>
                 <Route path="/register" component={Register} />
             </Switch>
