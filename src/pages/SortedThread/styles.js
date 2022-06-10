@@ -1,28 +1,53 @@
 import styled from "styled-components";
-import { BannerContainer, BREAKPOINTS } from "../../styling";
+import { PrimaryButton } from "../../styling/buttons";
+import { GrayBackground as GrayBg, MaxWidth as Max } from "../../styling/containers";
+import { COLORS } from "../../styling/utility";
 
-export const Banner = styled(BannerContainer)`
-  padding: 10vh 15% 5vh 15%;
 
-  .thread-tag {
-    font-size: 1.777rem;
-    color: white;
-    margin: 0.75em 0;
-    font-weight: 600;
-  }
+export const GrayBackground = styled(GrayBg)`
+  padding: 1em;
+`;
 
-  @media (${BREAKPOINTS.tablets2}) {
-    padding-left: 5%;
-    padding-right: 5%;
+export const MaxWidth = styled(Max)`
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 0 1em;
+  padding-top: 7em;
+
+  h3 {
+    margin-bottom: 1em;
+
+    span {
+      font-size: inherit;
+      color: ${COLORS.violet};
+    }
   }
 `;
 
-export const Container = styled.div`
-  padding: 3em 15%;
-  background-color: white;
-
-  @media (max-width: 800px) {
-    flex-direction: column;
-    padding: 3em 5%;
+export const CategoryBanner = styled.div`
+  background: ${COLORS.violet};
+  margin-bottom: 1em;
+  height: 5em;
+  display: flex; 
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1em;
+  
+  span {
+    color: white;
+    font-weight: 600;
   }
+`;
+
+export const WritePostBtn = styled(PrimaryButton)`
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  width: 100%;
+  margin-bottom: 2em;
 `;

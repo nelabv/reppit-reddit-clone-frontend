@@ -1,52 +1,54 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import PostPreview from "../../components/PostPreview";
 import PostServices from "../../services/posts";
-import Utilities from "../../services/utils";
-import PostPreview from "../../components/AllPosts";
-import Loading from "../../components/Loading";
-import {
-  Banner,
-  Container
-} from "./styles";
+import { GrayBackground, MaxWidth, CategoryBanner, WritePostBtn } from './styles';
 
 function SortedThread(props) {
-  const id = useParams();
-  const { loading, setLoading } = props;
-	const [filteredPosts, setFilteredPosts] = useState([]);
-  const [voteArray, setVoteArray] = useState([]);
+  const { category } = useParams();
+  const [posts, setPosts] = useState(null);
 
-	useEffect(() => {
-    setLoading(true);
-      if (!sessionStorage.getItem("token")) {
-        window.location = "/signup";
-      } else {
-        PostServices.getPostsByCategory(id.category)
-        .then((res) => {
-          setFilteredPosts(res.data.contents);
-        })
+  let history = useHistory();
 
-        Utilities.fetchVoteArray(sessionStorage.getItem("token"))
-          .then((res) => {
-            setVoteArray(res.data[0].votes);
-          })
-      }
-    setLoading(false);
-	}, [id.category, setLoading]);
+  useEffect(() => {
+    if (!sessionStorage.getItem("token")) {
+        history.push("/login")
+    } else {
+      PostServices.getPosts(category)
+          .then(response => setPosts(response.data));
+    }
+  }, [category, history]);
 
 	return (
     <>
-      { loading 
-          ? <Loading loadingMessage="Loading" /> 
-          : <>
-            <Banner>
-              <h2 className="thread-tag">r/{id.category}</h2>
-            </Banner>
+          <Navbar />
 
-            <Container>
-              <PostPreview 
-                    posts={filteredPosts} 
-                    voteArray={voteArray}/>
-            </Container> </> }
+          <GrayBackground>
+            <MaxWidth>
+                <CategoryBanner>
+                  <span>{category.toUpperCase()}</span>
+                </CategoryBanner>
+
+                <WritePostBtn>
+                      <Link to="/write">
+                        Write Post
+                      </Link>
+                </WritePostBtn>
+
+                { posts ?
+                          <>
+                              { posts.map((post) => {
+                                return <PostPreview post={post} key={post._id}/>
+                              })} 
+                          </> 
+                          
+                            : null }
+            </MaxWidth>
+          </GrayBackground>
+
+            <Footer />
     </>
 	);
 }

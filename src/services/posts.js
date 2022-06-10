@@ -2,6 +2,7 @@ import http from "../http";
 
 class PostServices {
   getPosts(filter) {
+    console.log(filter);
     if (filter) {
       return http.get(`/posts?category=${filter}`);
     } else if (!filter) {
@@ -38,7 +39,7 @@ class PostServices {
   }
 
   fetchAllPostCategories() {
-    return http.get("/posts/categories")
+    return http.get("/categories")
   }
 };
 

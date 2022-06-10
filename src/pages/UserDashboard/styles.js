@@ -15,6 +15,7 @@ export const MaxWidth = styled(Max)`
   justify-content: flex-start;
   width: 100%;
   padding: 0 1em;
+  padding-top: 7em;
 
   h3 {
     margin-bottom: 1em;

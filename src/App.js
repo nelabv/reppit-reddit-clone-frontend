@@ -7,7 +7,7 @@ import PostFullRead from "./pages/PostFullRead";
 import Login from "./pages/Login/";
 import Register from "./pages/Register";
 import SubmitPost from "./pages/SubmitPost";
-
+import SortedThread from "./pages/SortedThread";
 
 import UserServices from "./services/user";
 
@@ -33,43 +33,10 @@ function App() {
                 <Route exact path="/write" component={SubmitPost}/>
                 <Route path='/login' component={Login}/>
                 <Route path="/register" component={Register} />
+                <Route path="/categories/:category" component={SortedThread} />
             </Switch>
       </BrowserRouter>
     </UserContext.Provider>
-/*     <BrowserRouter>
-      <Route 
-          path='/' 
-          render={ props => <Navbar user={user} logout={userLogout}/>} />
-          
-      <Switch >
-        <Route 
-            exact path='/' 
-            render={props => <Home posts={posts} user={user} loading={loading}/>}/>
-        <Route 
-            exact path='/login' 
-            render={props => <Login userLogin={userLogin} />}/>
-        <Route 
-            exact path='/signup' 
-            render={props => <Register userLogin={userLogin}/>}/>
-        <Route 
-            exact path='/create-post' 
-            render={props => <SubmitPost />}/>
-        <Route 
-            exact path='/posts/:id' 
-            render={props => <PostFullView loading={loading} setLoading={setLoading}/>}/>
-        <Route 
-            exact path='/categories/:category' 
-            render={props => <SortedThread loading={loading} setLoading={setLoading} />}/>
-            
-        <Route 
-            exact path='/' 
-            component= {Footer}/>
-
-        <Route 
-            exact path='/about' 
-            component= {About}/>
-      </Switch>
-    </BrowserRouter> */
   );
 }
 
