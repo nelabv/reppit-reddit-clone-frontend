@@ -17,7 +17,7 @@ function WritePostForm() {
   const [postDocument, setPostDocument] = useState({
     title: '',
     body: '',
-    flair: 'random',
+    category: 'random',
     username: sessionStorage.getItem("username")
   });
 
@@ -27,11 +27,15 @@ function WritePostForm() {
     const newObject = { ...postDocument,
       [e.target.name] : e.target.value
     }
+
+    console.log(newObject)
     setPostDocument(newObject);
   }; 
 
   const submitPost = async (e) => {
     e.preventDefault();
+
+    console.log(postDocument)
 
     const APIrequest = await PostServices.createPost(postDocument, token);
 
@@ -57,7 +61,7 @@ function WritePostForm() {
     <>
             <Form onSubmit={submitPost}>
               <FormLabel>Choose a category:</FormLabel>
-                <FormSelect value={postDocument.flair} name="flair" id="flair" onChange={handleChange}>
+                <FormSelect value={postDocument.category} name="category" id="category" onChange={handleChange} required>
                   <option value="random">random</option>
                   <option value="nice">nice</option>
                   <option value="programming">programming</option>
@@ -68,9 +72,10 @@ function WritePostForm() {
                 name="title"
                 placeholder="Title"
                 onChange={handleChange}
-                value={postDocument.title} />
+                value={postDocument.title} 
+                required />
 
-              <Textarea type="text" name="body" placeholder="Text (optional)" onChange={handleChange} value={postDocument.body}></Textarea>
+              <Textarea type="text" name="body" placeholder="Text (optional)" onChange={handleChange} value={postDocument.body} required></Textarea>
 
               <FormButton type="submit">Submit</FormButton>
             </Form>
