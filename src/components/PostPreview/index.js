@@ -15,8 +15,8 @@ export default function PostPreview(props) {
 
           <Post>
             <div className="author-category">
-              <span className="category">r/{post.category}</span> 
-              <span className="author">Posted by u/{post.author}</span> 
+              <span className="category">{post?.category?.toUpperCase()}</span> 
+              <span className="author">Posted by {post.author}</span> 
             </div>
 
             <Link to={`/posts/${post._id}`} style={{textDecoration: "none"}}>
