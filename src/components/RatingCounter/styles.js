@@ -6,7 +6,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: 1.5em;
+  margin-right: 1em;
+  padding-top: 0.5em;
 `;
 
 export const UpArrow = styled(AiOutlineCaretUp)`

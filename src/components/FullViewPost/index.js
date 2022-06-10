@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import RatingCounter from "../RatingCounter/";
-import CommentForm from "../CommentForm/";
+import Post from "../Post";
 import { 
   PostContainer, 
   CommentContainer, 
-  InformationHolder,
-  Post } from "./styles";
+  InformationHolder } from "./styles";
 
 function FullViewPost(props) {
   const { post } = props;
-  const [isCommentsEmpty, setIsCommentsEmpty] = useState(true);
+/*   const [isCommentsEmpty, setIsCommentsEmpty] = useState(true);
 
   const fetchComments = () => {
     return (
@@ -30,37 +29,23 @@ function FullViewPost(props) {
     if (post.comments.length !== 0) {
       setIsCommentsEmpty(false)
     }
-  }, [setIsCommentsEmpty, post.comments]);
+  }, [setIsCommentsEmpty, post.comments]); */
 
   return (
         <PostContainer>
-                    <InformationHolder>
-                      <RatingCounter 
-                          total={post?.votes?.totalVoteCount} 
-                          down={post?.votes?.downvotes?.length} 
-                          id={post?._id}/> 
+            <RatingCounter 
+                total={post?.votes?.totalVoteCount} 
+                down={post?.votes?.downvotes?.length} 
+                id={post?._id}/> 
 
-                      <Post>
-                          <div className="author-category">
-                            <span className="category">r/{post?.category}</span> 
-                            <span className="author">Posted by u/{post?.author}</span> 
-                          </div>
+            <Post title={post.title}
+                  author={post.author}
+                  body={post.body}
+                  comments={post.comments}
+                  category={post.category}
+                   />
 
-                          <h3>{post?.title}</h3>
-                          <p>{post?.body}</p> 
-                          
-                          <span className="comments-length">Comments: {post?.comments.length}</span>
-                      </Post>
-                    </InformationHolder>
-                    <div>
-                      <CommentForm
-                          username={post?.author}
-                          postID={post?._id} />
-
-
-                      { isCommentsEmpty ? null : fetchComments() }
-                    </div>
-                </PostContainer>
+        </PostContainer>
   );
 }
 export default FullViewPost;

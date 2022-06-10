@@ -8,7 +8,7 @@ import {
 } from "./styles"
 
 function RatingCounter(props) {
- /*  const { total, down, id } = props;
+/*   const { total, down, id } = props;
 
   let [voteCount, setVoteCount] = useState();
   const [upvotecolor, setUpvoteColor] = useState(false);
@@ -82,7 +82,11 @@ function RatingCounter(props) {
   
   return (
     <Container>
-      UP DOWN
+      <UpArrow 
+          size={20} />
+          <p id="total-score">1</p>
+      <DownArrow 
+          size={20}  />
 {/*       <UpArrow 
           size={20} 
           onClick={upvotePost}

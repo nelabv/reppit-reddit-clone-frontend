@@ -32,7 +32,7 @@ class PostServices {
   }
 
   addComment(commentBody, token) {
-    return http.put(`/posts/comment/${commentBody.id}`, { 
+    return http.put(`/comment/submit/62a15abd56c3712a7006b68c`, commentBody, { 
       headers: { "Authorization" : `Bearer ${token}`}
     })
   }

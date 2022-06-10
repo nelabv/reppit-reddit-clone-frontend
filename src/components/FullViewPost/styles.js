@@ -5,13 +5,23 @@ import {
   BREAKPOINTS
 } from "../../styling/";
 
-export const PostContainer = styled(BorderedContainer)`
+export const PostContainer = styled.div`
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1em;
+    width: 100%;
+    min-height: 100vh;
+`;
+
+/* export const PostContainer = styled(BorderedContainer)`
   display: flex;
   flex-direction: column;
   margin-right: 0;
   margin-top: 1em;
   margin-right: 0;
-`;
+`; */
 
 export const CommentContainer = styled(BorderedContainer)`
   display: flex;
