@@ -22,6 +22,10 @@ export const Post = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
+
+    a {
+      color: inherit;
+    }
     
     @media (${BREAKPOINTS.tablets2}) {
       flex-direction: column;

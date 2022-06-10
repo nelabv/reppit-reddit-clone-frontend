@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import posts from "../../services/posts";
 import RatingCounter from "../RatingCounter";
 import { PostPreviewContainer, Post } from "./styles";
 
@@ -15,7 +16,10 @@ export default function PostPreview(props) {
 
           <Post>
             <div className="author-category">
-              <span className="category">{post?.category?.toUpperCase()}</span> 
+              <Link to={`/categories/${post.category}`}>
+                    <span className="category">{post?.category?.toUpperCase()}</span> 
+              </Link>
+
               <span className="author">Posted by {post.author}</span> 
             </div>
 
