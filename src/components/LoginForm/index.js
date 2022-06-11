@@ -6,13 +6,19 @@ import {
   FormLabel,
   FormInput,
   FormButton,
-  Form
+  Form,
+  PasswordVisibility
 } from "./styles";
 
 export default function LoginForm() {
   const [userProfile, setUserProfile] = useContext(UserContext);
+  const [showPassword, setShowPassword] = useState(false);
 
   let history = useHistory();
+
+  const handlePassword = () => {
+    setShowPassword(prevState => !prevState)
+  }
 
   const [user, setUser] = useState({
     username: '',
@@ -60,10 +66,12 @@ export default function LoginForm() {
 
           <FormLabel htmlFor="password">Password</FormLabel>
           <FormInput 
-            type="password" 
+            type={showPassword ? "text" : "password"}
             name="password"
             onChange={handleChange} 
             value={user.password}></FormInput>
+          
+          <PasswordVisibility onClick={handlePassword}>{showPassword ? "Hide password":"Show Password"}</PasswordVisibility>
 
           <FormButton>
             Login

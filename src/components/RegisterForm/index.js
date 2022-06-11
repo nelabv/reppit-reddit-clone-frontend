@@ -4,8 +4,12 @@ import {
   FormLabel,
   FormInput,
   FormButton,
-  Form
+  Form,
+  PasswordInput,
+  PasswordVisibility
 } from "./styles";
+import { validUsername } from "../../regex";
+import UsernameError from '../UsernameError';
 
 function RegisterForm(props) {
   const [userData, setUserData] = useState({
@@ -13,6 +17,8 @@ function RegisterForm(props) {
     password: ''
   });
   const [requestStatus, setRequestStatus] = useState("");
+  const [usernameRegex, showUsernameRegex] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -21,6 +27,14 @@ function RegisterForm(props) {
       [e.target.name] : e.target.value
     }
     setUserData(userDetails);
+
+    if(e.target.value.length === 0) {
+      showUsernameRegex(false);
+    } else if(!validUsername.test(userData.username)) {
+      showUsernameRegex(true);
+    } else if (validUsername.test(userData.username)) {
+      showUsernameRegex(false);
+    }
   }
 
   const register = (e) => {
@@ -42,6 +56,10 @@ function RegisterForm(props) {
       })
   }
 
+  const handlePassword = () => {
+    setShowPassword(prevState => !prevState)
+  }
+
   useEffect(() => {
     if (sessionStorage.getItem("token")) {
       window.location = "/";
@@ -53,9 +71,12 @@ function RegisterForm(props) {
       <Form className="form">
         <FormLabel className="label" >Username</FormLabel>
         <FormInput type="text" name="username" onChange={handleChange} value={userData.username}></FormInput>
+        { usernameRegex ? <UsernameError /> : null}
 
         <FormLabel className="label" >Password</FormLabel>
-        <FormInput type="password" name="password" onChange={handleChange} value={userData.password}></FormInput>
+        <PasswordInput type={showPassword ? "text" : "password"} name="password" onChange={handleChange} value={userData.password}></PasswordInput>
+
+        <PasswordVisibility onClick={handlePassword}>{showPassword ? "Hide password":"Show Password"}</PasswordVisibility>
 
         <FormButton className="btn login-register-btn" onClick={register}>Register</FormButton>
       </Form>

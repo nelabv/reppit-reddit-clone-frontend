@@ -59,3 +59,8 @@ export const FormTextarea = styled.textarea`
     outline: none;
   }
 `;
+
+export const PasswordVisibility = styled.span`
+  font-size: 0.95em;
+  margin-bottom: 1em;
+`;
