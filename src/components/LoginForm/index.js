@@ -9,10 +9,12 @@ import {
   Form,
   PasswordVisibility
 } from "./styles";
+import ErrorPrompt from '../ErrorPrompt';
 
 export default function LoginForm() {
   const [userProfile, setUserProfile] = useContext(UserContext);
   const [showPassword, setShowPassword] = useState(false);
+  const [ errorMessage, setErrorMessage] = useState(null);
 
   let history = useHistory();
 
@@ -27,6 +29,8 @@ export default function LoginForm() {
 
   const handleChange = (e) => {
     e.preventDefault();
+    setErrorMessage(null);
+    
     const _user = { ...user,
       [e.target.name] : e.target.value
     }
@@ -51,7 +55,11 @@ export default function LoginForm() {
             history.push("/")
         })
 
-        .catch(error => console.log(error));
+        .catch((error) => {
+          if (error.response.status === 400) {
+            setErrorMessage(error.response.data.error)
+          }
+        });
   }
 
   return (
@@ -72,6 +80,8 @@ export default function LoginForm() {
             value={user.password}></FormInput>
           
           <PasswordVisibility onClick={handlePassword}>{showPassword ? "Hide password":"Show Password"}</PasswordVisibility>
+
+          <ErrorPrompt errorMessage={errorMessage} />
 
           <FormButton>
             Login

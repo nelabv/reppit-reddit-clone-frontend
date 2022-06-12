@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import UserServices from "../../services/user";
+import { useHistory } from "react-router-dom";
+import { UserContext } from "../../context";
 import {
   FormLabel,
   FormInput,
@@ -10,6 +12,7 @@ import {
 } from "./styles";
 import { validUsername } from "../../regex";
 import UsernameError from '../UsernameError';
+import ErrorPrompt from '../ErrorPrompt';
 
 function RegisterForm(props) {
   const [userData, setUserData] = useState({
@@ -19,6 +22,10 @@ function RegisterForm(props) {
   const [requestStatus, setRequestStatus] = useState("");
   const [usernameRegex, showUsernameRegex] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [userProfile, setUserProfile] = useContext(UserContext);
+  
+  let history = useHistory();
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -47,12 +54,21 @@ function RegisterForm(props) {
 
     UserServices.register(userDocument)
       .then(() => {
-          props.userLogin(userDocument);
+            UserServices.login(userDocument)
+            .then(response => {
+                sessionStorage.setItem("token", response.data.token);
+
+                sessionStorage.setItem("username", response.data.username);
+
+                setUserProfile(userDocument.username);
+                history.push("/")
+        })
+        .catch((error) => {
+          setErrorMessage(error.response.data.error);
+        })
       })
       .catch((error) => {
-        if (error.response) {
-          setRequestStatus(error.response.data.error);
-        }
+        setErrorMessage(error.response.data.error);
       })
   }
 
@@ -77,6 +93,8 @@ function RegisterForm(props) {
         <PasswordInput type={showPassword ? "text" : "password"} name="password" onChange={handleChange} value={userData.password}></PasswordInput>
 
         <PasswordVisibility onClick={handlePassword}>{showPassword ? "Hide password":"Show Password"}</PasswordVisibility>
+
+        <ErrorPrompt errorMessage={errorMessage} />
 
         <FormButton className="btn login-register-btn" onClick={register}>Register</FormButton>
       </Form>
