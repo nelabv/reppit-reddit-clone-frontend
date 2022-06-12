@@ -17,7 +17,7 @@ function WritePostForm() {
   const [postDocument, setPostDocument] = useState({
     title: '',
     body: '',
-    category: 'random',
+    category: 'general',
     username: sessionStorage.getItem("username")
   });
 
@@ -27,15 +27,11 @@ function WritePostForm() {
     const newObject = { ...postDocument,
       [e.target.name] : e.target.value
     }
-
-    console.log(newObject)
     setPostDocument(newObject);
   }; 
 
   const submitPost = async (e) => {
     e.preventDefault();
-
-    console.log(postDocument)
 
     const APIrequest = await PostServices.createPost(postDocument, token);
 
@@ -62,8 +58,9 @@ function WritePostForm() {
             <Form onSubmit={submitPost}>
               <FormLabel>Choose a category:</FormLabel>
                 <FormSelect value={postDocument.category} name="category" id="category" onChange={handleChange} required>
-                  <option value="random">random</option>
-                  <option value="nice">nice</option>
+                  <option value="general">general</option>
+                  <option value="politics">politics</option>
+                  <option value="animals">animals</option>
                   <option value="programming">programming</option>
                 </FormSelect>
 

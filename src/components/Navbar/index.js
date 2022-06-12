@@ -7,12 +7,8 @@ import {
   NavBg
 } from "./styles";
 import PopupMenuMobile from "../PopupMenuMobile";
-import ActionsSignedIn from "../ActionsSignedIn";
-import ActionsNotSignedIn from "../ActionsNotSignedIn";
-import logo from "../../assets/tidbit.png";
 
 function Navbar(props) {
-  let history = useHistory();
   const { isNavTransparent } = props;
   const [userProfile] = useContext(UserContext);
   

@@ -38,6 +38,7 @@ export const FormInput = styled.input`
 
     &:focus {
         border: 1px solid ${COLORS.violet};
+        outline: none;
         background-color: ${COLORS.gray2};
     }
 `;
@@ -63,4 +64,5 @@ export const FormTextarea = styled.textarea`
 export const PasswordVisibility = styled.span`
   font-size: 0.95em;
   margin-bottom: 1em;
+  cursor: pointer;
 `;

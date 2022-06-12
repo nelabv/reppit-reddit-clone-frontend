@@ -2,7 +2,7 @@ import UserServices from "../services/user";
 
 class Utilities {
   static async fetchVoteArray(token) {
-    const data = await UserServices.fetchUserInformation(token);
+    const data = await UserServices.fetchUserInformation(sessionStorage.getItem("username"), token);
 
     return data;
   }

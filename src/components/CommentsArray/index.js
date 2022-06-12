@@ -1,6 +1,5 @@
 import React from "react";
 import { Container } from "./styles";
-import AuthorTag from "../AuthorTag";
 
 export default function CommentsArray(props) {
   const { commentsArray } = props;
@@ -9,7 +8,7 @@ export default function CommentsArray(props) {
     <>
         { commentsArray.map((comment) => {
           return (
-            <Container>
+            <Container key={comment}>
                   <span>{comment.user}</span>
 
                   <p>{comment.body}</p>

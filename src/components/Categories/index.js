@@ -18,7 +18,7 @@ export default function Categories(props) {
       <span>Categories</span>
           { categories ? categories.map((category) => {
             return (
-              <Category>
+              <Category key={category}>
                     <Link to={`/categories/${category}`} >
                       {category.toUpperCase()}
                     </Link>

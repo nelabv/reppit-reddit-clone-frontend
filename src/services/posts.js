@@ -17,7 +17,7 @@ class PostServices {
   }
 
   castVote(vote, token) {
-    return http.put("/posts", vote, { 
+    return http.put("/posts/vote", vote, { 
       headers: {"Authorization" : `Bearer ${token}`}
     })
   }
