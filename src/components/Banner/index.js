@@ -12,7 +12,6 @@ export default function Banner() {
     <GradientBackground>
         <BannerContainer>
               <h1>Join a conversation today</h1>
-              <span>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias exceptur</span>
               
               <div>
                     <Link to="/register">

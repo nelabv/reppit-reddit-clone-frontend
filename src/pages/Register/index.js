@@ -11,9 +11,7 @@ function Register(props) {
 
           <GradientBackground>
                 <MaxWidth>
-                  <h2>Sign up</h2>
-
-                  <span>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et.</span>
+                  <h2>Create account</h2>
 
                   <RegisterForm />
 
