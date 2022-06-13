@@ -20,6 +20,8 @@ export const Nav = styled(_Nav)`
       order: 1;
       
       span {
+        font-family: "Play", sans-serif;
+        font-weight: 600;
         color: ${props => props.isNavTransparent ? "white" : COLORS.black };
       }
     }

@@ -35,7 +35,7 @@ function Navbar(props) {
       <NavBg isNavTransparent={isNavTransparent}>
             <Nav isNavTransparent>
                 <Link to="/">
-                  <span>LOGO</span>
+                  <span>reppit</span>
                 </Link>
 
 
