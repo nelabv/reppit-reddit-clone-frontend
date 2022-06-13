@@ -2,9 +2,7 @@ import React from "react";
 import RatingCounter from "../RatingCounter/";
 import Post from "../Post";
 import { 
-  PostContainer, 
-  CommentContainer, 
-  InformationHolder } from "./styles";
+  PostContainer } from "./styles";
 
 function FullViewPost(props) {
   const { post } = props;

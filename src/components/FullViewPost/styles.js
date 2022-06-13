@@ -15,14 +15,6 @@ export const PostContainer = styled.div`
     min-height: 100vh;
 `;
 
-/* export const PostContainer = styled(BorderedContainer)`
-  display: flex;
-  flex-direction: column;
-  margin-right: 0;
-  margin-top: 1em;
-  margin-right: 0;
-`; */
-
 export const CommentContainer = styled(BorderedContainer)`
   display: flex;
   margin-right: 0;

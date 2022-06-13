@@ -67,20 +67,4 @@ export const Post = styled.div`
   }
 `;
 
-/* export const Post = styled(_Post)`
-  .body-preview {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 45em;
-
-    @media (${BREAKPOINTS.tablets2}) {
-      max-width: 25em;
-    }
-
-    @media (${BREAKPOINTS.smartphones2}) {
-      max-width: 10em;
-    }
-  }
-`; */
 

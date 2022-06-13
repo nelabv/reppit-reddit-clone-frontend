@@ -12,7 +12,7 @@ import {
 import ErrorPrompt from '../ErrorPrompt';
 
 export default function LoginForm() {
-  const [userProfile, setUserProfile] = useContext(UserContext);
+  const [ setUserProfile ] = useContext(UserContext);
   const [showPassword, setShowPassword] = useState(false);
   const [ errorMessage, setErrorMessage] = useState(null);
 

@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import UserServices from "../../services/user";
+import React from 'react';
 import Navbar from '../../components/Navbar';
 import RegisterForm from "../../components/RegisterForm";
 import Footer from '../../components/Footer';

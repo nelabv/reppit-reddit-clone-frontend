@@ -19,11 +19,10 @@ function RegisterForm(props) {
     username: '',
     password: ''
   });
-  const [requestStatus, setRequestStatus] = useState("");
   const [usernameRegex, showUsernameRegex] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
-  const [userProfile, setUserProfile] = useContext(UserContext);
+  const [setUserProfile] = useContext(UserContext);
   
   let history = useHistory();
 

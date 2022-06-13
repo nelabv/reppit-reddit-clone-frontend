@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Navbar as _Nav } from "../../styling/nav";
-import { MaxWidth } from "../../styling/containers";
-import { PrimaryButton as _PrimaryButton, COLORS, BREAKPOINTS } from "../../styling/";
+import { PrimaryButton as _PrimaryButton, COLORS } from "../../styling/";
 
 export const NavBg = styled.div`
     display: flex;

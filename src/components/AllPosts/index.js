@@ -4,7 +4,6 @@ import PostPreview from "../PostPreview";
 
 export default function AllPosts(props) {
   const [ posts, setPosts ] = useState([]);
-  const [ isLoading, setIsLoading ] = useState(true);
 
   useEffect(() => {
     PostServices.getPosts()
