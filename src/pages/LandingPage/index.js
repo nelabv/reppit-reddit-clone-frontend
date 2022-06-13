@@ -7,7 +7,7 @@ import Banner from "../../components/Banner";
 import Footer from "../../components/Footer"
 
 export default function LandingPage(props) {
-  const [ userProfile ] = useContext(UserContext);
+  const [ userProfile, setUserProfile ] = useContext(UserContext);
 
   return (
     <>

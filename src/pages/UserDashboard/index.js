@@ -8,7 +8,7 @@ import { GrayBackground, MaxWidth, WritePostBtn } from './styles';
 import { UserContext } from '../../context';
 
 export default function UserDashboard(props) {
-  const [userProfile] = useContext(UserContext);
+  const [ userProfile, setUserProfile ] = useContext(UserContext);
 
   return (
     <>

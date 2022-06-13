@@ -12,7 +12,7 @@ import {
 import ErrorPrompt from '../ErrorPrompt';
 
 export default function LoginForm() {
-  const [ setUserProfile ] = useContext(UserContext);
+  const [ userProfile, setUserProfile ] = useContext(UserContext);
   const [showPassword, setShowPassword] = useState(false);
   const [ errorMessage, setErrorMessage] = useState(null);
 
@@ -56,7 +56,7 @@ export default function LoginForm() {
         })
 
         .catch((error) => {
-          if (error.response.status === 400) {
+          if (error) {
             setErrorMessage(error.response.data.error)
           }
         });

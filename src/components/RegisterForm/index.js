@@ -22,7 +22,7 @@ function RegisterForm(props) {
   const [usernameRegex, showUsernameRegex] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
-  const [setUserProfile] = useContext(UserContext);
+  const [userProfile, setUserProfile] = useContext(UserContext);
   
   let history = useHistory();
 
