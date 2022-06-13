@@ -17,7 +17,7 @@ function SortedThread(props) {
         history.push("/login")
     } else {
       PostServices.getPosts(category)
-          .then(response => setPosts(response.data));
+          .then(response => setPosts(response.data.reverse()));
     }
   }, [category, history]);
 

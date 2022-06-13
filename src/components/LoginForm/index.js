@@ -70,14 +70,16 @@ export default function LoginForm() {
             type="text" 
             name="username" 
             onChange={handleChange} 
-            value={user.username} ></FormInput>
+            value={user.username}
+            required ></FormInput>
 
           <FormLabel htmlFor="password">Password</FormLabel>
           <FormInput 
             type={showPassword ? "text" : "password"}
             name="password"
             onChange={handleChange} 
-            value={user.password}></FormInput>
+            value={user.password}
+            required ></FormInput>
           
           <PasswordVisibility onClick={handlePassword}>{showPassword ? "Hide password":"Show Password"}</PasswordVisibility>
 

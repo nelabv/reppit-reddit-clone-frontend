@@ -8,28 +8,6 @@ import {
 
 function FullViewPost(props) {
   const { post } = props;
-/*   const [isCommentsEmpty, setIsCommentsEmpty] = useState(true);
-
-  const fetchComments = () => {
-    return (
-      <>
-        { post?.comments.map((post, index) => {
-          return (
-            <CommentContainer key={index}>
-              <span className="bold-text">u/{post.user}</span>
-              <p>{post.body}</p>
-            </CommentContainer>
-          )
-        })}
-      </>
-    );
-  }
-
-  useEffect(() => {
-    if (post.comments.length !== 0) {
-      setIsCommentsEmpty(false)
-    }
-  }, [setIsCommentsEmpty, post.comments]); */
 
   return (
         <PostContainer>
@@ -43,6 +21,7 @@ function FullViewPost(props) {
                   body={post.body}
                   comments={post.comments}
                   category={post.category}
+                  datePosted={post.datePosted}
                    />
 
         </PostContainer>

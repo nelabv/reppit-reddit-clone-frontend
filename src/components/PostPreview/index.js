@@ -1,11 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import posts from "../../services/posts";
 import RatingCounter from "../RatingCounter";
 import { PostPreviewContainer, Post } from "./styles";
+import moment from "moment";
 
 export default function PostPreview(props) {
   const { post } = props;
+
+  const formatDate = (date) => {
+    const startDate = moment(date).startOf('day').fromNow(); 
+    return startDate;
+  }
 
     return (
         <PostPreviewContainer key={post._id}>
@@ -20,7 +25,8 @@ export default function PostPreview(props) {
                     <span className="category">{post?.category?.toUpperCase()}</span> 
               </Link>
 
-              <span className="author">Posted by {post.author}</span> 
+              <span className="author">Posted by {post.author}</span>
+              <span className="author">{formatDate(post.datePosted)}</span>
             </div>
 
             <Link to={`/posts/${post._id}`} style={{textDecoration: "none"}}>

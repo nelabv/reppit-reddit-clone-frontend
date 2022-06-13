@@ -17,4 +17,9 @@ export const Container = styled.div`
   p {
     margin: 1em 0;
   }
+
+  .date {
+    font-size: 0.8rem;
+    color: #7C7C7C;
+  }
 `;

@@ -5,10 +5,16 @@ import { Container } from "./styles.js"
 import CommentForm from "../CommentForm/index.js";
 import NoCommentsYet from "../NoCommentsYet";
 import CommentsArray from "../CommentsArray/index.js";
+import moment from "moment";
 
 export default function Post(props) {
-  const { title, author, body, comments, category } = props;
+  const { title, author, body, comments, category, datePosted } = props;
   const { id } = useParams();
+
+  const formatDate = (date) => {
+    const startDate = moment(date).startOf('day').fromNow(); 
+    return startDate;
+  }
 
   return (
     <>
@@ -17,6 +23,7 @@ export default function Post(props) {
           <span className="category">{category.toUpperCase()}</span> 
 
           <AuthorTag post={author} />
+          <span className="date">{formatDate(datePosted)}</span>
 
 
           <p>{body}</p> 

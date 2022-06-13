@@ -86,11 +86,22 @@ function RegisterForm(props) {
 
       <Form className="form">
         <FormLabel className="label" >Username</FormLabel>
-        <FormInput type="text" name="username" onChange={handleChange} value={userData.username}></FormInput>
+        <FormInput 
+              type="text" 
+              name="username" 
+              onChange={handleChange} 
+              value={userData.username} 
+              required></FormInput>
+
         { usernameRegex ? <UsernameError /> : null}
 
         <FormLabel className="label" >Password</FormLabel>
-        <PasswordInput type={showPassword ? "text" : "password"} name="password" onChange={handleChange} value={userData.password}></PasswordInput>
+        <PasswordInput 
+              type={showPassword ? "text" : "password"} 
+              name="password" 
+              onChange={handleChange} 
+              value={userData.password}
+              required ></PasswordInput>
 
         <PasswordVisibility onClick={handlePassword}>{showPassword ? "Hide password":"Show Password"}</PasswordVisibility>
 
