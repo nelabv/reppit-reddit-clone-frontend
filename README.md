@@ -1,7 +1,7 @@
 # Reppit
 A simple reddit clone that allows users to create posts, join categories, and cast votes to threads.
 
-🌐 LIVE: [https://irmp.niellebv.app/](https://reppit.vercel.app/)
+🌐 LIVE: https://reppit.vercel.app/
 
 ## ✨ Features
 * Account creation
